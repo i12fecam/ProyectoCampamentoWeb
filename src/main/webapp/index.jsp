@@ -7,13 +7,11 @@
 </head>
 
 <body>
-<div class ="Header">
-  <header>
-      Proyecto Campamento
-      <a href="mvc/control/loginController.jsp" style="float:right">Iniciar Sesión</a>
-  </header>
-</div>
-<div class="Description">
+
+<%@include file="include/header.jsp"%>
+<%@include file="include/aside.jsp"%>
+
+<div class="main">
   <p>Proyecto Campamento Web es un programa para la gestión de campamentos, incluyendo control de monitores, actividades e inscripciones</p>
   <p>El programa ha sido realizado por el grupo 5 que contiene a:</p>
   <ul>
