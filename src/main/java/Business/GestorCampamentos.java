@@ -79,6 +79,7 @@ public class GestorCampamentos implements Serializable {
     public void asociarMonitorActividad(int idMonitor,int idActividad)
     {
         campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
+        //TODO comprobar que no se sobrepase el número de monitores máximo de la actividad
     }
 
     /**
@@ -106,7 +107,7 @@ public class GestorCampamentos implements Serializable {
 
         Monitor mon=campamentoDAO.devolverMonitor(idMonitor);
         Campamento campament=campamentoDAO.devolverCampamento(idCampamento);
-        campament.asociarMonitor(mon);
+        //TODO comprobar que el monitor esta en alguna activdad del campamento
         campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
     }
 
@@ -119,7 +120,7 @@ public class GestorCampamentos implements Serializable {
 
         Monitor mon=campamentoDAO.devolverMonitor(idMonitor);
         Campamento campament=campamentoDAO.devolverCampamento(idCampamento);
-        campament.asociarMonitorEspecial(mon);
+        //TODO comprobar si hay algun inscrito especial
         campamentoDAO.asignar_monitor_especial(idMonitor,idCampamento);
     }
 

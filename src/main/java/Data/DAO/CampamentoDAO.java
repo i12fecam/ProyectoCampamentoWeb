@@ -103,11 +103,7 @@ public class CampamentoDAO {
             ps.setInt(1, idMonitor);
             ps.setInt(2, idActividad);
             int status = ps.executeUpdate();
-            if (status > 0) {
-                System.out.println("Monitor asociado a la actividad con exito");
-            } else {
-                System.out.println("Fallo al asociar el monitor a la actividad");
-            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -126,11 +122,7 @@ public class CampamentoDAO {
             ps.setInt(2, id_actividad);
             
              int status = ps.executeUpdate();
-             if( status >0 ){
-                 System.out.println("Actividad asociada al campamento con exito");
-             }else{
-                 System.out.println("Fallo al asociar la actividad al campamento");
-             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -148,11 +140,7 @@ public class CampamentoDAO {
             ps.setInt(1,idMonitor);
             ps.setInt(2,idCampamento);
             int status = ps.executeUpdate();
-            if (status > 0){
-                System.out.println("Monitor responsable al campamento asociado con exito");
-            }else{
-                System.out.println("Fallo al asociar el monitor responsable del campamento");
-            }
+
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -172,11 +160,7 @@ public class CampamentoDAO {
             ps.setInt(2,idCampamento);
             int status = ps.executeUpdate();
             //Aquí no se puede imprimir nada por pantalla
-            if ( status > 0){
-                System.out.println("Monitor especial del campamento asociado con exito");
-            }else{
-                System.out.println("Fallo al asociar el monitor especial del campamento");
-            }
+
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
