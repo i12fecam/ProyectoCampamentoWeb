@@ -71,8 +71,8 @@ public class GestorInscripciones implements Serializable{
         }
 
         //comprobar si necesita monitor especial
-
-        if (asistente.isAtencionEspecial() && !campamento.tieneMonitorEspecial()) {
+        //TODO sustituir funcion
+        if (asistente.isAtencionEspecial() /*&& !campamento.tieneMonitorEspecial()*/) {
             //añadir monitor especial al campamento
             System.out.println("!!!!ATENCION: Después de esta operación asegurese de añadir un monitor especial al campamento");
         }
