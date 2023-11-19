@@ -120,7 +120,7 @@ public class GestorCampamentos implements Serializable {
 
         Monitor mon=campamentoDAO.devolverMonitor(idMonitor);
         Campamento campament=campamentoDAO.devolverCampamento(idCampamento);
-        //TODO comprobar si hay algun inscrito especial
+        //TODO comprobar si hay algun inscrito especial y que el monitor no este en ninguna actividad
         campamentoDAO.asignar_monitor_especial(idMonitor,idCampamento);
     }
 
