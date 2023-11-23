@@ -10,16 +10,22 @@
 <html>
 <head>
     <title>Inicio de Sesión</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-<form method="post" action="../control/loginController.jsp">
+<div class="login_box">
+    <div>
+    <form method="post" action="../control/loginController.jsp">
 
-    <label for="email">Email: </label>
-    <input type="text" name="email" value="admin@email.com"><br>
-    <label for="password">Password: </label>
-    <input type="text" name="password" value="1234"><br>
-    <br/>
-    <input type="submit" value="Submit">
-</form>
+        <label for="email">Email: </label>
+        <input type="text" name="email" value="admin@email.com"><br>
+        <label for="password">Password: </label>
+        <input type="text" name="password" value="1234"><br>
+        <br/>
+        <input type="submit" value="Submit">
+        <a href="../control/registerController.jsp">Registrarse</a>
+    </form>
+    </div>
+</div>
 </body>
 </html>

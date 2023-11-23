@@ -1,0 +1,44 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: abi
+  Date: 23/11/23
+  Time: 17:49
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean  id="customerBean" scope="session" class="Interface.CustomerBean"></jsp:useBean>
+<jsp:forward page="../view/registerView.jsp"></jsp:forward>
+<%
+String nextPage = "../../index.jsp";
+String mensajeNextPage = "";
+//Caso 2
+if (customerBean != null && customerBean.getEmailUser().equals("")) {
+    String emailUser = request.getParameter("email");
+    //String passwordUser = request.getParameter("password");
+
+    //Caso 2.a: Hay parámetros -> procede de la VISTA
+    if (emailUser != null) {
+    //Se accede a bases de datos para obtener el usuario
+
+
+        //Se realizan todas las comprobaciones necesarias del dominio
+        //Aquí sólo comprobamos que exista el usuario
+        if(true){
+            //usuario valido
+            nextPage = "../view/loginView.jsp";
+            mensajeNextPage = "El usuario ha sido registrado de forma válida";
+
+        } else {
+            // Usuario no válido
+            nextPage = "../view/registerView.jsp";
+            mensajeNextPage = "El usuario que ha indicado no existe o no es v&aacute;lido";
+        }
+    //Caso 2.b -> se debe ir a la vista por primera vez
+    } else {
+        nextPage = "../view/registerView.jsp";
+    }
+}
+%>
+<jsp:forward page="<%=nextPage%>">
+    <jsp:param value="<%=mensajeNextPage%>" name="message"/>
+</jsp:forward>

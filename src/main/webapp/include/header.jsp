@@ -9,6 +9,7 @@
 <div class ="header">
     <header>
         Proyecto Campamento
-        <a href="mvc/control/loginController.jsp" style="float:right">Iniciar Sesión</a>
+        <a href="mvc/control/disconnectController.jsp" style="float:right">Desconectarse</a>
+        <a href="http://localhost:8080/change_user_data">Cambiar datos</a>
     </header>
 </div>

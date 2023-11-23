@@ -1,0 +1,25 @@
+:root{
+    --charcoal: #424b54ff;
+    --cadet-gray: #93a8acff;
+    --white: #ffffffff;
+    --orchid-pink: #e2b4bdff;
+    --rose-taupe: #9b6a6cff;
+}
+body{
+    border: 0px;
+
+}
+.login_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1080px;
+    background-color: var(--charcoal);
+
+}
+
+.login_box > div{
+    background-color: var(--rose-taupe);
+    padding: 12px;
+    color:var(--cadet-gray);
+}
