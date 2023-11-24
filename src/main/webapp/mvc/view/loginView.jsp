@@ -18,13 +18,13 @@
     <h1 class="h3 mb-3 font-weight-normal">Login </h1>
     <!-- Email -->
     <div class="form-outline mb-4">
-        <input type="email" id="email" placeholder="Email" class="form-control" />
+        <input type="email" name="email" id="email" placeholder="Email" class="form-control" />
         <label for="email"></label>
     </div>
 
     <!-- Password -->
     <div class="form-outline mb-4">
-        <input type="password" id="password" placeholder="Password" class="form-control" />
+        <input type="password" name="password" id="password" placeholder="Password" class="form-control" />
         <label for="password"></label>
     </div>
 
