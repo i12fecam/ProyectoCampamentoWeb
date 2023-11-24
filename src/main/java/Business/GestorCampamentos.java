@@ -4,9 +4,11 @@ import Data.DAO.CampamentoDAO;
 import Data.DTO.Actividad;
 import Data.DTO.Campamento;
 import Data.DTO.Monitor;
+import com.sun.jdi.request.MonitorWaitedRequest;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 /**
  * GestorCampamentos class
  * @author Noelia Ruiz
@@ -79,7 +81,12 @@ public class GestorCampamentos implements Serializable {
     public void asociarMonitorActividad(int idMonitor,int idActividad)
     {
         campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
-        //TODO comprobar que no se sobrepase el número de monitores máximo de la actividad
+        Actividad actividad = campamentoDAO.devolverActividad(idActividad);
+        List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(idActividad);
+        if(monitores_activdad.size() == actividad.getMonitoresNecesarios()){
+            System.out.println("Esta actividad no requiere ningun monitor mas");
+        }
+        //NO SE COMO COMPROBAR QUE ESTO FUNCIONA BIEN
     }
 
     /**
@@ -88,8 +95,6 @@ public class GestorCampamentos implements Serializable {
      * @param idCampamento Id del campamento al que se quiere asociar la actividad
      */
     public void asociarActividadCampamento(int idCampamento,int idActividad){
-
-
 
         Actividad act=campamentoDAO.devolverActividad(idActividad);
         Campamento campament=campamentoDAO.devolverCampamento(idCampamento);

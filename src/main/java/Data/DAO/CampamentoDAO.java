@@ -8,6 +8,7 @@ import Data.NivelEducativo;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CampamentoDAO class
@@ -265,6 +266,29 @@ public class CampamentoDAO {
             throw new RuntimeException(e);
         }
 
+    }
+
+    /**
+     * Metodo para extraer los monitores que estan asociados a una actividad, dada su id
+     * @param idActividad Id de la actividad a la que se quieren mirar los monitores asociados
+     * @return Lista con los monitores que hay asociados a una actividad
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
+     */
+    public List<Monitor> DevolverMonitores_Actividad(int idActividad){
+        try{
+            List<Monitor> monitores = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_MonitoresDeActividad_id"));
+            ps.setInt(1,idActividad);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Monitor monitor = new Monitor();
+                monitor.setIdentificador(rs.getInt("fk_monitor"));
+                monitores.add(monitor);
+            }
+            return monitores;
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
