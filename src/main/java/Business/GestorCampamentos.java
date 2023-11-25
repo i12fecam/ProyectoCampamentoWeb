@@ -80,11 +80,10 @@ public class GestorCampamentos implements Serializable {
      */
     public void asociarMonitorActividad(int idMonitor,int idActividad)
     {
-        campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
         Actividad actividad = campamentoDAO.devolverActividad(idActividad);
         List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(idActividad);
-        if(monitores_activdad.size() == actividad.getMonitoresNecesarios()){
-            System.out.println("Esta actividad no requiere ningun monitor mas");
+        if(monitores_activdad.size() != actividad.getMonitoresNecesarios()){
+            campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
         }
         //NO SE COMO COMPROBAR QUE ESTO FUNCIONA BIEN
     }
@@ -109,12 +108,20 @@ public class GestorCampamentos implements Serializable {
      * @param idCampamento Id del campamento al que se quiere asociar el monitor
      */
     public void asociarMonitorResponsableCampamento(int idMonitor, int idCampamento){
-
-        Monitor mon=campamentoDAO.devolverMonitor(idMonitor);
-        Campamento campament=campamentoDAO.devolverCampamento(idCampamento);
-        //TODO comprobar que el monitor esta en alguna activdad del campamento
-        campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
+        List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
+        for (Actividad actividad : actividades){
+            int id_actividad = actividad.getIdentificador();
+            List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(id_actividad);
+            for( Monitor monitor : monitores_activdad){
+                if(idMonitor == monitor.getIdentificador()){
+                    campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
+                }
+                return;
+            }
+        }
+        //NO SE SI ESTO FUNCIONA
     }
+
 
     /**
      * Metodo que asocia un monitor especial a un campamento
