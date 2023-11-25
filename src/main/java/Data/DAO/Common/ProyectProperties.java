@@ -5,8 +5,8 @@ import java.util.Properties;
 
 public class ProyectProperties {
 
-    private Properties config;
-    private Properties sql;
+    final private Properties config;
+    final private Properties sql;
 
     private static ProyectProperties instance;
 
@@ -29,9 +29,10 @@ public class ProyectProperties {
 
         config = new Properties();
         sql = new Properties();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         try {
-            FileInputStream configFI = new FileInputStream("./config.properties");
+            InputStream configFI = classLoader.getResourceAsStream("config.properties");
             config.load(configFI);
             configFI.close();
         } catch (IOException e) {
@@ -39,7 +40,7 @@ public class ProyectProperties {
         }
 
         try {
-            FileInputStream sqlFI = new FileInputStream("./sql.properties");
+            InputStream sqlFI= classLoader.getResourceAsStream("sql.properties");
             sql.load(sqlFI);
             sqlFI.close();
         } catch (IOException e) {
