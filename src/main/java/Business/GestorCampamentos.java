@@ -85,7 +85,6 @@ public class GestorCampamentos implements Serializable {
         if(monitores_activdad.size() != actividad.getMonitoresNecesarios()){
             campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
         }
-        //NO SE COMO COMPROBAR QUE ESTO FUNCIONA BIEN
     }
 
     /**
@@ -108,18 +107,18 @@ public class GestorCampamentos implements Serializable {
      * @param idCampamento Id del campamento al que se quiere asociar el monitor
      */
     public void asociarMonitorResponsableCampamento(int idMonitor, int idCampamento){
-        List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
-        for (Actividad actividad : actividades){
-            int id_actividad = actividad.getIdentificador();
-            List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(id_actividad);
-            for( Monitor monitor : monitores_activdad){
-                if(idMonitor == monitor.getIdentificador()){
-                    campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
+
+            List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
+            for (Actividad actividad : actividades) {
+                int id_actividad = actividad.getIdentificador();
+                List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(id_actividad);
+                for (Monitor monitor : monitores_activdad) {
+                    if (idMonitor == monitor.getIdentificador()) {
+                        campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
+                    }
+                    return;
                 }
-                return;
             }
-        }
-        //NO SE SI ESTO FUNCIONA
     }
 
 

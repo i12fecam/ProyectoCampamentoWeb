@@ -288,6 +288,7 @@ public class CampamentoDAO {
             return monitores;
         }catch (SQLException e) {
             throw new RuntimeException(e);
+
         }
     }
 
@@ -305,7 +306,7 @@ public class CampamentoDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 Actividad actividad = new Actividad();
-                actividad.setIdentificador(rs.getInt("fk_monitor"));
+                actividad.setIdentificador(rs.getInt("fk_actividad"));
                 actividades.add(actividad);
             }
             return actividades;
