@@ -23,7 +23,7 @@ public class GestorUsuarios {
      */
     public boolean AñadirUsuarioAsistente(Asistente asistente,String username, String password){
         try{
-            usuarioDAO.addUser(username,password, TipoUsuario.Asistente,null);
+            usuarioDAO.addUser(username,password, TipoUsuario.asistente,null);
         }catch (RuntimeException e){
             return false;
         }

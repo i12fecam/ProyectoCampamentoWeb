@@ -1,6 +1,6 @@
 package Data;
 
 public enum TipoUsuario {
-    Administrador,
-    Asistente
+    administrador,
+    asistente
 }
