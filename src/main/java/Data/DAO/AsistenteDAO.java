@@ -44,12 +44,8 @@ public class AsistenteDAO {
             ps.setInt(3, asistente.isAtencionEspecial() ? 1 : 0);
             ps.setString(4, asistente.getApellidos());
 
-            int status = ps.executeUpdate();
-            if (status > 0) {
-                System.out.println("Asistente agregado con exito");
-            } else {
-                System.out.println("Fallo al agregar el asistente");
-            }
+            ps.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -72,12 +68,7 @@ public class AsistenteDAO {
             ps.setString(4, asistente.getApellidos());
             ps.setInt(5, asistente.getIdentificador());
 
-            int status = ps.executeUpdate();
-            if (status > 0) {
-                System.out.println("Asistente modificado con éxito");
-            } else {
-                System.out.println("Fallo al modificar el asistente");
-            }
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
