@@ -85,6 +85,18 @@ CREATE TABLE `Monitores_Actividades` (
   KEY `Monitores_Actividades_Monitores_id_monitor_fk` (`fk_monitor`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+create table Usuarios
+(
+    id           int auto_increment,
+    tipo_usuario ENUM ('asistente', 'administrador') not null,
+    username     varchar(30)                         not null,
+    password     varchar(30)                         not null,
+    fk_asistente int                                 null,
+    constraint Usuarios_pk
+        primary key (id),
+    constraint Usuarios_Asistentes_id_asistente_fk
+        foreign key (fk_asistente) references Asistentes (id_asistente)
+);
 
 
 insert into Actividades (id_actividad, nombre, nivel_educativo, horario, max_participantes, monitores_necesarios)

@@ -35,6 +35,7 @@ public class AsistenteDAO {
      * @throws RuntimeException Si hay algun error de conexion con la base de datos
      */
     public void crear(Asistente asistente) {
+        //TODO crear assert de todos los parametros necesarios
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_Asistentes"));
 
@@ -52,7 +53,7 @@ public class AsistenteDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        //TODO hacer que devuelve el valor del id del asistente
 
     }
 
