@@ -72,4 +72,17 @@ public class UsuarioDAO {
         }
 
     }
+
+    public boolean deleteUser(String username){
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(prop.getSentente("delete_user"));
+            ps.setString(1,username);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+
+    }
 }

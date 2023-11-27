@@ -31,11 +31,11 @@ public class AsistenteDAO {
 
     /**
      * Metodo para añadir un asistente en la base de datos
-     * @param asistente Asistente que se quiere añadir
+     * @param asistente Asistente que se quiere añadir, se rellena toda menos el id
+     * @return el id del asistente insertado, si no es insertado devuelve -1
      * @throws RuntimeException Si hay algun error de conexion con la base de datos
      */
-    public void crear(Asistente asistente) {
-        //TODO crear assert de todos los parametros necesarios
+    public int crear(Asistente asistente) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_Asistentes"));
 
@@ -47,10 +47,19 @@ public class AsistenteDAO {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return -1;
         }
-        //TODO hacer que devuelve el valor del id del asistente
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_asistente_nombre"));
+            ps.setString(1,asistente.getNombre());
+            ResultSet rs = ps.executeQuery();
 
+            rs.next();
+
+            return rs.getInt("id_asistente");
+        } catch (SQLException e) {
+            return -1;
+        }
     }
 
     /**

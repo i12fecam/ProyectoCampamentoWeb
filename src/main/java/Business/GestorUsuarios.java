@@ -19,7 +19,7 @@ public class GestorUsuarios {
      * @param asistente El assitente debe ser rellenado con todos los campos menos el de ID
      * @param username
      * @param password
-     * @return
+     * @return true, si se ha añadido correctamente, false, si no
      */
     public boolean AñadirUsuarioAsistente(Asistente asistente,String username, String password){
         try{
@@ -28,9 +28,14 @@ public class GestorUsuarios {
             return false;
         }
 
-        //int id = asistenteDAO.crear(asistente);
-        //usuarioDAO.asociateUserAsistentant(username,id);
-        return false;
+        int id = asistenteDAO.crear(asistente);
+        if( id == -1){
+            usuarioDAO.deleteUser(username);
+            return false;
+        }else{
+            usuarioDAO.asociateUserAsistentant(username,id);
+            return  true;
+        }
     }
 
     /**

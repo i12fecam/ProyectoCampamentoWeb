@@ -67,7 +67,7 @@ public class InscripcionDAO {
      */
     public void cancelarInscripcion(Inscripcion inscripcion){
         try {
-            PreparedStatement ps = con.prepareStatement(prop.getSentente("cancelar_incripcion"));
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("cancelar_inscripcion"));
             ps.setInt(1,inscripcion.getIdParticipante());
             ps.setInt(2,inscripcion.getIdCampamento());
             ps.executeUpdate();
