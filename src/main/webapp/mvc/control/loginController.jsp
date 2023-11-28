@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Business.GestorUsuarios" %>
+<%@ page import="Data.TipoUsuario" %><%--
   Created by IntelliJ IDEA.
   User: abi
   Date: 19/11/23
@@ -27,16 +28,18 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
         //Caso 2.a: Hay parámetros -> procede de la VISTA
         if (emailUser != null) {
         //Se accede a bases de datos para obtener el usuario
+            GestorUsuarios gestor = new GestorUsuarios();
 
 
         //Se realizan todas las comprobaciones necesarias del dominio
         //Aquí sólo comprobamos que exista el usuario
-                if(true){
+            TipoUsuario tipo = gestor.comprobarUsuario(emailUser,passwordUser);
+                if( tipo  != null){
                     //usuario valido
 %>
                     <jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
 <%
-                    nextPage = "../home.jsp";
+                    nextPage = "../../home.jsp";
                     mensajeNextPage = "El usuario ha sido válido";
                 } else {
                     // Usuario no válido
