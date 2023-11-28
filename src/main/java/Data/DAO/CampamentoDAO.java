@@ -485,6 +485,23 @@ public class CampamentoDAO {
         }
         return listaMonitores;
     }
+
+    public List<Asistente> DevolverAsistentes_Actividad(int idCampamento) {
+        try{
+            List<Asistente> asistentes = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Campamentos_Asistentes_id"));
+            ps.setInt(1,idCampamento);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Asistente asistente = new Asistente();
+                asistente.setIdentificador(rs.getInt("id_asistente"));
+                asistentes.add(asistente);
+            }
+            return asistentes;
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
 
