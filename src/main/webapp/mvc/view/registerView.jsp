@@ -51,41 +51,9 @@
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
+    <a href="../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 
 </form>
-
-
-
-
-
-
-
-
-<!--
-<head>
-    <title>Inicio de Sesión</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
-</head>
-<body>
-<div class="register_box">
-    <div>
-        <form method="post" action="../control/registerController.jsp">
-
-            <label for="email">Email: </label><br/>
-            <input type="text" name="email" value="admin@email.com" required><br>
-            <label for="password">Password: </label><br/>
-            <input type="text" name="password" value="1234" required><br>
-            <label for="fecha_nacimiento">Fecha nacimiento:</label>
-            <input type="date" name="fecha_nacimiento" required><br/>
-            <label for="especial">Necesidades especiales</label><br/>
-            <input type="checkbox" name="especial" value="1" required><br/>
-            <input type="submit" value="Submit">
-            <a href="../control/registerController.jsp">Registrarse</a>
-        </form>
-    </div>
-</div>
-</body>
--->
 </body>
 </html>
 
