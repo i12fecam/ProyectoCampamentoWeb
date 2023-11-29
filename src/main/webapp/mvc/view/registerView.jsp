@@ -17,6 +17,18 @@
 <form  method="post" action="../control/registerController.jsp">
     <h1 class="h3 mb-3 font-weight-normal">Registro</h1>
 
+    <!-- Nombre -->
+    <div class="form-outline mb-4">
+    <label for="name">Nombre: </label>
+    <input type="text" name="name" id="name" placeholder="Nombre" class="form-control" required><br>
+    </div>
+
+    <!-- Apellidos -->
+    <div class="form-outline mb-4">
+    <label for="surname">Apellidos: </label>
+    <input type="text" name="surname" id="surname" placeholder="Apellidos" class="form-control" required><br>
+    </div>
+
     <!-- Email -->
     <div class="form-outline mb-4">
         <label for="email">Email:</label>
@@ -51,46 +63,9 @@
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
-    <a href="../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    <a href="../../index.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 
 </form>
-
-
-
-
-
-
-
-
-<!--
-<head>
-    <title>Inicio de Sesión</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
-</head>
-<body>
-<div class="register_box">
-    <div>
-        <form method="post" action="../control/registerController.jsp">
-
-            <label for="email">Email: </label><br/>
-            <input type="text" name="email" value="admin@email.com" required><br>
-            <label for="password">Password: </label><br/>
-            <input type="text" name="password" value="1234" required><br>
-            <label for="name">Nombre: </label><br/>
-            <input type="text" name="name" value="Pablo Dueñas" required><br>
-            <label for="surname">Apellidos: </label><br/>
-            <input type="text" name="surname" value="Dueñas Fuentes" required><br>
-            <label for="fecha_nacimiento">Fecha nacimiento:</label>
-            <input type="date" name="fecha_nacimiento" required><br/>
-            <label for="especial">Necesidades especiales</label><br/>
-            <input type="checkbox" name="especial" value="1" ><br/>
-            <input type="submit" value="Submit">
-            <a href="../control/registerController.jsp">Registrarse</a>
-        </form>
-    </div>
-</div>
-</body>
--->
 </body>
 </html>
 
