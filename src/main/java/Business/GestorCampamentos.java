@@ -131,7 +131,6 @@ public class GestorCampamentos implements Serializable {
     public void asociarMonitorEspecialCampamento(int idMonitor, int idCampamento) {
         boolean monitorAsignadoActividad = false;
 
-        // TODO: Comprobar si hay algún inscrito especial y que el monitor no esté en ninguna actividad
         List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
 
         for (Actividad actividad : actividades) {
@@ -150,11 +149,12 @@ public class GestorCampamentos implements Serializable {
             }
 
             // Verificar si hay algún asistente con atención especial en la actividad
-            List<Asistente> asistentesActividad = campamentoDAO.DevolverAsistentes_Actividad(idCampamento);
-            for (Asistente asistente : asistentesActividad) {
+            List<Asistente> asistentesCampamento= campamentoDAO.DevolverAsistentes_Actividad(idCampamento);
+            for (Asistente asistente : asistentesCampamento) {
                 if (asistente.isAtencionEspecial()) {
                     // Si hay algún asistente con atención especial, asignar el monitor especial y salir del método.
                     campamentoDAO.asignar_monitor_especial(idMonitor, idCampamento);
+                    System.out.println("Se ha asociado al monitor especial con exito");
                     return;
                 }
             }

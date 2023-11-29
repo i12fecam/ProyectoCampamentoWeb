@@ -292,28 +292,6 @@ public class CampamentoDAO {
         }
     }
 
-    /**
-     * Metodo para extraer las actividades que existen en un campamento, dado su id
-     * @param idCampamento Id del campamento del que se quieren saber sus actividades
-     * @return Lista con las actividades que hay en dicho campamento
-     * @throws RuntimeException Si hay algun error de conexion con la base de datos
-     */
-    public List<Actividad> DevolverActividades_Campamento(int idCampamento){
-        try{
-            List<Actividad> actividades = new ArrayList<>();
-            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Campamentos_Actividades_id"));
-            ps.setInt(1,idCampamento);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
-                Actividad actividad = new Actividad();
-                actividad.setIdentificador(rs.getInt("fk_actividad"));
-                actividades.add(actividad);
-            }
-            return actividades;
-        }catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     /**
      * Metodo para extraer las caracteristicas de un campamento de la base de datos
@@ -498,6 +476,42 @@ public class CampamentoDAO {
                 asistentes.add(asistente);
             }
             return asistentes;
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * Metodo para extraer las actividades que existen en un campamento, dado su id
+     * @param idCampamento Id del campamento del que se quieren saber sus actividades
+     * @return Lista con las actividades que hay en dicho campamento
+     * @throws RuntimeException Si hay algun error de conexion con la base de datos
+     */
+    public List<Actividad> DevolverActividades_Campamento(int idCampamento){
+        try{
+            List<Actividad> actividades = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Campamentos_Actividades_id"));
+            ps.setInt(1,idCampamento);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Actividad actividad = new Actividad();
+                actividad.setIdentificador(rs.getInt("fk_actividad"));
+                PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_actividad"));
+                ls.setInt(1,actividad.getIdentificador());
+                ResultSet ss = ls.executeQuery();
+                ArrayList<Monitor> Monitores=new ArrayList<>();
+                while(ss.next()) {
+                    Monitor monitor=new Monitor();
+                    monitor.setApellidos(ss.getString(3));
+                    monitor.setFechaNacimiento(ss.getDate(4).toLocalDate());
+                    monitor.setNombre(ss.getString(2));
+                    monitor.setIdentificador(ss.getInt(1));
+                    monitor.setEducadorEspecial(ss.getBoolean(5));
+                    Monitores.add(monitor);
+                }
+                actividad.setMonitores(Monitores);
+                actividades.add(actividad);
+            }
+            return actividades;
         }catch (SQLException e) {
             throw new RuntimeException(e);
         }

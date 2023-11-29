@@ -144,7 +144,9 @@ public class Actividad implements Serializable {
      */
     public ArrayList<Monitor> getMonitores() {return monitores;}
 
-
+    public void setMonitores(ArrayList<Monitor> monitores) {
+        this.monitores = monitores;
+    }
 
     /**
      * Imprime la información de la actividad
