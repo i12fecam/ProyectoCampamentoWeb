@@ -145,6 +145,7 @@ public class GestorCampamentos implements Serializable {
 
             if (monitorAsignadoActividad) {
                 // Si el monitor está asignado a alguna actividad, salir del método.
+                System.out.println("No se ha asociado el monitor especial al campamento ya esta asignado a una actividad");
                 return;
             }
 
@@ -158,6 +159,7 @@ public class GestorCampamentos implements Serializable {
                     return;
                 }
             }
+            System.out.println("No se ha asociado el monitor especial al campamento porque no hay asistentes especiales");
         }
     }
 

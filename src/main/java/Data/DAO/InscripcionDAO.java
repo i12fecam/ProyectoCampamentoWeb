@@ -51,8 +51,8 @@ public class InscripcionDAO {
             } else {
                 ps.setInt(4,1);
             }
-            ps.setInt(5,1);//completar
-            ps.setInt(6,1);
+            ps.setInt(5,inscripcion.getIdParticipante());
+            ps.setInt(6,inscripcion.getIdCampamento());
             int status = ps.executeUpdate();
         }catch (SQLException e){
             throw new RuntimeException(e);

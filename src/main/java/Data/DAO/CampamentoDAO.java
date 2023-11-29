@@ -495,7 +495,7 @@ public class CampamentoDAO {
             while(rs.next()) {
                 Actividad actividad = new Actividad();
                 actividad.setIdentificador(rs.getInt("fk_actividad"));
-                PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_actividad"));
+                PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));
                 ls.setInt(1,actividad.getIdentificador());
                 ResultSet ss = ls.executeQuery();
                 ArrayList<Monitor> Monitores=new ArrayList<>();
