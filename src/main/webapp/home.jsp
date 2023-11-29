@@ -15,9 +15,9 @@
 
 <body>
 
-<%@include file="include/header.jsp"%>
+
+<%@include file="include/menu.jsp"%>
 <div class="mainbody">
-    <%@include file="include/aside.jsp"%>
 
     <div class="main">
         <h1> Sobre nosotros</h1>
