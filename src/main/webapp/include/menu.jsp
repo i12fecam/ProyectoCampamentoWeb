@@ -27,7 +27,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Crear nuevo campamento</a>
+                    <a href="mvc/view/altaCampamentoView.jsp">Crear nuevo campamento</a>
                     <a href="#">Visualizar campamentos</a>
                 </div>
             </div>
