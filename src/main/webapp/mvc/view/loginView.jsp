@@ -22,13 +22,15 @@
         <label for="email"></label>
     </div>
 
+    <br>
+
     <!-- Password -->
     <div class="form-outline mb-4">
         <input type="password" name="password" id="password" placeholder="Password" class="form-control" />
         <label for="password"></label>
     </div>
 
-    </br>
+    <br>
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesion</button>
