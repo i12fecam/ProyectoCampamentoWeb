@@ -1,5 +1,6 @@
 <%@ page import="Business.GestorUsuarios" %>
-<%@ page import="Data.TipoUsuario" %><%--
+<%@ page import="Data.TipoUsuario" %>
+<%--
   Created by IntelliJ IDEA.
   User: abi
   Date: 19/11/23
@@ -36,6 +37,17 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
             TipoUsuario tipo = gestor.comprobarUsuario(emailUser,passwordUser);
                 if( tipo  != null){
                     //usuario valido
+
+                    if(tipo == TipoUsuario.administrador){
+%>
+                        <jsp:setProperty property="esAdmin" value="true" name="customerBean"/>
+%>
+<%
+                    }else{
+%>
+                        <jsp:setProperty property="esAdmin" value="false" name="customerBean"/>
+<%
+                    }
 %>
                     <jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
 <%

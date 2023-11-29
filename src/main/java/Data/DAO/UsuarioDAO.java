@@ -55,8 +55,8 @@ public class UsuarioDAO {
             ps.setString(1,username);
             ps.setString(2,password);
             ResultSet rs =ps.executeQuery();
-            rs.next();
-            if(rs.next()){
+
+            if(rs.first()){
                 String usuario = rs.getString(1);
                 if(usuario.equals(TipoUsuario.asistente.toString())){
                     return TipoUsuario.asistente;

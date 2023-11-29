@@ -17,23 +17,23 @@ public class GestorUsuarios {
     /**
      *
      * @param asistente El assitente debe ser rellenado con todos los campos menos el de ID
-     * @param username
+     * @param email
      * @param password
      * @return true, si se ha añadido correctamente, false, si no
      */
-    public boolean AñadirUsuarioAsistente(Asistente asistente,String username, String password){
+    public boolean AñadirUsuarioAsistente(Asistente asistente,String email, String password){
         try{
-            usuarioDAO.addUser(username,password, TipoUsuario.asistente,null);
+            usuarioDAO.addUser(email,password, TipoUsuario.asistente,null);
         }catch (RuntimeException e){
             return false;
         }
 
         int id = asistenteDAO.crear(asistente);
         if( id == -1){
-            usuarioDAO.deleteUser(username);
+            usuarioDAO.deleteUser(email);
             return false;
         }else{
-            usuarioDAO.asociateUserAsistentant(username,id);
+            usuarioDAO.asociateUserAsistentant(email,id);
             return  true;
         }
     }
@@ -49,5 +49,10 @@ public class GestorUsuarios {
 
     }
 
+    public static void main(String[] args){
+        GestorUsuarios gestor = new GestorUsuarios();
+
+        System.out.println(gestor.comprobarUsuario("admin@uco.es","password"));
+    }
 
 }
