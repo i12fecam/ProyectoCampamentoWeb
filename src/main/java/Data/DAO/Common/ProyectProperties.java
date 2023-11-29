@@ -82,7 +82,7 @@ public class ProyectProperties {
      */
     public String getSentente(String name){
         String result =sql.getProperty(name);
-        if(result.equals("")){
+        if(result.equals("") || result == null){
             throw new RuntimeException("No se encontro la sentencia SQl del archivo sql.properties");
         }
         return  result;

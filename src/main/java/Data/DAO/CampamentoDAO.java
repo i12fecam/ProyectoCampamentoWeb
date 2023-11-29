@@ -473,6 +473,10 @@ public class CampamentoDAO {
             while(rs.next()) {
                 Asistente asistente = new Asistente();
                 asistente.setIdentificador(rs.getInt("id_asistente"));
+                asistente.setNombre(rs.getString("nombre"));
+                asistente.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+                asistente.setAtencionEspecial(rs.getBoolean("especial"));
+                asistente.setApellidos(rs.getString("apellidos"));
                 asistentes.add(asistente);
             }
             return asistentes;
