@@ -47,7 +47,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Crear actividad</a>
+                    <a href="AltaActividad">Crear actividad</a>
                     <a href="#">Visualizar actividades</a>
                 </div>
             </div>
