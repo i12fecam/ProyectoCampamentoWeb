@@ -1,5 +1,8 @@
 package Interface;
 
+import Data.DTO.Actividad;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,17 +15,17 @@ import java.io.PrintWriter;
 public class darAltaActividadServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
-                      HttpServletResponse response) throws IOException {
-    response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<HTML");
-        out.println("<HEAD>");
-        out.println("<title>Alta Actividad</title>");
-        out.println("</HEAD>");
-        out.println("<BODY>");
-        out.println ("</BODY>");
-        out.println ("</HTML>");
-        out.close();
+                      HttpServletResponse response) throws IOException, ServletException {
+        Actividad actividad = new Actividad();
+        actividad.setNombre((String) request.getAttribute("name"));
+        request.getAttribute("nivel_educativo");
+        request.getAttribute("horario");
+        actividad.setMaxParticipantes((Integer) request.getAttribute("maxParticipantes"));
+        actividad.setMonitoresNecesarios((Integer)request.getAttribute("monitoresNecesarios"));
+        System.out.println(actividad);
+
+        RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/AltaActividad.jsp");
+        disp.forward(request, response);
     }
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) {

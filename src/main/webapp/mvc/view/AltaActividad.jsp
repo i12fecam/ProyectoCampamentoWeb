@@ -44,9 +44,9 @@
         <span>Horario:</span>
         <div class="radio-options">
             <input type="radio" id="horario_1" name="horario" value="Parcial">
-            <label for="horario_1">Infantil</label><br>
+            <label for="horario_1">Parcial</label><br>
             <input type="radio" id="horario_2" name="horario" value="Completa">
-            <label for="horario_2">Juvenil</label><br>
+            <label for="horario_2">Completa</label><br>
 
         </div>
     </div>
@@ -55,8 +55,8 @@
 
     <!--max Particpantes -->
     <div class="form-outline mb-4">
-        <label for="maxParticpantes">Número máximo de participantes:</label>
-        <input type="number" name="maxParticpantes" id="maxParticpantes" class="form-control" />
+        <label for="maxParticipantes">Número máximo de participantes:</label>
+        <input type="number" name="maxParticipantes" id="maxParticipantes" class="form-control" />
     </div>
 
 
