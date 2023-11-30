@@ -11,6 +11,7 @@
 <head>
     <title>Proyecto Campamento</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/menu.css">
 </head>
 
 <body>
