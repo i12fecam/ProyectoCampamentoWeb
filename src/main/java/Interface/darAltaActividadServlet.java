@@ -16,6 +16,9 @@ public class darAltaActividadServlet extends HttpServlet {
     response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<HTML");
+        out.println("<HEAD>");
+        out.println("<title>Alta Actividad</title>");
+        out.println("</HEAD>");
         out.println("<BODY>");
         out.println ("</BODY>");
         out.println ("</HTML>");

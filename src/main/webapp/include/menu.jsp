@@ -23,7 +23,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="mvc/view/altaCampamentoView.jsp">Crear nuevo campamento</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/altaCampamentoView.jsp">Crear nuevo campamento</a>
                     <a href="#">Visualizar campamentos</a>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="mvc/view/altaMonitorView.jsp">Añadir monitor</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/altaMonitorView.jsp">Añadir monitor</a>
                     <a href="#">Visualizar monitores</a>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="AltaActividad">Crear actividad</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/AltaActividad.jsp">Crear actividad</a>
                     <a href="#">Visualizar actividades</a>
                 </div>
             </div>
