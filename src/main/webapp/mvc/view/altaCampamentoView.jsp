@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class="text-center">
-<form  method="post" action="../control/altaCampamentoController.jsp">
+<form  method="get" action="AltaCampamento">
     <h1 class="h3 mb-3 font-weight-normal">Crear campamento</h1>
 
     <!-- Fecha Inicio -->
