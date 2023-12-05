@@ -13,7 +13,7 @@
 
 </head>
 <body class="text-center">
-<form method="post" action="/AltaActividad">
+<form method="post" action="${pageContext.request.contextPath}/AltaActividad">
     <h1 class="h3 mb-3 font-weight-normal">Añadir nueva actividad</h1>
 
     <!-- Nombre -->
