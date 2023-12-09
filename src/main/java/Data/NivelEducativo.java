@@ -9,7 +9,7 @@ package Data;
  * - "ADOLESCENTE": Indica un nivel educativo de tipo adolescente.
  */
 public enum NivelEducativo {
-    INFANTIL,
-    JUVENIL,
-    ADOLESCENTE
+    Infantil,
+    Juvenil,
+    Adolescente
 }

@@ -8,6 +8,6 @@ package Data;
  * - "TARDIA": Indica una inscripción tardía.
  */
 public enum TipoInscripcion {
-    TEMPRANA,
-    TARDIA
+    Temprana,
+    Tardia
 }

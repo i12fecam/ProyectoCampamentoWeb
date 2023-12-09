@@ -60,11 +60,11 @@ public class GestorInscripciones implements Serializable{
         //mirar si es tardia
         TipoInscripcion tipoInscripcion;
         if(fechaInscripcion.isBefore(campamento.getFechaInicio().minusDays(15))){
-            tipoInscripcion = TipoInscripcion.TEMPRANA;
+            tipoInscripcion = TipoInscripcion.Temprana;
         }
         else if(fechaInscripcion.isAfter(campamento.getFechaInicio().minus(15, ChronoUnit.DAYS)) && fechaInscripcion.isBefore(campamento.getFechaInicio().minus(2,ChronoUnit.DAYS))){
 
-            tipoInscripcion = TipoInscripcion.TARDIA;
+            tipoInscripcion = TipoInscripcion.Tardia;
         }
         else{
             throw new RuntimeException("La fecha de inscripcion es demasiado tardia");
@@ -78,7 +78,7 @@ public class GestorInscripciones implements Serializable{
         }
 
         //calcular precio
-        if(horario == Horario.PARCIAL){
+        if(horario == Horario.Parcial){
             precio = 100;
             precio = precio + camp.getNumActividadesParciales(campamento.getIdCampamento())*20;
         }else{
@@ -99,7 +99,7 @@ public class GestorInscripciones implements Serializable{
 
         InscripcionDAO ins = new InscripcionDAO();
         Inscripcion inscripcion = ins.getInscripcion(id_asistente,id_campamento);
-        if(inscripcion.getTipoInscripcion() == TipoInscripcion.TEMPRANA){
+        if(inscripcion.getTipoInscripcion() == TipoInscripcion.Temprana){
             ins.cancelarInscripcion(inscripcion);
             return true;
         }

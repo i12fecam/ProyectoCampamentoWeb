@@ -44,7 +44,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/mvc/view/AltaActividad.jsp">Crear actividad</a>
-                    <a href="#">Visualizar actividades</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarActividades.jsp">Visualizar actividades</a>
                 </div>
             </div>
 

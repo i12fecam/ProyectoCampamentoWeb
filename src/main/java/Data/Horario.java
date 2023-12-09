@@ -8,7 +8,7 @@ package Data;
  * - "COMPLETA": Indica que la actividad o trabajo se realiza a tiempo completo.
  */
 public enum Horario {
-    PARCIAL,
-    COMPLETA
+    Parcial,
+    Completo
 }
 

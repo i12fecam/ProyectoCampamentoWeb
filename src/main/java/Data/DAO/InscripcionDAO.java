@@ -41,12 +41,12 @@ public class InscripcionDAO {
             ps.setDate(1, Date.valueOf(inscripcion.getFechaInscripcion()));
             ps.setFloat(2, inscripcion.getPrecio());
 
-            if (inscripcion.getHorario() == Horario.PARCIAL) {
+            if (inscripcion.getHorario() == Horario.Parcial) {
                 ps.setInt(3, 1);
             } else {
                 ps.setInt(3, 2);
             }
-            if (inscripcion.getTipoInscripcion() == TipoInscripcion.TARDIA) {
+            if (inscripcion.getTipoInscripcion() == TipoInscripcion.Tardia) {
                 ps.setInt(4,2);
             } else {
                 ps.setInt(4,1);
@@ -95,19 +95,19 @@ public class InscripcionDAO {
             ins.setPrecio(res.getFloat("precio"));
             String s = res.getString("horario");
             if( s.equals("parcial")){
-                ins.setHorario(Horario.PARCIAL);
+                ins.setHorario(Horario.Parcial);
             }
             else if(s.equals("completa")){
-                ins.setHorario(Horario.COMPLETA);
+                ins.setHorario(Horario.Completo);
             }
             else throw new RuntimeException("Esto no deberia pasar");
 
             s = res.getString("tipo_inscripcion");
             if(s.equals("temprana")){
-                ins.setTipoInscripcion(TipoInscripcion.TEMPRANA);
+                ins.setTipoInscripcion(TipoInscripcion.Temprana);
             }
             else if(s.equals("tardia")){
-                ins.setTipoInscripcion(TipoInscripcion.TARDIA);
+                ins.setTipoInscripcion(TipoInscripcion.Tardia);
             }else throw new RuntimeException("Esto no deberia pasar 2");
             ins.setIdCampamento(id_campamento);
             ins.setIdParticipante(id_asistente);

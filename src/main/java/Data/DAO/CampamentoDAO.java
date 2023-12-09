@@ -202,13 +202,13 @@ public class CampamentoDAO {
                 String n = rs.getString("nivel_educativo");
                 switch (n) {
                     case "Infantil":
-                        camp.setNivelEducativo(NivelEducativo.INFANTIL);
+                        camp.setNivelEducativo(NivelEducativo.Infantil);
                         break;
                     case "Juvenil":
-                        camp.setNivelEducativo(NivelEducativo.JUVENIL);
+                        camp.setNivelEducativo(NivelEducativo.Juvenil);
                         break;
                     case "Adolescente":
-                        camp.setNivelEducativo(NivelEducativo.ADOLESCENTE);
+                        camp.setNivelEducativo(NivelEducativo.Adolescente);
                         break;
                 }
 
@@ -241,18 +241,18 @@ public class CampamentoDAO {
             rs.next();
             String s = rs.getString("horario");
             if (s.equals("parcial")) {
-                act.setHorario(Horario.PARCIAL);
+                act.setHorario(Horario.Parcial);
             } else if (s.equals("completa")) {
-                act.setHorario(Horario.COMPLETA);
+                act.setHorario(Horario.Completo);
             }
             String n = rs.getString("nivel_educativo");
             if (n.equals("infantil")) {
-                act.setNivelEducativo(NivelEducativo.INFANTIL);
+                act.setNivelEducativo(NivelEducativo.Infantil);
             } else {
                 if (n.equals("juvenil")) {
-                    act.setNivelEducativo(NivelEducativo.JUVENIL);
+                    act.setNivelEducativo(NivelEducativo.Juvenil);
                 } else if (n.equals("adolescente")) {
-                    act.setNivelEducativo(NivelEducativo.ADOLESCENTE);
+                    act.setNivelEducativo(NivelEducativo.Adolescente);
                 }
             }
             act.setNombre(rs.getString("nombre"));
@@ -309,14 +309,14 @@ public class CampamentoDAO {
             rs.next();
             String n = rs.getString("nivel_educativo");
             if( n.equals("infantil")){
-                camp.setNivelEducativo(NivelEducativo.INFANTIL);
+                camp.setNivelEducativo(NivelEducativo.Infantil);
             }
             else{
                 if(n.equals("juvenil")){
-                    camp.setNivelEducativo(NivelEducativo.JUVENIL);
+                    camp.setNivelEducativo(NivelEducativo.Juvenil);
                 }
                 else if(n.equals("adolescente")){
-                    camp.setNivelEducativo(NivelEducativo.ADOLESCENTE);
+                    camp.setNivelEducativo(NivelEducativo.Adolescente);
                 }
             }
             camp.setMaxAsistentes(rs.getInt("max_asistentes"));
@@ -374,14 +374,14 @@ public class CampamentoDAO {
                 campamento.setFechaFinal(rs.getDate("fecha_final").toLocalDate());
                 String n = rs.getString("nivel_educativo");
                 if( n.equals("Infantil")){
-                    campamento.setNivelEducativo(NivelEducativo.INFANTIL);
+                    campamento.setNivelEducativo(NivelEducativo.Infantil);
                 }
                 else{
                     if(n.equals("Juvenil")){
-                        campamento.setNivelEducativo(NivelEducativo.JUVENIL);
+                        campamento.setNivelEducativo(NivelEducativo.Juvenil);
                     }
                     else if(n.equals("Adolescente")){
-                        campamento.setNivelEducativo(NivelEducativo.ADOLESCENTE);
+                        campamento.setNivelEducativo(NivelEducativo.Adolescente);
                     }
                 }
                 campamento.setMaxAsistentes(rs.getInt("max_asistentes"));
@@ -410,22 +410,22 @@ public class CampamentoDAO {
                 actividad.setNombre(rs.getString("nombre"));
                 String n = rs.getString("nivel_educativo");
                 if( n.equals("Infantil")){
-                    actividad.setNivelEducativo(NivelEducativo.INFANTIL);
+                    actividad.setNivelEducativo(NivelEducativo.Infantil);
                 }
                 else{
                     if(n.equals("Juvenil")){
-                        actividad.setNivelEducativo(NivelEducativo.JUVENIL);
+                        actividad.setNivelEducativo(NivelEducativo.Juvenil);
                     }
                     else if(n.equals("Adolescente")){
-                        actividad.setNivelEducativo(NivelEducativo.ADOLESCENTE);
+                        actividad.setNivelEducativo(NivelEducativo.Adolescente);
                     }
                 }
                 String h = rs.getString("horario");
                 if( h.equals("parcial")){
-                    actividad.setHorario(Horario.PARCIAL);
+                    actividad.setHorario(Horario.Parcial);
                 }
                 else{
-                    actividad.setHorario(Horario.COMPLETA);
+                    actividad.setHorario(Horario.Completo);
                 }
                 actividad.setMaxParticipantes(rs.getInt("max_participantes"));
                 actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));

@@ -167,11 +167,11 @@ public class Main {
                         String nivelEducativoStr = scanner.nextLine();
                         NivelEducativo nivelEducativo;
                         if (nivelEducativoStr.equals("Infantil") ) {
-                            nivelEducativo = NivelEducativo.INFANTIL;
+                            nivelEducativo = NivelEducativo.Infantil;
                         } else if (nivelEducativoStr.equals("Juvenil")) {
-                            nivelEducativo = NivelEducativo.JUVENIL;
+                            nivelEducativo = NivelEducativo.Juvenil;
                         } else if (nivelEducativoStr.equals("Adolescente")) {
-                            nivelEducativo = NivelEducativo.ADOLESCENTE;
+                            nivelEducativo = NivelEducativo.Adolescente;
                         } else {
                             throw new RuntimeException("Error al capturar el nivel educativo");
                         }
@@ -217,11 +217,11 @@ public class Main {
                         String nivelEducativoStr = scanner.nextLine();
                         NivelEducativo nivelEducativo;
                         if (nivelEducativoStr.equals("Infantil")) {
-                            nivelEducativo = NivelEducativo.INFANTIL;
+                            nivelEducativo = NivelEducativo.Infantil;
                         } else if (nivelEducativoStr.equals("Juvenil")) {
-                            nivelEducativo = NivelEducativo.JUVENIL;
+                            nivelEducativo = NivelEducativo.Juvenil;
                         } else if (nivelEducativoStr.equals("Adolescente")) {
-                            nivelEducativo = NivelEducativo.ADOLESCENTE;
+                            nivelEducativo = NivelEducativo.Adolescente;
                         } else {
                             throw new RuntimeException("Error al capturar el nivel educativo");
                         }
@@ -229,9 +229,9 @@ public class Main {
                         String horarioStr = scanner.nextLine();
                         Horario horario;
                         if (horarioStr.equals("Parcial")) {
-                            horario = Horario.PARCIAL;
+                            horario = Horario.Parcial;
                         } else if (horarioStr.equals("Completo")) {
-                            horario = Horario.COMPLETA;
+                            horario = Horario.Completo;
                         } else {
                             throw new RuntimeException("Error al capturar el horario");
                         }
@@ -358,9 +358,9 @@ public class Main {
                         String horarioStr = scanner.nextLine();
                         Horario horario;
                         if (horarioStr.equals("Parcial")) {
-                            horario = Horario.PARCIAL;
+                            horario = Horario.Parcial;
                         } else if (horarioStr.equals("Completa")) {
-                            horario = Horario.COMPLETA;
+                            horario = Horario.Completo;
                         } else {
                             throw new RuntimeException("Error al capturar el horario");
                         }

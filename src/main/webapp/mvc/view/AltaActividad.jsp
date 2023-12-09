@@ -19,7 +19,7 @@
     <!-- Nombre -->
     <div class="form-outline mb-4">
         <label for="name">Nombre:</label>
-        <input type="text" name="name" id="name" class="form-control" />
+        <input type="text" name="name" id="name" class="form-control" required/>
     </div>
 
     <br>
@@ -28,7 +28,7 @@
     <div class="form-outline mb-4">
         <span>Nivel Educativo:</span>
         <div class="radio-options ">
-            <input type="radio" id="nivel_educativo" name="nivel_educativo" value="Infantil">
+            <input type="radio" id="nivel_educativo" name="nivel_educativo" value="Infantil" >
             <label for="nivel_educativo">Infantil</label><br>
             <input type="radio" id="nivel_educativo2" name="nivel_educativo" value="Juvenil">
             <label for="nivel_educativo2">Juvenil</label><br>
@@ -56,14 +56,14 @@
     <!--max Particpantes -->
     <div class="form-outline mb-4">
         <label for="maxParticipantes">Número máximo de participantes:</label>
-        <input type="number" name="maxParticipantes" id="maxParticipantes" class="form-control" />
+        <input type="number" name="maxParticipantes" id="maxParticipantes" class="form-control" required/>
     </div>
 
 
     <!--monitores necesarios -->
     <div class="form-outline mb-4">
         <label for="monitoresNecesarios">Número de monitores necesarios:</label>
-        <input type="number" name="monitoresNecesarios" id="monitoresNecesarios" class="form-control" />
+        <input type="number" name="monitoresNecesarios" id="monitoresNecesarios" class="form-control" required/>
     </div>
 
     <br>

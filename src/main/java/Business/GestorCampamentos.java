@@ -5,7 +5,6 @@ import Data.DTO.Actividad;
 import Data.DTO.Asistente;
 import Data.DTO.Campamento;
 import Data.DTO.Monitor;
-import com.sun.jdi.request.MonitorWaitedRequest;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -182,6 +181,14 @@ public class GestorCampamentos implements Serializable {
             System.out.println("--------------------------------------");
         }
     }
+
+    /**
+     *
+     * @return Devuelve una lista de todos los campamentos registrados en el sistema
+     */
+    public ArrayList<Campamento> listarCampamentos(){
+        return campamentoDAO.listarCampamentos();
+    }
     /**
      * Imprime en la consola una representación en cadena de los objetos Monitor almacenados en la lista "monitores".
      * Este método itera a través de la lista de objetos Monitor almacenados en el atributo "monitores" e imprime
@@ -217,8 +224,8 @@ public class GestorCampamentos implements Serializable {
         }
     }
 
-    public Campamento getCampamento(int id){
-        return null;
+    public ArrayList<Actividad> listarActividades(){
+        return campamentoDAO.listarActividad();
     }
 
 
