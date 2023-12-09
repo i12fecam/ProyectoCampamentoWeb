@@ -24,7 +24,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/mvc/view/altaCampamentoView.jsp">Crear nuevo campamento</a>
-                    <a href="#">Visualizar campamentos</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarCampamentos.jsp">Visualizar campamentos</a>
                 </div>
             </div>
 
