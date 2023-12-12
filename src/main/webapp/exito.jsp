@@ -16,8 +16,8 @@
 <body>
 <div style="text-align: center; margin-top: 50px;">
   <h1 class="">¡Éxito!</h1>
-  <p>El proceso se ha completado con éxito.</p>
-  <button onclick="redirigirASitio()">Ir a otro sitio</button>
+  <p>Se ha creado con éxito.</p>
+  <button onclick="redirigirASitio()">Volver al home</button>
 </div>
 
 <script>
