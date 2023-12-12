@@ -13,7 +13,7 @@
 <html>
 <head>
     <title>Visualizar Campamentos</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table2.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <%
     GestorCampamentos gestor = new GestorCampamentos();

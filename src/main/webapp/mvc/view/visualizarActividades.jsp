@@ -11,7 +11,6 @@
 <html>
 <head>
     <title>Visualizar Actividades</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <%
@@ -19,8 +18,8 @@
     ArrayList< Actividad > actividades = gestor.listarActividades();
 
 %>
-<body class = "text-center">
-    <table>
+<body>
+    <table class="table">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
