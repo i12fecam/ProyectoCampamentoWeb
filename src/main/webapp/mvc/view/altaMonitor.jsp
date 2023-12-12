@@ -20,29 +20,29 @@
     <br>
     <!-- Nombre -->
     <div class="form-outline mb-4">
-        <label for="nombre"  required >Nombre del asistente</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" />
+        <label for="nombre"  >Nombre del asistente</label>
+        <input type="text" required name="nombre" id="nombre" placeholder="Nombre" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Apellidos -->
     <div class="form-outline mb-4">
-        <label for="apellidos" required>Apellidos del asistente</label>
-        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" />
+        <label for="apellidos" >Apellidos del asistente</label>
+        <input type="text" required name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Fecha de nacimiento-->
     <div class="form-outline mb-4">
-        <label for="fecha_nacimiento"  required>Fecha de nacimiento del asistente</label>
-        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Fecha Nacimiento" class="form-control" />
+        <label for="fecha_nacimiento"  >Fecha de nacimiento del asistente</label>
+        <input type="date" name="fecha_nacimiento" required id="fecha_nacimiento" placeholder="Fecha Nacimiento" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Atención especial -->
     <div class="form-outline mb-4">
         <label for="especial">¿El asistente requiere de atención especial?</label>
-        <select name="especial" id="especial" class="form-control">
+        <select name="especial" id="especial" class="form-control" >
             <option value="true">Sí</option>
             <option value="false">No</option>
         </select>
