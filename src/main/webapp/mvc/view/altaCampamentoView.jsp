@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class="text-center">
-<form  method="get" action="AltaCampamento">
+<form  method="post" action="${pageContext.request.contextPath}/AltaCampamento">
     <h1 class="h3 mb-3 font-weight-normal">Crear campamento</h1>
 
     <!-- Fecha Inicio -->
     <div class="form-outline mb-4">
         <label for="fecha_inicio">Fecha Inicio:</label>
-        <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" />
+        <input type="date" name="fecha_inicio" id="fecha_inicio" required class="form-control" />
     </div>
 
     <br>
@@ -28,7 +28,7 @@
     <!-- Fecha Fin -->
     <div class="form-outline mb-4">
         <label for="fecha_fin">Fecha Fin:</label>
-        <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" />
+        <input type="date" name="fecha_fin" id="fecha_fin" required class="form-control" />
     </div>
 
     <br>
@@ -51,7 +51,7 @@
     <!-- Nº max asistentes -->
     <div class="form-outline mb-4">
         <label for="max_asistentes">Nº de Asistentes:</label>
-        <input type="number" name="max_asistentes" id="max_asistentes" class="form-control" />
+        <input type="number" name="max_asistentes" id="max_asistentes" required class="form-control" />
     </div>
     <br>
     <br>

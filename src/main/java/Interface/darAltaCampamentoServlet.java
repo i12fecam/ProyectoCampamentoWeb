@@ -1,6 +1,8 @@
 package Interface;
 
 import java.time.LocalDate;
+
+import Business.GestorCampamentos;
 import Data.DTO.Campamento;
 import Data.NivelEducativo;
 import jakarta.servlet.RequestDispatcher;
@@ -18,6 +20,10 @@ public class darAltaCampamentoServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException, ServletException {
 
+
+    }
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response) throws IOException, ServletException {
         Campamento campamento = new Campamento();
 
         //Recibir parametros
@@ -32,14 +38,19 @@ public class darAltaCampamentoServlet extends HttpServlet {
         campamento.setNivelEducativo(nivel_educativo);
         campamento.setMaxAsistentes(maxAsistentes);
 
-        PrintWriter out = response.getWriter();
-        out.println("Fecha inicio, " + fecha_inicio + " Fecha final, " + fecha_final);
+        try {
+            GestorCampamentos gestorCampamentos = new GestorCampamentos();
+            gestorCampamentos.crearCampamento(campamento);
 
-        RequestDispatcher disp = request.getRequestDispatcher("/home.jsp");
-        disp.forward(request, response);
-    }
-    public void doPost(HttpServletRequest request,
-                       HttpServletResponse response) {
+            RequestDispatcher disp = request.getRequestDispatcher("/home.jsp");
+            disp.forward(request, response);
+        } catch (Exception e) {
+            // Mensaje de error
+            request.setAttribute("error_message", "Hubo un problema al crear el campamento: " + e.getMessage());
 
+            // Redirigir a /mvc/view/altaCampamentoView.jsp
+            RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/altaCampamentoView.jsp");
+            disp.forward(request, response);
+        }
     }
 }
