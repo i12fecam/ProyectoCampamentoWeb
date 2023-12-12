@@ -2,6 +2,8 @@ package Business;
 
 import Data.DTO.Asistente;
 import Data.DAO.AsistenteDAO;
+import Data.DTO.Campamento;
+
 import java.io.*;
 import java.util.ArrayList;
 /**
@@ -61,13 +63,13 @@ public class GestorAsistentes implements Serializable{
         }
     }
 
-
+    public ArrayList<Asistente> listarAsistentes(){return asistenteDAO.listarAsistentes();}
 
     /**
      * Método que nos permite listar a los asistentes
      */
     public void listar() {
-        ArrayList<Asistente> listaAsistentes = asistenteDAO.listar();
+        ArrayList<Asistente> listaAsistentes = asistenteDAO.listarAsistentes();
 
         for (Asistente asistente : listaAsistentes) {
             System.out.println("ID: " + asistente.getIdentificador());

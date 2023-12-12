@@ -14,7 +14,7 @@
                 <div class="dropdown-content">
                     <a href="#">Añadir asistente</a>
                     <a href="#">Modificar asistente</a>
-                    <a href="#">Visualizar asistentes</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarAsistentes.jsp">Visualizar asistentes</a>
                 </div>
             </div>
 

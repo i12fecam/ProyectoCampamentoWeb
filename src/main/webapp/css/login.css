@@ -112,6 +112,15 @@ a {
     max-width: 50%;
 }
 
+.btn-modificar {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.btn-modificar:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
 
 .btn {
     display: inline-block;
@@ -120,7 +129,6 @@ a {
     text-align: center;
     vertical-align: middle;
     user-select: none;
-    border: 1px solid #007bff;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
