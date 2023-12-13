@@ -1,6 +1,10 @@
 <%@ page import="Business.GestorCampamentos" %>
 <%@ page import="Data.DTO.Campamento" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%--
   Created by IntelliJ IDEA.
   User: fatim
   Date: 11/12/2023
@@ -12,9 +16,11 @@
 <head>
     <title>Inscripcion a un campamento</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class = "text-center">
 <%
+
     GestorCampamentos gestor = new GestorCampamentos();
     ArrayList<Campamento> listaCampamentos = gestor.listarCampamentos();
 
@@ -40,6 +46,7 @@
         <td><%=campamentos.getNivelEducativo().toString() %></td>
         <td><%=campamentos.getMaxAsistentes() %></td>
         <td>  <form method="get" action="${pageContext.request.contextPath}/Inscripcion">
+
             <input type="hidden" name="campamentoId" value="<%= campamentos.getIdCampamento() %>">
             <button type="submit">Inscribirse</button>
         </form>
@@ -52,20 +59,25 @@
     }
 %>
 <form method="post" action="${pageContext.request.contextPath}/Inscripcion">
-
+<%
+    LocalDate fechaActual = LocalDate.now();
+    SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+    String fechaFormateada = sdf.format(new Date());
+%>
     <h1 class="h3 mb-3 font-weight-normal">Formulario de inscripcion</h1>
     <!--Id del campamento seleccionado-->
     <div class="form-outline mb-4">
         <label for="campamento">Campamento Seleccionado:</label>
-         <input type="text" id="campamento" name="campamento" value="<%= request.getParameter("campamentoId") %>" readonly>
+         <input type="number" id="campamento" name="campamento" value="<%= request.getParameter("campamentoId") %>" readonly>
     </div>
 
     <!--Id del participante -->
     //No se me ocurre como poner el id del participante
+
     <!--Fecha de inscripcion-->
     <div>
         <label for="fecha">Fecha de Inscripcion:</label>
-        <input type="date" id="fecha" name="fecha" required>
+        <input type="date" id="fecha" name="fecha"  value ="<%=fechaFormateada%>" readonly>
     </div>
 
     <!--Horario-->
@@ -78,7 +90,7 @@
             <label for="horario_2">Completa</label><br>
         </div>
     </div>
-    <button type="submit">Enviar</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
     <a href="../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 </form>
 </body>
