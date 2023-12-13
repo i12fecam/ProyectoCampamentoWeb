@@ -91,7 +91,7 @@ public class AsistenteDAO {
      * @throws RuntimeException Si hay algun error de conexion con la base de datos
      */
 
-    public ArrayList<Asistente> listar() {
+    public ArrayList<Asistente> listarAsistentes() {
         ArrayList<Asistente> listaAsistentes = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_all_Asistentes"));

@@ -42,7 +42,7 @@ public class darAltaCampamentoServlet extends HttpServlet {
             GestorCampamentos gestorCampamentos = new GestorCampamentos();
             gestorCampamentos.crearCampamento(campamento);
 
-            RequestDispatcher disp = request.getRequestDispatcher("/home.jsp");
+            RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
         } catch (Exception e) {
             // Mensaje de error

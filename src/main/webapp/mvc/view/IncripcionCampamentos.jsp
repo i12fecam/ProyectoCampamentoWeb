@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Inscripcion a un campamento</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <body class = "text-center">
 <%
@@ -21,7 +22,7 @@
 
     if (campamentosMostrados == null || !campamentosMostrados) {
 %>
-<table>
+<table class="table">
     <h2>Campamentos Disponibles:</h2>
     <tr>
         <th>ID</th>
@@ -29,6 +30,7 @@
         <th>Fecha Fin</th>
         <th>Nivel Educativo</th>
         <th>Maximo de asistentes</th>
+        <th></th>
     </tr>
     <%for (Campamento campamentos: listaCampamentos) { %>
     <tr>
