@@ -16,23 +16,30 @@ String nextPage = "../../index.jsp";
 String mensajeNextPage = "";
 //Caso 2
 if (customerBean != null && customerBean.getEmailUser().equals("")) {
-    String emailUser = request.getParameter("email");
-    String passwordUser = request.getParameter("password");
-    String name = request.getParameter("name");
-    String surname = request.getParameter("surname");
-    String s_fecha_nacimiento = request.getParameter("fecha_nacimiento");
-    //LocalDate fecha_nacimiento = LocalDate.parse(s_fecha_nacimiento);
-    Boolean especial = (request.getParameter("especial") == "1") ? true : false;
+
+        String emailUser = request.getParameter("email");
+        System.out.println(emailUser);
+        String passwordUser = request.getParameter("password");
+        System.out.println(emailUser);
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        String s_fecha_nacimiento = request.getParameter("fecha_nacimiento");
+        LocalDate fecha_nacimiento = null;
+    try {
+             fecha_nacimiento = LocalDate.parse(s_fecha_nacimiento);
+        }catch (Exception e){}
+
+        Boolean especial = request.getParameter("especial") == "1";
 
     //Caso 2.a: Hay parámetros -> procede de la VISTA
     if (emailUser != null) {
     //Se accede a bases de datos para obtener el usuario
 
         GestorUsuarios gestor = new GestorUsuarios();
-        //Asistente asis = new Asistente(0,name,surname,fecha_nacimiento,especial);
+        Asistente asis = new Asistente(0,name,surname,fecha_nacimiento,especial);
         //Se realizan todas las comprobaciones necesarias del dominio
         //Aquí sólo comprobamos que exista el usuario
-        if(false/*gestor.AñadirUsuarioAsistente(asis,emailUser,passwordUser)*/){
+        if(gestor.AñadirUsuarioAsistente(asis,emailUser,passwordUser)){
             //usuario valido
             nextPage = "../control/loginController.jsp";
             mensajeNextPage = "El usuario ha sido registrado de forma válida";

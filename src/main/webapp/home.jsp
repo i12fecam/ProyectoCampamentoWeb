@@ -16,8 +16,22 @@
 
 <body>
 
+<jsp:useBean  id="customerBean" scope="session" class="Interface.CustomerBean"></jsp:useBean>
+<%
+    if(customerBean == null){
+%>
+    <jsp:forward page="/mvc/control/loginController.jsp"></jsp:forward>
+<%
+    }else if(customerBean.isEsAdmin()){
+%>
+    <%@include file="include/menu.jsp"%>
+<%
+    }else{
+%>
+    <%@include file="include/menuUser.jsp"%>
+<% } %>
 
-<%@include file="include/menu.jsp"%>
+
 <div class="mainbody">
 
     <div class="main">
