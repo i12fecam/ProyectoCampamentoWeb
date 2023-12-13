@@ -12,8 +12,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Añadir asistente</a>
-                    <a href="#">Modificar asistente</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/altaAsistente.jsp">Añadir asistente</a>
                     <a href="${pageContext.request.contextPath}/mvc/view/visualizarAsistentes.jsp">Visualizar asistentes</a>
                 </div>
             </div>
