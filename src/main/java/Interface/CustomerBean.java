@@ -7,9 +7,9 @@ public class CustomerBean implements Serializable {
 
     private String emailUser = "";
 
-
-
     private boolean esAdmin;
+
+    private int idAsistente;
 
     public String getEmailUser() {
         return emailUser;
@@ -25,5 +25,13 @@ public class CustomerBean implements Serializable {
 
     public void setEsAdmin(boolean esAdmin) {
         this.esAdmin = esAdmin;
+    }
+
+    public int getIdAsistente() {
+        return idAsistente;
+    }
+
+    public void setIdAsistente(int idAsistente) {
+        this.idAsistente = idAsistente;
     }
 }

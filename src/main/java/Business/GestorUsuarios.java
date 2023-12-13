@@ -49,6 +49,10 @@ public class GestorUsuarios {
 
     }
 
+    public int devolverIdAsistente(String username){
+        return usuarioDAO.getIdAsistente(username);
+    }
+
     public static void main(String[] args){
         GestorUsuarios gestor = new GestorUsuarios();
 

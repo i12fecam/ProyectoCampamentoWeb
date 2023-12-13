@@ -51,7 +51,7 @@
     <br>
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Crear nuevo monitor</button>
-    <a href="../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 </form>
 </body>
 </html>

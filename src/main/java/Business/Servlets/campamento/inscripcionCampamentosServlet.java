@@ -1,4 +1,4 @@
-package Interface;
+package Business.Servlets.campamento;
 
 import Business.GestorCampamentos;
 import Business.GestorInscripciones;

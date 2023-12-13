@@ -12,8 +12,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/mvc/view/altaAsistente.jsp">Añadir asistente</a>
-                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarAsistentes.jsp">Visualizar asistentes</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asistente/altaAsistente.jsp">Añadir asistente</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asistente/visualizarAsistentes.jsp">Visualizar asistentes</a>
                 </div>
             </div>
 
@@ -22,8 +22,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/mvc/view/altaCampamentoView.jsp">Crear nuevo campamento</a>
-                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarCampamentos.jsp">Visualizar campamentos</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/campamento/altaCampamentoView.jsp">Crear nuevo campamento</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/campamento/visualizarCampamentos.jsp">Visualizar campamentos</a>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/mvc/view/altaMonitor.jsp">Añadir monitor</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/monitor/altaMonitor.jsp">Añadir monitor</a>
                     <a href="#">Visualizar monitores</a>
                 </div>
             </div>
@@ -42,8 +42,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/mvc/view/AltaActividad.jsp">Crear actividad</a>
-                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarActividades.jsp">Visualizar actividades</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/actividad/AltaActividad.jsp">Crear actividad</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/actividad/visualizarActividades.jsp">Visualizar actividades</a>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                     <a href="#">Asociar monitores a actividades</a>
                     <a href="#">Asociar monitor responsable a un campamento</a>
                     <a href="#">Asociar monitor de atención especial a un campamento</a>
-                    <a href="#">Asociar actividad a campamento</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asociar/asociarActividadCampamento.jsp">Asociar actividad a campamento</a>
                 </div>
             </div>
 

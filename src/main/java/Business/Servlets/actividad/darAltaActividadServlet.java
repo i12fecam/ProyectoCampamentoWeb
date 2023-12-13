@@ -1,4 +1,4 @@
-package Interface;
+package Business.Servlets.actividad;
 
 import Business.GestorCampamentos;
 import Data.DTO.Actividad;

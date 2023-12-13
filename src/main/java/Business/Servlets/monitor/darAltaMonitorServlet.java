@@ -1,4 +1,4 @@
-package Interface;
+package Business.Servlets.monitor;
 
 import Business.GestorCampamentos;
 import Data.DTO.Monitor;

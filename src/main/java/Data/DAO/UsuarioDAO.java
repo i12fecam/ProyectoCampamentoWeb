@@ -85,4 +85,20 @@ public class UsuarioDAO {
         return true;
 
     }
+
+    public int getIdAsistente(String username) {
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(prop.getSentente("get_id_asistente"));
+            ps.setString(1,username);
+            ResultSet rs =ps.executeQuery();
+            if(rs.next()){
+                return rs.getInt("fk");
+            }
+            return -1;
+        } catch (SQLException e) {
+            return -1;
+        }
+
+    }
 }

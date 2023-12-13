@@ -1,4 +1,4 @@
-package Interface;
+package Business.Servlets.asistente;
 
 import Business.GestorAsistentes;
 import Data.DTO.Asistente;
