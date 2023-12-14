@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class="text-center">
-<form  method="post" action="${pageContext.request.contextPath}/AltaMonitor">
+<form  method="post" action="${pageContext.request.contextPath}/monitor/AltaMonitor">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/usuario.png" alt="" width="70" height="70">
     <h1 class="h3 mb-3 font-weight-normal">Formulario para dar de alta a un monitor</h1>
     <br>

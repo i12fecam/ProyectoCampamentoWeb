@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 
-@WebServlet(name = "AltaMonitor", urlPatterns = "/AltaMonitor")
+@WebServlet(name = "AltaMonitor", urlPatterns = "/monitor/AltaMonitor")
 public class darAltaMonitorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
@@ -45,8 +45,8 @@ public class darAltaMonitorServlet extends HttpServlet {
 
 
         } catch (Exception e) {
-            disp = request.getRequestDispatcher("/mvc/view/AltaMonitor.jsp");
-            disp = request.getRequestDispatcher("/home.jsp");
+            disp = request.getRequestDispatcher("/mvc/view/monitor/AltaMonitor.jsp");
+            disp = request.getRequestDispatcher("home.jsp");
         }
         disp.forward(request, response);
     }
