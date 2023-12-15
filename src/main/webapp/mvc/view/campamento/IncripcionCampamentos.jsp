@@ -1,6 +1,3 @@
-<%@ page import="Business.GestorCampamentos" %>
-<%@ page import="Data.DTO.Campamento" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
@@ -15,54 +12,13 @@
 <html>
 <head>
     <title>Inscripcion a un campamento</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class = "text-center">
-<%
 
-    GestorCampamentos gestor = new GestorCampamentos();
-    ArrayList<Campamento> listaCampamentos = gestor.listarCampamentos();
-
-    Boolean campamentosMostrados = (Boolean) session.getAttribute("campamentosMostrados");
-
-    if (campamentosMostrados == null || !campamentosMostrados) {
-%>
-<table class="table">
-    <h2>Campamentos Disponibles:</h2>
-    <tr>
-        <th>ID</th>
-        <th>Fecha Incio</th>
-        <th>Fecha Fin</th>
-        <th>Nivel Educativo</th>
-        <th>Maximo de asistentes</th>
-        <th></th>
-    </tr>
-    <%for (Campamento campamentos: listaCampamentos) { %>
-    <tr>
-        <td><%= campamentos.getIdCampamento() %></td>
-        <td><%=campamentos.getFechaInicio()%></td>
-        <td><%=campamentos.getFechaFinal()%></td>
-        <td><%=campamentos.getNivelEducativo().toString() %></td>
-        <td><%=campamentos.getMaxAsistentes() %></td>
-        <td>  <form method="get" action="${pageContext.request.contextPath}/Inscripcion">
-
-            <input type="hidden" name="campamentoId" value="<%= campamentos.getIdCampamento() %>">
-            <button type="submit">Inscribirse</button>
-        </form>
-        </td>
-    </tr>
-    <% } %>
-</table>
-<%
-        session.setAttribute("campamentosMostrados", true);
-    }
-%>
 <form method="post" action="${pageContext.request.contextPath}/Inscripcion">
 <%
     LocalDate fechaActual = LocalDate.now();
-    SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-    String fechaFormateada = sdf.format(new Date());
 %>
     <h1 class="h3 mb-3 font-weight-normal">Formulario de inscripcion</h1>
     <!--Id del campamento seleccionado-->
@@ -77,7 +33,7 @@
     <!--Fecha de inscripcion-->
     <div>
         <label for="fecha">Fecha de Inscripcion:</label>
-        <input type="date" id="fecha" name="fecha"  value ="<%=fechaFormateada%>" readonly>
+        <input type="date" id="fecha" name="fecha"  value ="<%=fechaActual%>" readonly>
     </div>
 
     <!--Horario-->
@@ -95,3 +51,5 @@
 </form>
 </body>
 </html>
+
+//Cambio para que cuando le den a cancelar vuelvan a los campamentos?

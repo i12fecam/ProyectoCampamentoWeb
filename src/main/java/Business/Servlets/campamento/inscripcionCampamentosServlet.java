@@ -10,7 +10,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -20,12 +19,10 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException, ServletException {
-        String campamentoId = request.getParameter("campamentoId");
+        String campamentoId = request.getParameter("campamento");
         request.setAttribute("campamentoId", campamentoId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/InscripcionCampamentos.jsp");
         dispatcher.forward(request, response);
-        HttpSession session = request.getSession();
-        session.setAttribute("campamentosMostrados", true);
     }
 
     public void doPost(HttpServletRequest request,
@@ -49,7 +46,7 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
             request.setAttribute("error_message", "Hubo un problema al crear la inscripción: " + e.getMessage());
 
-            RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/altaCampamentoView.jsp");
+            RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/campamento/InscripcionCampamentos.jsp");
             disp.forward(request, response);
         }
 
