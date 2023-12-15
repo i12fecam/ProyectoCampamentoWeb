@@ -26,11 +26,12 @@
             <th>Nivel Educativo</th>
             <th>Horario</th>
             <th>Máximo de asistentes</th>
-            <th>Máximo de monitores</th>
+            <th>Monitores necesarios</th>
         </tr>
         <%for (Actividad actividad: actividades) { %>
             <tr>
                 <td><%= actividad.getIdentificador() %></td>
+                <td><%= actividad.getNombre() %></td>
                 <td><%=actividad.getNivelEducativo().toString() %></td>
                 <td><%=actividad.getHorario() %></td>
                 <td><%=actividad.getMaxParticipantes() %></td>

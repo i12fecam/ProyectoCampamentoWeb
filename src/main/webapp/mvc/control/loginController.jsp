@@ -46,6 +46,7 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
                     }else{
 %>
                         <jsp:setProperty property="esAdmin" value="false" name="customerBean"/>
+                        <jsp:setProperty property="idAsistente" value= "<%=gestor.devolverIdAsistente(emailUser)%>" name="customerBean"/>
 <%
                     }
 %>

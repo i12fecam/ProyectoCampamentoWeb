@@ -92,13 +92,20 @@ public class GestorCampamentos implements Serializable {
      * @param idActividad Id de la actividad que se quiere asociar al campamento
      * @param idCampamento Id del campamento al que se quiere asociar la actividad
      */
-    public void asociarActividadCampamento(int idCampamento,int idActividad){
+    public boolean asociarActividadCampamento(int idCampamento,int idActividad){
 
         Actividad act=campamentoDAO.devolverActividad(idActividad);
         Campamento campament=campamentoDAO.devolverCampamento(idCampamento);
         if(act.getNivelEducativo()==campament.getNivelEducativo()) {
-            campamentoDAO.asociar_actividad(idActividad, idCampamento);
+            try {
+                campamentoDAO.asociar_actividad(idActividad, idCampamento);
+            }catch (Exception e){
+                return false;
+            }
+
+            return true;
         }
+        return false;
     }
 
     /**

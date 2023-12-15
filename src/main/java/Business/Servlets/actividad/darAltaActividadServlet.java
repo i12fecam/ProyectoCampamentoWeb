@@ -47,9 +47,9 @@ public class darAltaActividadServlet extends HttpServlet {
             GestorCampamentos gestorCampamentos = new GestorCampamentos();
             gestorCampamentos.crearActividad(actividad);
         }catch(Exception e){
-                disp = request.getRequestDispatcher("/mvc/view/AltaActividad.jsp");
+                disp = request.getRequestDispatcher("/error.jsp");
             }
-        disp = request.getRequestDispatcher("/home.jsp");
+        disp = request.getRequestDispatcher("/exito.jsp");
         disp.forward(request, response);
     }
 }

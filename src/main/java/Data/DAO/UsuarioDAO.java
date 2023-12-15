@@ -93,7 +93,7 @@ public class UsuarioDAO {
             ps.setString(1,username);
             ResultSet rs =ps.executeQuery();
             if(rs.next()){
-                return rs.getInt("fk");
+                return rs.getInt("fk_asistente");
             }
             return -1;
         } catch (SQLException e) {
@@ -101,4 +101,5 @@ public class UsuarioDAO {
         }
 
     }
+    
 }
