@@ -1,46 +1,48 @@
-<%@ page import="Business.GestorAsistentes" %>
-<%@ page import="Data.DTO.Asistente" %>
+<%@ page import="Business.GestorCampamentos" %>
+<%@ page import="Data.DTO.Monitor" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.time.LocalDate" %>
 <%--
   Created by IntelliJ IDEA.
   User: Quinte01
-  Date: 12/12/2023
-  Time: 18:07
+  Date: 15/12/2023
+  Time: 22:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Modificar asistente</title>
+    <title>Alta Monitor</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class="text-center">
+
 <%
     String id= request.getParameter("id");
-    GestorAsistentes gestor = new GestorAsistentes();
-    ArrayList< Asistente > asistentes = gestor.listarAsistentes();
+    GestorCampamentos gestor = new GestorCampamentos();
+    ArrayList<Monitor> monitores = gestor.listarMonitores();
     String nombre = "";
     String apellidos = "";
     LocalDate fecha = null;
     String especial = "";
-    for (Asistente asistente: asistentes) {
-    String id2= String.valueOf( asistente.getIdentificador());
-    if(id2.equals(id)) {
-        nombre = asistente.getNombre();
-        apellidos = asistente.getApellidos();
-        fecha = asistente.getFechaNacimiento();
-        especial= asistente.isAtencionEspecial() ? "Si" : "No";
-    }}
+    for (Monitor monitor: monitores) {
+        String id2= String.valueOf( monitor.getIdentificador());
+        if(id2.equals(id)) {
+            nombre = monitor.getNombre();
+            apellidos = monitor.getApellidos();
+            fecha = monitor.getFechaNacimiento();
+            especial= monitor.isEducadorEspecial() ? "Si" : "No";
+        }}
 %>
-<form  method="post" action="${pageContext.request.contextPath}/ModificarAsistente">
+
+<form  method="post" action="${pageContext.request.contextPath}/ModificarMonitor">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/usuario.png" alt="" width="70" height="70">
-    <h1 class="h3 mb-3 font-weight-normal">Actualizar Asistente</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Actualizar Monitor</h1>
     <br>
     <hr>
     <br>
     <!-- ID Asistente (hidden input) -->
-    <input type="hidden" name="idAsistente" value="<%= id %>">
+    <input type="hidden" name="idMonitor" value="<%= id %>">
 
     <!-- Nombre -->
     <div class="form-outline mb-4">
@@ -58,7 +60,7 @@
     <br>
     <!-- Fecha de nacimiento-->
     <div class="form-outline mb-4">
-        <label for="fecha_nacimiento"  >Fecha de nacimiento:</label>
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" name="fecha_nacimiento" required id="fecha_nacimiento" placeholder="Fecha Nacimiento" value="<%=fecha%>" class="form-control" />
     </div>
     <br>

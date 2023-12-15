@@ -31,3 +31,27 @@ tr:nth-child(odd) {
 tr:hover {
     background-color: #6c757d
 }
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-modificar {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.btn-modificar:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}

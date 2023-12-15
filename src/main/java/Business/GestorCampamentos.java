@@ -213,6 +213,22 @@ public class GestorCampamentos implements Serializable {
 
         }
     }
+
+    public ArrayList<Monitor> listarMonitores(){
+        return campamentoDAO.listarMonitores();
+    }
+
+    public void ModificarMonitor(Monitor monitor) {
+
+        if (monitor == null) {
+            System.out.println("El monitor es nulo.");
+
+        }else {
+            campamentoDAO.modificarMonitor(monitor);
+        }
+    }
+
+
     /**
      * Imprime en la consola una representación en cadena de los objetos Actividad almacenados en la lista "actividades".
      * Este método itera a través de la lista de objetos Actividad almacenados en el atributo "actividades" e imprime

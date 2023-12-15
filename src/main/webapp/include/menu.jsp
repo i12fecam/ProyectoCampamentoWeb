@@ -33,7 +33,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/mvc/view/monitor/altaMonitor.jsp">Añadir monitor</a>
-                    <a href="#">Visualizar monitores</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/monitor/visualizarMonitor.jsp">Visualizar monitores</a>
                 </div>
             </div>
 

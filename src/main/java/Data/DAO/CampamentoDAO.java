@@ -91,6 +91,29 @@ public class CampamentoDAO {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Metodo para modificcar un monitor en la base de datos
+     * @param monitor Monitor que se desea modificar
+     * @throws RuntimeException Si hay algun error de conexion con la base de datos
+     */
+    public void modificarMonitor(Monitor monitor) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("update_Monitor"));
+
+            ps.setString(1, monitor.getNombre());
+            ps.setDate(2, Date.valueOf(monitor.getFechaNacimiento()));
+            ps.setInt(3, monitor.isEducadorEspecial() ? 1 : 0);
+            ps.setString(4, monitor.getApellidos());
+            ps.setInt(5, monitor.getIdentificador());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     /**
      * Asocia un monitor a una actividad en la base de datos.
      *
