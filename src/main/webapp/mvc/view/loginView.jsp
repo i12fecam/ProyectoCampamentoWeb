@@ -33,7 +33,7 @@
     <br>
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesion</button>
+    <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
 
     <!-- Register button -->
     <div class="text-center">

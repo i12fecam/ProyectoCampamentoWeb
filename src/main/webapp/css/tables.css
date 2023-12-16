@@ -46,6 +46,13 @@ tr:hover {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.btn-link {
+    font-weight: 400;
+    color: #007bff;
+    text-decoration: none;
+    transition: color .15s ease-in-out;
+}
+
 .btn-modificar {
     background-color: #28a745;
     border: 1px solid #28a745;
@@ -54,4 +61,28 @@ tr:hover {
 .btn-modificar:hover {
     background-color: #218838;
     border-color: #1e7e34;
+}
+
+.btn-confirmar {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-confirmar:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.centrar {
+    text-align: center;
 }
