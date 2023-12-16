@@ -1,8 +1,6 @@
 package Business.Servlets.campamento;
-
-import Business.GestorCampamentos;
 import Business.GestorInscripciones;
-import Data.DTO.Inscripcion;
+import Interface.CustomerBean;
 import Data.Horario;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -27,29 +25,34 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
-        Inscripcion inscripcion = new Inscripcion();
 
-        //Parametros
-        Integer idcampamento = Integer.parseInt(request.getParameter("campamento"));
-        LocalDate fechaInscripcion = LocalDate.parse(request.getParameter("fecha"));
-        //falta el id
-        Horario horario = Horario.valueOf(request.getParameter("horario"));
+        HttpSession session = request.getSession();
+        CustomerBean customerBean = (CustomerBean) session.getAttribute("customerBean");
 
-        try{
-            GestorInscripciones gestorInscripciones = new GestorInscripciones();
-            gestorInscripciones.crearInscripcion(1, idcampamento, fechaInscripcion, horario);
+        if (customerBean != null) {
 
-            RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
-            disp.forward(request, response);
+            //Parametros
+            Integer idcampamento = Integer.parseInt(request.getParameter("campamento"));
+            LocalDate fechaInscripcion = LocalDate.parse(request.getParameter("fecha"));
+            int idAsistente = customerBean.getIdAsistente();
+            Horario horario = Horario.valueOf(request.getParameter("horario"));
 
-        }catch (Exception e){
+            try {
+                GestorInscripciones gestorInscripciones = new GestorInscripciones();
+                gestorInscripciones.crearInscripcion(idAsistente, idcampamento, fechaInscripcion, horario);
 
-            request.setAttribute("error_message", "Hubo un problema al crear la inscripción: " + e.getMessage());
+                RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
+                disp.forward(request, response);
 
-            RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/campamento/InscripcionCampamentos.jsp");
-            disp.forward(request, response);
+            } catch (Exception e) {
+
+                request.setAttribute("error_message", "Hubo un problema al crear la inscripción: " + e.getMessage());
+
+                RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/campamento/InscripcionCampamentos.jsp");
+                disp.forward(request, response);
+            }
+
         }
-
     }
 
 }

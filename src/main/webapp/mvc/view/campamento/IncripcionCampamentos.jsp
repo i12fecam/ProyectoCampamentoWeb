@@ -25,9 +25,6 @@
          <input type="number" id="campamento" name="campamento" value="<%= request.getParameter("campamentoId") %>" readonly>
     </div>
 
-    <!--Id del participante -->
-    //No se me ocurre como poner el id del participante
-
     <!--Fecha de inscripcion-->
     <div>
         <label for="fecha">Fecha de Inscripcion:</label>
