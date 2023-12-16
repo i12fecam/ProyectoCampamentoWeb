@@ -12,9 +12,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Añadir asistente</a>
-                    <a href="#">Modificar asistente</a>
-                    <a href="#">Visualizar asistentes</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asistente/altaAsistente.jsp">Añadir asistente</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asistente/visualizarAsistentes.jsp">Visualizar asistentes</a>
                 </div>
             </div>
 
@@ -43,8 +42,8 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/mvc/view/AltaActividad.jsp">Crear actividad</a>
-                    <a href="${pageContext.request.contextPath}/mvc/view/visualizarActividades.jsp">Visualizar actividades</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/actividad/AltaActividad.jsp">Crear actividad</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/actividad/visualizarActividades.jsp">Visualizar actividades</a>
                 </div>
             </div>
 
@@ -56,18 +55,11 @@
                     <a href="#">Asociar monitores a actividades</a>
                     <a href="#">Asociar monitor responsable a un campamento</a>
                     <a href="#">Asociar monitor de atención especial a un campamento</a>
-                    <a href="#">Asociar actividad a campamento</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asociar/asociarActividadCampamento.jsp">Asociar actividad a campamento</a>
                 </div>
             </div>
 
-            <a href="mvc/control/disconnectController.jsp" style="float:right">Desconectarse</a>
+            <a href="${pageContext.request.contextPath}/mvc/control/disconnectController.jsp" style="float:right">Desconectarse</a>
             <a href="http://localhost:8080/change_user_data " style="float:right">Cambiar datos</a>
 
         </div>
-        <!--
-        <ul title="Selección de asistentes">
-            <li>Consultar campamentos disponibles</li>
-            <li>Consultar inscripciones</li>
-        </ul>
-
-        -->

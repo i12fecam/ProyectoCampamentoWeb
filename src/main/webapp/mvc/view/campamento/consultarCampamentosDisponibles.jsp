@@ -32,9 +32,10 @@
 
     </div>
     <br />
+    <div class="text-center">
     <button type="submit" class="btn btn-primary btn-block mb-4">Buscar</button>
     <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    </div>
 </form>
-
 </body>
 </html>
