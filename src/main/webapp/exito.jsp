@@ -23,7 +23,7 @@
 <script>
   function redirigirASitio() {
     // Cambia la URL a la que quieres redirigir
-    window.location.href = 'home.jsp';
+    window.location.href = "home.jsp";
   }
 </script>
 </body>

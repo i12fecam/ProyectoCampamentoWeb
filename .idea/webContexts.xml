@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/mvc/view/altaMonitor.jsp" value="file://$PROJECT_DIR$/src/main/webapp/mvc/view" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/mvc/view/altaMonitorView.jsp" value="file://$PROJECT_DIR$/src/main/webapp/mvc/view" />
+      </map>
+    </option>
+  </component>
+</project>

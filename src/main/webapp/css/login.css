@@ -209,3 +209,15 @@ body {
 
 }
 
+.button:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón sobre el botón */
+}
+.image-container {
+    text-align: center;
+}
+
+img {
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Borde redondeado para la imagen */
+}
