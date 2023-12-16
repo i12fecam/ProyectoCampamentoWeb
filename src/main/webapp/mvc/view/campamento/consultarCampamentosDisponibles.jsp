@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-<form  method="post" action="${pageContext.request.contextPath}/monitor/AltaMonitor">
+<form  method="post" action="${pageContext.request.contextPath}/CampamentosDisponibles">
     <div class="image-container">
         <img class="mb-4" src="${pageContext.request.contextPath}/images/campamentosDisponibles.jpg" alt="Imagen decorativa campamento" width="120" height="120">
     </div>
@@ -33,6 +33,7 @@
     </div>
     <br />
     <button type="submit" class="btn btn-primary btn-block mb-4">Buscar</button>
+    <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 </form>
 
 </body>
