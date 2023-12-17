@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body class="text-center">
-<form  method="post" action="mvc/control/loginController.jsp">
+<form  method="post" action="${pageContext.request.contextPath}/mvc/control/loginController.jsp">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/summer-camp.jpg" alt="" width="120" height="120">
     <h1 class="h3 mb-3 font-weight-normal">Login </h1>
     <!-- Email -->
@@ -37,7 +37,7 @@
 
     <!-- Register button -->
     <div class="text-center">
-        <p>¿No estas registrado? <a href="mvc/control/registerController.jsp">Registrarse</a></p>
+        <p>¿No estas registrado? <a href="${pageContext.request.contextPath}/mvc/control/registerController.jsp">Registrarse</a></p>
     </div>
 </form>
 </body>

@@ -41,7 +41,7 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
                     if(tipo == TipoUsuario.administrador){
 %>
                         <jsp:setProperty property="esAdmin" value="true" name="customerBean"/>
-%>
+
 <%
                     }else{
 %>
@@ -52,11 +52,11 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
 %>
                     <jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
 <%
-                    nextPage = "../../home.jsp";
+                    nextPage = "/home.jsp";
                     mensajeNextPage = "El usuario ha sido válido";
                 } else {
                     // Usuario no válido
-                    nextPage = "../view/loginView.jsp";
+                    nextPage = "/mvc/view/loginView.jsp";
                     mensajeNextPage = "El usuario que ha indicado no existe o no es v&aacute;lido";
                 }
         //Caso 2.b -> se debe ir a la vista por primera vez

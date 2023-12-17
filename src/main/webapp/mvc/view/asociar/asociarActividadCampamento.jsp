@@ -74,9 +74,10 @@
             <%}%>
           </table>
       </div>
-
-      <button type="submit" class="btn btn-primary btn-block mb-4">Asociar</button>
+    <div class="centrar">
+      <button type="submit" class="btn btn-confirmar">Asociar</button>
       <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    </div>
   </form>
 </body>
 </html>

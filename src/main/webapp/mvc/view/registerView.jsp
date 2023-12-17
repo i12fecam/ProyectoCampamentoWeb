@@ -63,7 +63,7 @@
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
-    <a href="../../index.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    <a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 
 </form>
 </body>
