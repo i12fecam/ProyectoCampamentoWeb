@@ -54,7 +54,7 @@ public class CampamentoDAO {
     /**
      * Este método inserta en la base de datos una nueva actividad
      * @param actividad Actividad que se quiere añadir
-     * @throws  RuntimeException Si hay un error de conexion con la base de datos
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
     public void crearActividad(Actividad actividad) {
         try {
@@ -135,8 +135,8 @@ public class CampamentoDAO {
     /**
      * Asocia una actividad a un campamento en la base de datos.
      *
-     * @param id_actividad   El ID de la actividad a asociar.
-     * @param id_campamento  El ID del campamento al que se asociará la actividad.
+     * @param id_actividad  El ID de la actividad a asociar.
+     * @param id_campamento El ID del campamento al que se asociará la actividad.
      * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
     public void asociar_actividad(int id_actividad, int id_campamento) {
@@ -144,8 +144,8 @@ public class CampamentoDAO {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_actividad_campamento"));
             ps.setInt(1, id_campamento);
             ps.setInt(2, id_actividad);
-            
-             int status = ps.executeUpdate();
+
+            int status = ps.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -154,18 +154,18 @@ public class CampamentoDAO {
     /**
      * Asigna un monitor como responsable de un campamento en la base de datos.
      *
-     * @param idMonitor      El ID del monitor que se asignará como responsable.
-     * @param idCampamento   El ID del campamento al que se asignará el monitor como responsable.
+     * @param idMonitor    El ID del monitor que se asignará como responsable.
+     * @param idCampamento El ID del campamento al que se asignará el monitor como responsable.
      * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public void asignar_monitor_responsable(int idMonitor, int idCampamento){
-        try{
-            PreparedStatement ps = con. prepareStatement(prop.getSentente("update_monitorResponsable"));
-            ps.setInt(1,idMonitor);
-            ps.setInt(2,idCampamento);
+    public void asignar_monitor_responsable(int idMonitor, int idCampamento) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("update_monitorResponsable"));
+            ps.setInt(1, idMonitor);
+            ps.setInt(2, idCampamento);
             int status = ps.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -177,7 +177,7 @@ public class CampamentoDAO {
      * @throws RuntimeException Si hay un error de conexion con la base de datos.
      */
 
-    public void asignar_monitor_especial(int idMonitor, int idCampamento){
+    public void asignar_monitor_especial(int idMonitor, int idCampamento) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("update_monitorEspecial"));
             ps.setInt(1,idMonitor);
@@ -217,7 +217,7 @@ public class CampamentoDAO {
      * @return número de actividades del campamento exclusivamente parciales
      * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public int getNumActividadesParciales(int idCampamento){
+    public int getNumActividadesParciales(int idCampamento) {
         int nActividades = -1;
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_n_actividades_parciales"));
@@ -228,13 +228,13 @@ public class CampamentoDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return  nActividades;
+        return nActividades;
     }
 
     /**
      * Metodo para listar todos los campamentos que son incribibles.
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
      * @return Devuelve un vector con todos los camapamentos en los que se pueden inscribir en esa fecha
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
     public ArrayList<Campamento> getCampamentosInscribibles() {
         try {
@@ -272,14 +272,15 @@ public class CampamentoDAO {
     /**
      * Metodo para extraer las caracteristicas de una actividad de la base de datos
      * dado un id de una actividad.
+     *
      * @param idActividad Id de la actividad que queremos extraer la informacion.
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
      * @return Retorna la informacion de dicha actividad.
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
     public Actividad devolverActividad(int idActividad) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_actividad_id"));
-            ps.setInt(1,idActividad);
+            ps.setInt(1, idActividad);
             ResultSet rs = ps.executeQuery();
             Actividad act = new Actividad();
             rs.next();
@@ -306,7 +307,7 @@ public class CampamentoDAO {
             return act;
 
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -318,13 +319,13 @@ public class CampamentoDAO {
      * @return Lista con los monitores que hay asociados a una actividad
      * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public List<Monitor> DevolverMonitores_Actividad(int idActividad){
-        try{
+    public List<Monitor> DevolverMonitores_Actividad(int idActividad) {
+        try {
             List<Monitor> monitores = new ArrayList<>();
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));
-            ps.setInt(1,idActividad);
+            ps.setInt(1, idActividad);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 Monitor monitor = new Monitor();
                 monitor.setIdentificador(rs.getInt("id_monitor"));
                 monitor.setNombre(rs.getString("nombre"));
@@ -334,7 +335,7 @@ public class CampamentoDAO {
                 monitores.add(monitor);
             }
             return monitores;
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
 
         }
@@ -345,25 +346,23 @@ public class CampamentoDAO {
      * Metodo para extraer las caracteristicas de un campamento de la base de datos
      * dado su identificador.
      * @param idCampamento Id del campamento del que se quiere extraer la informacion.
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
      * @return Devuelve la informacion de dicho campamento.
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public Campamento devolverCampamento(int idCampamento){
+    public Campamento devolverCampamento(int idCampamento) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_campamento_id"));
-            ps.setInt(1,idCampamento);
+            ps.setInt(1, idCampamento);
             ResultSet rs = ps.executeQuery();
-            Campamento camp=new Campamento();
+            Campamento camp = new Campamento();
             rs.next();
             String n = rs.getString("nivel_educativo");
-            if( n.equals("infantil")){
+            if (n.equals("infantil")) {
                 camp.setNivelEducativo(NivelEducativo.Infantil);
-            }
-            else{
-                if(n.equals("juvenil")){
+            } else {
+                if (n.equals("juvenil")) {
                     camp.setNivelEducativo(NivelEducativo.Juvenil);
-                }
-                else if(n.equals("adolescente")){
+                } else if (n.equals("adolescente")) {
                     camp.setNivelEducativo(NivelEducativo.Adolescente);
                 }
             }
@@ -372,23 +371,24 @@ public class CampamentoDAO {
             camp.setFechaFinal(rs.getDate("fecha_final").toLocalDate());
             camp.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
             return camp;
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     /**
      * Metodo para extraer informacion de un monitor de la base de datos dado su identificador.
+     *
      * @param idMonitor Id del monitor del que se quiere extraer la informacion.
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
      * @return Devuelve la informacion de dicho monitor.
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public Monitor devolverMonitor(int idMonitor){
+    public Monitor devolverMonitor(int idMonitor) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_monitor_id"));
-            ps.setInt(1,idMonitor);
+            ps.setInt(1, idMonitor);
             ResultSet rs = ps.executeQuery();
-            Monitor mon=new Monitor();
+            Monitor mon = new Monitor();
             rs.next();
             mon.setNombre(rs.getString("nombre"));
             mon.setIdentificador(rs.getInt("id_monitor"));
@@ -397,16 +397,17 @@ public class CampamentoDAO {
             mon.setApellidos(rs.getString("apellidos"));//Cambiar
 
             return mon;
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     /**
      * Metodo para listar todos los campamentos que existen en la base de datos
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
+     *
      * @return Devuelve una lista con toda la informacion de todos los campamentos que existen en
-     *         la base de datos.
+     * la base de datos.
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
 
     public ArrayList<Campamento> listarCampamentos() {
@@ -421,14 +422,12 @@ public class CampamentoDAO {
                 campamento.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
                 campamento.setFechaFinal(rs.getDate("fecha_final").toLocalDate());
                 String n = rs.getString("nivel_educativo");
-                if( n.equals("Infantil")){
+                if (n.equals("Infantil")) {
                     campamento.setNivelEducativo(NivelEducativo.Infantil);
-                }
-                else{
-                    if(n.equals("Juvenil")){
+                } else {
+                    if (n.equals("Juvenil")) {
                         campamento.setNivelEducativo(NivelEducativo.Juvenil);
-                    }
-                    else if(n.equals("Adolescente")){
+                    } else if (n.equals("Adolescente")) {
                         campamento.setNivelEducativo(NivelEducativo.Adolescente);
                     }
                 }
@@ -444,35 +443,33 @@ public class CampamentoDAO {
 
     /**
      * Metodo para listar todas las actividades que existen en la base de datos
-     * @throws RuntimeException Si hay un error de conexion con la base de datos
+     *
      * @return Devuelve una lista con la informacion de todas las actividades que existen en la
-     *         base de datos.
+     * base de datos.
+     * @throws RuntimeException Si hay un error de conexion con la base de datos
      */
-    public ArrayList<Actividad> listarActividad(){
+    public ArrayList<Actividad> listarActividad() {
         ArrayList<Actividad> listaActividades = new ArrayList<>();
-        try{
+        try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_all_Actividades"));
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Actividad actividad =  new Actividad();
+            while (rs.next()) {
+                Actividad actividad = new Actividad();
                 actividad.setNombre(rs.getString("nombre"));
                 String n = rs.getString("nivel_educativo");
-                if( n.equals("Infantil")){
+                if (n.equals("Infantil")) {
                     actividad.setNivelEducativo(NivelEducativo.Infantil);
-                }
-                else{
-                    if(n.equals("Juvenil")){
+                } else {
+                    if (n.equals("Juvenil")) {
                         actividad.setNivelEducativo(NivelEducativo.Juvenil);
-                    }
-                    else if(n.equals("Adolescente")){
+                    } else if (n.equals("Adolescente")) {
                         actividad.setNivelEducativo(NivelEducativo.Adolescente);
                     }
                 }
                 String h = rs.getString("horario");
-                if( h.equals("parcial")){
+                if (h.equals("parcial")) {
                     actividad.setHorario(Horario.Parcial);
-                }
-                else{
+                } else {
                     actividad.setHorario(Horario.Completo);
                 }
                 actividad.setMaxParticipantes(rs.getInt("max_participantes"));
@@ -480,7 +477,7 @@ public class CampamentoDAO {
                 actividad.setIdentificador(rs.getInt("id_actividad"));
                 listaActividades.add(actividad);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return listaActividades;
@@ -490,15 +487,15 @@ public class CampamentoDAO {
      * Metodo para listar todos los monitores que exiten en la base de datos
      * @throws RuntimeException Si hay un error de conexion con la base de datos
      * @return Devuelve una lista con toda la informacion de todos los monitores existentes en la
-     *         base de datos.
+     * base de datos.
      */
-    public ArrayList<Monitor> listarMonitores(){
+    public ArrayList<Monitor> listarMonitores() {
         ArrayList<Monitor> listaMonitores = new ArrayList<>();
         try{
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_all_Monitores"));
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Monitor monitor =  new Monitor();
+                Monitor monitor = new Monitor();
                 monitor.setNombre(rs.getString("nombre"));
                 monitor.setApellidos(rs.getString("apellidos"));
                 monitor.setIdentificador(rs.getInt("id_monitor"));
@@ -552,31 +549,28 @@ public class CampamentoDAO {
                 actividad.setMaxParticipantes(rs.getInt("max_participantes"));
                 actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));
                 String n = rs.getString("nivel_educativo");
-                if( n.equals("Infantil")){
+                if (n.equals("Infantil")) {
                     actividad.setNivelEducativo(NivelEducativo.Infantil);
-                }
-                else{
-                    if(n.equals("Juvenil")){
+                } else {
+                    if (n.equals("Juvenil")) {
                         actividad.setNivelEducativo(NivelEducativo.Juvenil);
-                    }
-                    else if(n.equals("Adolescente")){
+                    } else if (n.equals("Adolescente")) {
                         actividad.setNivelEducativo(NivelEducativo.Adolescente);
                     }
                 }
                 String h = rs.getString("horario");
-                if( h.equals("parcial")){
+                if (h.equals("parcial")) {
                     actividad.setHorario(Horario.Parcial);
-                }
-                else{
+                } else {
                     actividad.setHorario(Horario.Completo);
                 }
 
                 PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));
-                ls.setInt(1,actividad.getIdentificador());
+                ls.setInt(1, actividad.getIdentificador());
                 ResultSet ss = ls.executeQuery();
-                ArrayList<Monitor> Monitores=new ArrayList<>();
-                while(ss.next()) {
-                    Monitor monitor=new Monitor();
+                ArrayList<Monitor> Monitores = new ArrayList<>();
+                while (ss.next()) {
+                    Monitor monitor = new Monitor();
                     monitor.setApellidos(ss.getString(3));
                     monitor.setFechaNacimiento(ss.getDate(4).toLocalDate());
                     monitor.setNombre(ss.getString(2));
@@ -588,10 +582,58 @@ public class CampamentoDAO {
                 actividades.add(actividad);
             }
             return actividades;
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+
+    public List<Actividad> DevolverActividades_Campamento2(int idCampamento) {
+        List<Actividad> actividades = new ArrayList<>();
+
+        try (PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Campamentos_Actividades_id2"))) {
+            ps.setInt(1, idCampamento);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Actividad actividad = new Actividad();
+                    actividad.setIdentificador(rs.getInt("id_actividad"));
+                    actividad.setNombre(rs.getString("nombre"));
+                    actividad.setMaxParticipantes(rs.getInt("max_participantes"));
+                    actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));
+
+                    // Resto de la configuración de la actividad...
+
+                    actividades.add(actividad);
+                }
+            }
+        } catch (SQLException e) {
+            // Manejar la excepción según sea necesario
+            throw new RuntimeException(e);
+        }
+
+        return actividades;
+    }
+
+    public List<Monitor> DevolverMonitores_Actividad2(int idActividad) {
+        try {
+            List<Monitor> monitores = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id2"));
+            ps.setInt(1, idActividad);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Monitor monitor = new Monitor();
+                monitor.setIdentificador(rs.getInt("id_monitor"));
+                monitor.setNombre(rs.getString("nombre"));
+                monitor.setApellidos(rs.getString("apellidos"));
+                monitor.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+                monitor.setEducadorEspecial(rs.getBoolean("especial"));
+                monitores.add(monitor);
+            }
+            return monitores;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+    }
 }
-
-
