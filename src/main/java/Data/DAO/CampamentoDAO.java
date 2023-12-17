@@ -321,12 +321,16 @@ public class CampamentoDAO {
     public List<Monitor> DevolverMonitores_Actividad(int idActividad){
         try{
             List<Monitor> monitores = new ArrayList<>();
-            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_MonitoresDeActividad_id"));
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));
             ps.setInt(1,idActividad);
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 Monitor monitor = new Monitor();
-                monitor.setIdentificador(rs.getInt("fk_monitor"));
+                monitor.setIdentificador(rs.getInt("id_monitor"));
+                monitor.setNombre(rs.getString("nombre"));
+                monitor.setApellidos(rs.getString("apellidos"));
+                monitor.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
+                monitor.setEducadorEspecial(rs.getBoolean("especial"));
                 monitores.add(monitor);
             }
             return monitores;
@@ -542,7 +546,31 @@ public class CampamentoDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 Actividad actividad = new Actividad();
-                actividad.setIdentificador(rs.getInt("fk_actividad"));
+
+                actividad.setIdentificador(rs.getInt("id_actividad"));
+                actividad.setNombre(rs.getString("nombre"));
+                actividad.setMaxParticipantes(rs.getInt("max_participantes"));
+                actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));
+                String n = rs.getString("nivel_educativo");
+                if( n.equals("Infantil")){
+                    actividad.setNivelEducativo(NivelEducativo.Infantil);
+                }
+                else{
+                    if(n.equals("Juvenil")){
+                        actividad.setNivelEducativo(NivelEducativo.Juvenil);
+                    }
+                    else if(n.equals("Adolescente")){
+                        actividad.setNivelEducativo(NivelEducativo.Adolescente);
+                    }
+                }
+                String h = rs.getString("horario");
+                if( h.equals("parcial")){
+                    actividad.setHorario(Horario.Parcial);
+                }
+                else{
+                    actividad.setHorario(Horario.Completo);
+                }
+
                 PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));
                 ls.setInt(1,actividad.getIdentificador());
                 ResultSet ss = ls.executeQuery();
