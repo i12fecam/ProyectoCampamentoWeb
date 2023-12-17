@@ -118,8 +118,8 @@ public class GestorCampamentos implements Serializable {
             List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
             for (Actividad actividad : actividades) {
                 int id_actividad = actividad.getIdentificador();
-                List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(id_actividad);
-                for (Monitor monitor : monitores_activdad) {
+                List<Monitor> monitores_actividad = campamentoDAO.DevolverMonitores_Actividad(id_actividad);
+                for (Monitor monitor : monitores_actividad) {
                     if (idMonitor == monitor.getIdentificador()) {
                         campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
                     }

@@ -12,7 +12,6 @@
 <html>
 <head>
     <title>Visualizar asistentes</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <%
@@ -41,5 +40,8 @@
     </tr>
     <% } %>
 </table>
+<div class="centrar">
+    <a href="../../../home.jsp" class="btn btn-modificar mb-4 home-link" >Volver al home</a>
+</div>
 </body>
 </html>

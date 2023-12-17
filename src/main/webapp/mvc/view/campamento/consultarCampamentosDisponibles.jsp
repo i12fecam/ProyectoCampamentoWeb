@@ -16,18 +16,18 @@
     <div class="image-container">
         <img class="mb-4" src="${pageContext.request.contextPath}/images/campamentosDisponibles.jpg" alt="Imagen decorativa campamento" width="120" height="120">
     </div>
-    <h1 class="h3 mb-3 font-weight-normal">Formulario para buscar campamentos disponibles</h1>
+    <h1 class="h3 mb-3 font-weight-normal text-center">Campamentos disponibles</h1>
     <br>
     <hr>
     <br>
     <!-- Fecha de nacimiento-->
     <div class="form-outline mb-4">
-        <label for="fecha_buscar">Selecciona la fecha a partir de la cual buscar campamentos disponibles:</label>
+        <label for="fecha_buscar">Fecha Inicial</label>
         <input type="date" name="fecha_buscar" required id="fecha_buscar" placeholder="Fecha" class="form-control" />
     </div>
     <br />
     <div>
-        <label for="fecha_buscar_stop">Selecciona la fecha hasta la cual quieres que se muestren los campamentos disponibles:</label>
+        <label for="fecha_buscar_stop">Fecha final</label>
         <input type="date" name="fecha_buscar_stop" required id="fecha_buscar_stop" placeholder="Fecha" class="form-control" />
 
     </div>

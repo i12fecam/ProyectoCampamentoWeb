@@ -41,5 +41,8 @@
     </tr>
     <% } %>
 </table>
+<div class="centrar">
+    <a href="../../../home.jsp" class="btn btn-modificar mb-4 home-link" >Volver al home</a>
+</div>
 </body>
 </html>
