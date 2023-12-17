@@ -31,21 +31,17 @@
     <%@include file="include/menu-asistente.jsp"%>
 <% } %>
 
-
-<div class="mainbody">
-
-    <div class="main">
-        <h1> Sobre nosotros</h1>
-        <p>Proyecto Campamento Web es un programa para la gestión de campamentos, incluyendo control de monitores, actividades e inscripciones</p>
-        <p>El programa ha sido realizado por el grupo 5 que contiene a:</p>
-        <ul>
-            <li>Abigaíl Fernández Cabrera</li>
-            <li>Noelia Ruiz Morón</li>
-            <li>Antonio Javier Quintero García</li>
-            <li>Fátima Caballero Núñez</li>
-        </ul>
-    </div>
-</div>
+<img src="${pageContext.request.contextPath}/images/portada-home.png" alt="Campamento de verano">
 
 </body>
+<footer>
+    <div class="centrar">
+        <h2>Autores:</h2>
+<pre>Abigaíl Fernández Cabrera
+Noelia Ruiz Morón
+Antonio Javier Quintero García
+Fátima Caballero Núñez</pre>
+        <p>&copy; 2023. Todos los derechos reservados.</p>
+    </div>
+</footer>
 </html>

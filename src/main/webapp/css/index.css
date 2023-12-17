@@ -1,58 +1,19 @@
-:root{
-    --charcoal: #424b54ff;
-    --cadet-gray: #93a8acff;
-    --white: #ffffffff;
-    --orchid-pink: #e2b4bdff;
-    --rose-taupe: #9b6a6cff;
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-
-body{
-font-family: "Noto Sans Telugu UI";
-    background-color: var(--cadet-gray);
-}
-body{
-    margin-left: 40px;
-    margin-right: 40px;
-}
-.header{
-    background-color: var(--charcoal) ;
-    padding: 15px;
-    text-decoration: none;
-    color:var(--white);
-    border-radius: 15px;
-}
-.header a{
-    text-decoration: none;
-    color:var(--white);
-}
-.mainbody{
-    display: flex;
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
 }
 
-.aside{
-    background-color: var(--charcoal);
-    margin: 6px 6px 6px 6px;
-    padding: 15px;
-    height: max-content;
-    border: 2px;
-    border-color: var(--rose-taupe);
-    border-radius: 15px;
-    color:var(--white);
-    flex-grow: 1.5;
-
-}
-.aside h1{
-    align-content: center;
-}
-
-.main{
-    margin: 6px 6px 6px 6px;
-    padding: 15px;
-    border: 2px;
-    border-radius: 15px;
-    background-color: var(--orchid-pink);
-    border-color: var(--rose-taupe);
-    flex-grow: 8.5;
-
+img {
+    width: 100%;
+    height: auto;
+    display: block;
 }

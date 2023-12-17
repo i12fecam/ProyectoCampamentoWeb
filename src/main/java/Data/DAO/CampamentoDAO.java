@@ -191,6 +191,27 @@ public class CampamentoDAO {
     }
 
     /**
+     * Metodo para comprobar si un monitor es de atención especial
+     * @param idMonitor Id del monitor a comprobar
+     * @throws RuntimeException Si hay un error de conexion con la base de datos.
+     */
+
+    public boolean comprobarmonitorespecial(int idMonitor) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("check_monitor_especial"));
+            ps.setInt(1, idMonitor);
+            ps.setInt(2, 1);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                // Si hay resultados, el monitor es especial
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Metodo para extraer las actividades parciales que tiene un campamento dado su id
      * @param idCampamento Id del campamento del que se quiero extraer la informacion
      * @return número de actividades del campamento exclusivamente parciales

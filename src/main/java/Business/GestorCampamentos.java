@@ -128,6 +128,15 @@ public class GestorCampamentos implements Serializable {
             }
     }
 
+    /**
+     * Metodo para comprobar si un monitor es de atención especial
+     * @param idMonitor Id del monitor a comprobar
+     */
+
+    public boolean comprobar_monitor_especial(int idMonitor){
+        return campamentoDAO.comprobarmonitorespecial(idMonitor);
+    }
+
 
     /**
      * Metodo que asocia un monitor especial a un campamento
