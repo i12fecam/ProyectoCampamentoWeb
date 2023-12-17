@@ -59,6 +59,6 @@
             </div>
 
             <a href="${pageContext.request.contextPath}/mvc/control/disconnectController.jsp" style="float:right">Desconectarse</a>
-            <a href="http://localhost:8080/change_user_data " style="float:right">Cambiar datos</a>
+            <a href="${pageContext.request.contextPath}/mvc/view/cambiarDatosUsuario.jsp" style="float:right">Cambiar datos</a>
 
         </div>

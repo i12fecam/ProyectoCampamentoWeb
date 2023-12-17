@@ -101,5 +101,12 @@ public class UsuarioDAO {
         }
 
     }
-    
+
+
+    public void changePassword(String emailUser, String newPassword) throws SQLException {
+        PreparedStatement ps = con.prepareStatement(prop.getSentente("change_password_user"));
+        ps.setString(1,newPassword);
+        ps.setString(2,emailUser);
+        ps.executeUpdate();
+    }
 }

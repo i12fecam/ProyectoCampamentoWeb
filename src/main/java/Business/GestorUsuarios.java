@@ -5,6 +5,8 @@ import Data.DAO.UsuarioDAO;
 import Data.DTO.Asistente;
 import Data.TipoUsuario;
 
+import java.sql.SQLException;
+
 public class GestorUsuarios {
     private UsuarioDAO usuarioDAO;
     private AsistenteDAO asistenteDAO;
@@ -53,10 +55,15 @@ public class GestorUsuarios {
         return usuarioDAO.getIdAsistente(username);
     }
 
-    public static void main(String[] args){
-        GestorUsuarios gestor = new GestorUsuarios();
 
-        System.out.println(gestor.comprobarUsuario("admin@uco.es","password"));
+
+
+    public void changePassword(String emailUser, String newPassword) throws SQLException {
+        usuarioDAO.changePassword(emailUser,newPassword);
     }
 
+    public static void main(String[] args) throws SQLException {
+        UsuarioDAO usuarioDAO1 = new UsuarioDAO();
+        usuarioDAO1.changePassword("abi@uco.es","nuevaContraseña");
+    }
 }

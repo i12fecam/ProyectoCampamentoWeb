@@ -10,15 +10,37 @@
 <html>
 <head>
     <title>Cambio de datos personales</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
-<body>
-<form action="/CambiarDatosUsuarios" >
-     <label for="oldpassword">Introduzca la antigua contraseña</label>
-    <input type="text" id="oldpassword" value="">
-    <label for="newpassword"> Introduzca la nueva contraseña</label>
-    <input type="text" id="newpassword" value="">
-    <label for="newpassword2"> Introduzca de nuevo la contraseña</label>
-    <input type="text" id="newpassword2" value="">
+<body class="text-center">
+<form method="post" action="${pageContext.request.contextPath}/CambiarDatosUsuarios" >
+
+    <h1 class="h3 mb-3 font-weight-normal">Cambios de datos</h1>
+
+    <br>
+
+    <div class="form-outline mb-4">
+        <label for="oldPassword">Introduzca la antigua contraseña:</label>
+        <input type="password" id="oldPassword" name="oldPassword" value="" class="form-control" required>
+    </div>
+
+    <br>
+
+    <div class="form-outline mb-4">
+        <label for="newPassword"> Introduzca la nueva contraseña:</label>
+        <input type="password" id="newPassword" name="newPassword" value="" class="form-control" required>
+    </div>
+
+    <br>
+
+    <div class="form-outline mb-4">
+        <label for="newPassword2"> Introduzca de nuevo la contraseña:</label>
+        <input type="password" id="newPassword2" name="newPassword2" value="" class="form-control" required>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Cambiar contraseña:</button>
 </form>
 </body>
 </html>
