@@ -14,15 +14,31 @@ import java.io.IOException;
 public class asociarMonitorActividadServlet extends HttpServlet{
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
-        int actividadID = Integer.parseInt( request.getParameter("actividad") );
-        int monitorID = Integer.parseInt( request.getParameter("monitor"));
+        String actividadIDString = request.getParameter("actividad");
+        String monitorIDString = request.getParameter("monitor");
+
+        //validar formulario
+        if (actividadIDString == null || monitorIDString == null) {
+
+            request.setAttribute("error_message", "Debe seleccionar una opción en ambas tablas antes de enviar el formulario.");
+            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+            disp.forward(request, response);
+            return;
+        }
+
+        int actividadID = Integer.parseInt( actividadIDString );
+        int monitorID = Integer.parseInt( monitorIDString);
         try{
             GestorCampamentos gestor = new GestorCampamentos();
-
-            gestor.asociarMonitorActividad(monitorID,actividadID);
-            RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
-            disp.forward(request, response);
-
+            boolean asociacion = gestor.asociarMonitorActividad(monitorID,actividadID);
+            if(asociacion) {
+                RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
+                disp.forward(request, response);
+            }else{
+                request.setAttribute("error_message", "La actividad no acepta más monitores: ");
+                RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+                disp.forward(request, response);
+            }
         } catch (Exception e) {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al asociar el monitor: " + e.getMessage());

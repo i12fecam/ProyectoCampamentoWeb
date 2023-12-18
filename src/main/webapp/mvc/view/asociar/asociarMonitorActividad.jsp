@@ -43,7 +43,7 @@
                 <td><%=actividad.getHorario() %></td>
                 <td><%=actividad.getMaxParticipantes() %></td>
                 <td><%=actividad.getMonitoresNecesarios() %></td>
-                <td><input type="checkbox" name="actividad" value=<%=actividad.getIdentificador()%>></td>
+                <td><input type="radio" name="actividad" value=<%=actividad.getIdentificador()%>></td>
 
             </tr>
             <% } %>
@@ -69,7 +69,7 @@
                 <td><%=monitor.getApellidos()%></td>
                 <td><%=monitor.getFechaNacimiento()%></td>
                 <td><%=monitor.isEducadorEspecial() ? "Si" : "No"%></td>
-                <td><input type="checkbox" name="monitor" value=<%=monitor.getIdentificador()%>></td>
+                <td><input type="radio" name="monitor" value=<%=monitor.getIdentificador()%>></td>
             </tr>
             <%}%>
         </table>

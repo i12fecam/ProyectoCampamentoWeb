@@ -78,13 +78,15 @@ public class GestorCampamentos implements Serializable {
      * @param idMonitor Id del monitor que se quiere asociar a la actividad
      * @param idActividad Id de la actividad a la que se quiere asociar la actividad
      */
-    public void asociarMonitorActividad(int idMonitor,int idActividad)
+    public boolean asociarMonitorActividad(int idMonitor,int idActividad)
     {
         Actividad actividad = campamentoDAO.devolverActividad(idActividad);
         List<Monitor> monitores_activdad = campamentoDAO.DevolverMonitores_Actividad(idActividad);
-        if(monitores_activdad.size() != actividad.getMonitoresNecesarios()){
+        if(monitores_activdad.size() < actividad.getMonitoresNecesarios()){
             campamentoDAO.asociar_Monitor_Actividad(idMonitor,idActividad);
+            return true;
         }
+        return false;
     }
 
     /**
