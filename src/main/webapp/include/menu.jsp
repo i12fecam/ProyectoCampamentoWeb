@@ -52,7 +52,7 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Asociar monitores a actividades</a>
+                    <a href="${pageContext.request.contextPath}/mvc/view/asociar/asociarMonitorActividad.jsp">Asociar monitores a actividades</a>
                     <a href="${pageContext.request.contextPath}/mvc/view/asociar/asociarMonitorCampamento.jsp">Asociar monitor a campamento</a>
                     <a href="${pageContext.request.contextPath}/mvc/view/asociar/asociarActividadCampamento.jsp">Asociar actividad a campamento</a>
                 </div>
