@@ -17,8 +17,8 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException, ServletException {
-        String campamentoId = request.getParameter("campamento");
-        request.setAttribute("campamentoId", campamentoId);
+        String campamentoId = request.getParameter("idCampamento");
+        request.setAttribute("idCampamento", campamentoId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/InscripcionCampamentos.jsp");
         dispatcher.forward(request, response);
     }
@@ -48,7 +48,7 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
                 request.setAttribute("error_message", "Hubo un problema al crear la inscripción: " + e.getMessage());
 
-                RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/campamento/InscripcionCampamentos.jsp");
+                RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
                 disp.forward(request, response);
             }
 

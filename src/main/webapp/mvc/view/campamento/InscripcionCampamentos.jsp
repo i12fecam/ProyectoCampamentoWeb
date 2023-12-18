@@ -22,7 +22,7 @@
     <!--Id del campamento seleccionado-->
     <div class="form-outline mb-4">
         <label for="campamento">Campamento Seleccionado:</label>
-         <input type="number" id="campamento" name="campamento" value="<%= request.getParameter("campamentoId") %>" readonly>
+         <input type="number" id="campamento" name="campamento" value="<%= request.getParameter("idCampamento") %>" readonly>
     </div>
 
     <!--Fecha de inscripcion-->
@@ -37,12 +37,12 @@
         <div class="radio-options">
             <input type="radio" id="horario_1" name="horario" value="Parcial">
             <label for="horario_1">Parcial</label><br>
-            <input type="radio" id="horario_2" name="horario" value="Completa">
+            <input type="radio" id="horario_2" name="horario" value="Completo">
             <label for="horario_2">Completa</label><br>
         </div>
     </div>
     <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
-    <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
+    <a href="${pageContext.request.contextPath}/mvc/view/campamento/consultarCampamentosDisponibles.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 </form>
 </body>
 </html>
