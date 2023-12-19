@@ -17,6 +17,7 @@
 <div style="text-align: center; margin-top: 50px;">
     <h1 class="">¡Error!</h1>
     <p>Se ha producido un error.</p>
+    <p>${requestScope.error_message}</p>
     <button onclick="redirigirASitio()">Volver al home</button>
 </div>
 

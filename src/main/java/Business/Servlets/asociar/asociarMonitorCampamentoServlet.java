@@ -1,6 +1,7 @@
 package Business.Servlets.asociar;
 
 import Business.GestorCampamentos;
+import Business.mensajeExcepcion;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,6 +35,13 @@ public class asociarMonitorCampamentoServlet extends HttpServlet {
         }
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
+
+        } catch (mensajeExcepcion e) {
+
+            request.setAttribute("error_message", e.getMessage());
+            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+            disp.forward(request, response);
+
         } catch (Exception e) {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al asociar el monitor: " + e.getMessage());

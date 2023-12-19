@@ -115,8 +115,9 @@ public class GestorCampamentos implements Serializable {
      * @param idMonitor Id del monitor responsable a asociar al campamento
      * @param idCampamento Id del campamento al que se quiere asociar el monitor
      */
-    public void asociarMonitorResponsableCampamento(int idMonitor, int idCampamento){
+    public boolean asociarMonitorResponsableCampamento(int idMonitor, int idCampamento){
 
+            boolean asignacionExitosa = false;
             List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento2(idCampamento);
             for (Actividad actividad : actividades) {
                 int id_actividad = actividad.getIdentificador();
@@ -124,9 +125,14 @@ public class GestorCampamentos implements Serializable {
                 for (Monitor monitor : monitores_actividad) {
                     if (idMonitor == monitor.getIdentificador()) {
                         campamentoDAO.asignar_monitor_responsable(idMonitor, idCampamento);
+                        asignacionExitosa = true;
                     }
                 }
             }
+        if (!asignacionExitosa) {
+            throw new mensajeExcepcion("El monitor no pertenece a una de las actividades del campamento");
+        }
+        return asignacionExitosa;
     }
 
     /**
@@ -146,7 +152,7 @@ public class GestorCampamentos implements Serializable {
      */
     public void asociarMonitorEspecialCampamento(int idMonitor, int idCampamento) {
         boolean monitorAsignadoActividad = false;
-        List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento(idCampamento);
+        List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento2(idCampamento);
 
         for (Actividad actividad : actividades) {
             // Verificar si el monitor está asignado a la actividad actual
