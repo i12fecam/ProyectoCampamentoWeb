@@ -18,6 +18,7 @@
       <th>Fecha Final</th>
       <th>Nivel Educativo</th>
       <th>Nº Asistentes</th>
+      <th></th>
 
 
     </tr>
@@ -33,7 +34,7 @@
         <div class="centrar">
           <form action="${pageContext.request.contextPath}/mvc/view/campamento/InscripcionCampamentos.jsp" method="GET">
             <input type="hidden" name="idCampamento" value="<%=campamento.getIdCampamento()%>">
-            <button type="submit">Inscribirse</button>
+            <button type="submit" class="btn btn-confirmar ">Inscribirse</button>
           </form>
         </div>
       </td>
