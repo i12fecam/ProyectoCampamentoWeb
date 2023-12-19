@@ -29,7 +29,7 @@ public class UsuarioDAO {
             ps.setInt(4,id_Asistente);
             ps.executeUpdate();
         } catch (SQLException e) {
-            return false;
+            e.printStackTrace();
         }
         return true;
     }
@@ -43,7 +43,7 @@ public class UsuarioDAO {
                 return false;
             }
         } catch (SQLException e) {
-            return false;
+            e.printStackTrace();
         }
         return true;
     }
