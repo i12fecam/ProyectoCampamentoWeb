@@ -16,6 +16,7 @@
 <form  method="post" action="${pageContext.request.contextPath}/mvc/control/loginController.jsp">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/summer-camp.jpg" alt="" width="120" height="120">
     <h1 class="h3 mb-3 font-weight-normal">Login </h1>
+
     <!-- Email -->
     <div class="form-outline mb-4">
         <input type="email" name="email" id="email" required placeholder="Email" class="form-control" />
@@ -39,6 +40,18 @@
     <div class="text-center">
         <p>¿No estas registrado? <a href="${pageContext.request.contextPath}/mvc/control/registerController.jsp">Registrarse</a></p>
     </div>
+
+    <!-- Mensaje usuario no existe -->
+    <%
+        String mensajeNextPage = request.getParameter("message");
+        if (mensajeNextPage != null) {
+    %>
+    <div>
+        <p class="mensaje-error"><%= mensajeNextPage %></p>
+    </div>
+    <%
+        }
+    %>
 </form>
 </body>
 </html>

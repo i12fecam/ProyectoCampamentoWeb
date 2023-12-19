@@ -222,3 +222,7 @@ img {
     margin-bottom: 20px;
     border-radius: 50%; /* Borde redondeado para la imagen */
 }
+
+.mensaje-error{
+    color: #bd2130;
+}

@@ -57,7 +57,7 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
                 } else {
                     // Usuario no válido
                     nextPage = "/mvc/view/loginView.jsp";
-                    mensajeNextPage = "El usuario que ha indicado no existe o no es v&aacute;lido";
+                    mensajeNextPage = "Credenciales incorrectas";
                 }
         //Caso 2.b -> se debe ir a la vista por primera vez
         } else {
