@@ -151,7 +151,7 @@ public class GestorCampamentos implements Serializable {
      * @param idCampamento Id del campamento al que se quiere asociar el monitor
      */
     public void asociarMonitorEspecialCampamento(int idMonitor, int idCampamento) {
-        boolean monitorAsignadoActividad = false;
+
         List<Actividad> actividades = campamentoDAO.DevolverActividades_Campamento2(idCampamento);
 
         for (Actividad actividad : actividades) {
@@ -160,17 +160,12 @@ public class GestorCampamentos implements Serializable {
             List<Monitor> monitores = campamentoDAO.DevolverMonitores_Actividad2(id_actividad);
             for (Monitor monitor : monitores) {
                 if (idMonitor == monitor.getIdentificador()) {
-                    monitorAsignadoActividad = true;
-
-                    System.out.println("No se ha asociado el monitor especial al campamento porque ya esta asignado a una actividad");
-
+                    throw new mensajeExcepcion("No se ha asociado el monitor especial al campamento porque ya esta asignado a una actividad");
                 }
-
             }
-
                 List<Asistente> asistentesCampamento= campamentoDAO.DevolverAsistentes_Actividad(idCampamento);
                 for (Asistente asistente : asistentesCampamento) {
-                    if (asistente.isAtencionEspecial() && !monitorAsignadoActividad && comprobar_monitor_especial(idMonitor)) {
+                    if (asistente.isAtencionEspecial() && comprobar_monitor_especial(idMonitor)) {
                         // Si hay algún asistente con atención especial, asignar el monitor especial y salir del método.
                         campamentoDAO.asignar_monitor_especial(idMonitor, idCampamento);
                         System.out.println("Se ha asociado al monitor especial con exito");
@@ -178,23 +173,14 @@ public class GestorCampamentos implements Serializable {
                     }
                     else{
                         if(!comprobar_monitor_especial(idMonitor)){
-                            System.out.println("El monitor no es de atencion especial");
-                            return;
+                            throw new mensajeExcepcion("El monitor no es de atención especial");
                         }
                     }
                 }
-
-
-
-
             // Verificar si hay algún asistente con atención especial en la actividad
-
-            System.out.println("No se ha asociado el monitor especial al campamento porque no hay asistentes especiales");
-            return;
+            throw new mensajeExcepcion("No se ha asociado el monitor especial al campamento porque no hay asistentes especiales");
         }
     }
-
-
 
     /**
      * Imprime en la consola una representación en cadena de los objetos Campamento almacenados en la lista "campamentos".
