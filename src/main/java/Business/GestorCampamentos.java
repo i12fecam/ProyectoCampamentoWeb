@@ -156,7 +156,8 @@ public class GestorCampamentos implements Serializable {
 
         for (Actividad actividad : actividades) {
             // Verificar si el monitor está asignado a la actividad actual
-            List<Monitor> monitores = actividad.getMonitores();
+            int id_actividad = actividad.getIdentificador();
+            List<Monitor> monitores = campamentoDAO.DevolverMonitores_Actividad2(id_actividad);
             for (Monitor monitor : monitores) {
                 if (idMonitor == monitor.getIdentificador()) {
                     monitorAsignadoActividad = true;

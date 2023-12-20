@@ -578,7 +578,7 @@ public class CampamentoDAO {
                     monitor.setEducadorEspecial(ss.getBoolean(5));
                     Monitores.add(monitor);
                 }
-                actividad.setMonitores(Monitores);
+             //   actividad.setMonitores(Monitores);
                 actividades.add(actividad);
             }
             return actividades;
