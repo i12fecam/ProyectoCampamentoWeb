@@ -1,8 +1,8 @@
 
 -- Base de datos: `i12fecam`
 --
-CREATE DATABASE `i12fecam` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE i12fecam;
+--CREATE DATABASE `i12fecam` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+--USE i12fecam;
 -- --------------------------------------------------------
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `Usuarios` (
                             `password` varchar(30) NOT NULL,
                             `fk_asistente` int(11) DEFAULT NULL,
                             PRIMARY KEY (`id`),
-                            FOREIGN KEY `fk_asistente` references Asistentes(id_asistente)
+                            FOREIGN KEY (`fk_asistente`) references Asistentes(id_asistente)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 -- --------------------------------------------------------
 
@@ -86,8 +86,8 @@ CREATE TABLE `Campamentos` (
                                `monitor_responsable` int(11) DEFAULT NULL,
                                `monitor_especial` int(11) DEFAULT NULL,
                                PRIMARY KEY (`id_campamento`),
-                               FOREIGN KEY `monitor_responsable` references Monitores(id_monitor),
-                               FOREIGN KEY `monitor_especial` references Monitores(id_monitor),
+                               FOREIGN KEY (`monitor_responsable`) references Monitores(id_monitor),
+                               FOREIGN KEY (`monitor_especial`) references Monitores(id_monitor)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 -- --------------------------------------------------------
 
@@ -101,8 +101,8 @@ CREATE TABLE `Campamento_Actividades` (
                                           `fk_campamento` int(11) NOT NULL,
                                           `fk_actividad` int(11) NOT NULL,
                                           PRIMARY KEY (`fk_campamento`,`fk_actividad`),
-                                          Foreign Key  `fk_campamento` references `Campamentos(id_campamento)`,
-                                          Foreign Key `fk_actividad` references `Actividades(id_actividad)`
+                                          Foreign Key  (`fk_campamento`) references Campamentos(id_campamento),
+                                          Foreign Key (`fk_actividad`) references Actividades(id_actividad)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
@@ -144,11 +144,7 @@ CREATE TABLE `Monitores_Actividades` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
---
--- Base de datos: `information_schema`
---
-CREATE DATABASE `information_schema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE information_schema;
+
 
 
 
