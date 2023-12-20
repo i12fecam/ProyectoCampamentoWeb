@@ -4,7 +4,7 @@ import Data.Horario;
 import Data.NivelEducativo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 /**
  * Activity class
  * @author Noelia Ruiz
@@ -23,7 +23,7 @@ public class Actividad implements Serializable {
     private int maxParticipantes;
     private int monitoresNecesarios;
 
-    ArrayList<Monitor> monitores = new ArrayList<Monitor>();
+
 
     /* Constructors */
     /**
@@ -139,19 +139,6 @@ public class Actividad implements Serializable {
         this.monitoresNecesarios = monitoresNecesarios;
     }
 
-    /**
-     * @return Lista con los monitores asociados a la actividad
-     */
-    public ArrayList<Monitor> getMonitores() {return monitores;}
-
-    public void setMonitores(ArrayList<Monitor> monitores) {
-        this.monitores = monitores;
-    }
-
-    /**
-     * Imprime la información de la actividad
-     * @return Cadena con toda la información necesaria de una actividad
-     */
     @Override
     public String toString() {
         return "Actividad{" +
@@ -161,7 +148,6 @@ public class Actividad implements Serializable {
                 ", horario=" + horario +
                 ", maxParticipantes=" + maxParticipantes +
                 ", monitoresNecesarios=" + monitoresNecesarios +
-                ", monitores=" + monitores +
                 '}';
     }
 
