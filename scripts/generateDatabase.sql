@@ -1,102 +1,158 @@
 
-truncate Asistentes;
-truncate Actividades;
-truncate Campamento_Actividades;
-truncate Campamento_Monitor;
-truncate Campamentos;
-truncate Inscripciones;
-truncate Monitores;
-truncate Monitores_Actividades;
+-- Base de datos: `i12fecam`
+--
+CREATE DATABASE `i12fecam` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE i12fecam;
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `Monitores`
+--
 
-CREATE TABLE `Actividades` (
-  `id_actividad` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(120) NOT NULL,
-  `nivel_educativo` enum('Infantil','Juvenil','Adolescente') NOT NULL,
-  `horario` enum('parcial','completa') NOT NULL,
-  `max_participantes` int(11) NOT NULL,
-  `monitores_necesarios` int(11) NOT NULL,
-  PRIMARY KEY (`id_actividad`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-
-CREATE TABLE `Asistentes` (
-  `id_asistente` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(120) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `especial` bit(1) NOT NULL,
-  `apellidos` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_asistente`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
-
-CREATE TABLE `Campamento_Actividades` (
-  `fk_campamento` int(11) NOT NULL,
-  `fk_actividad` int(11) NOT NULL,
-  PRIMARY KEY (`fk_campamento`,`fk_actividad`),
-  KEY `Campamento_Actividades_Actividades_id_actividad_fk` (`fk_actividad`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-
-CREATE TABLE `Campamentos` (
-  `id_campamento` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha_inicio` date NOT NULL,
-  `fecha_final` date NOT NULL,
-  `nivel_educativo` enum('Infantil','Juvenil','Adolescente') NOT NULL,
-  `max_asistentes` int(11) NOT NULL,
-  `monitor_responsable` int(11) DEFAULT NULL,
-  `monitor_especial` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_campamento`),
-  KEY `Campamentos_Monitores_id_monitor_fk` (`monitor_responsable`),
-  KEY `Campamentos_Monitores_id_monitor_fk2` (`monitor_especial`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
-
-
-CREATE TABLE `Inscripciones` (
-  `fecha_inscripcion` date NOT NULL,
-  `precio` float NOT NULL,
-  `horario` enum('parcial','completa') NOT NULL,
-  `fk_asistente` int(11) NOT NULL,
-  `fk_campamento` int(11) NOT NULL,
-  `tipo_inscripcion` enum('temprana','tardia') NOT NULL,
-  PRIMARY KEY (`fk_campamento`,`fk_asistente`),
-  KEY `Inscripciones_Asistentes_id_asistente_fk` (`fk_asistente`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-
-
+DROP TABLE IF EXISTS `Monitores`;
 CREATE TABLE `Monitores` (
-  `id_monitor` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` char(120) NOT NULL,
-  `apellidos` varchar(200) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `especial` bit(1) DEFAULT NULL,
-  PRIMARY KEY (`id_monitor`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+                             `id_monitor` int(11) NOT NULL AUTO_INCREMENT,
+                             `nombre` char(120) NOT NULL,
+                             `apellidos` varchar(200) NOT NULL,
+                             `fecha_nacimiento` date NOT NULL,
+                             `especial` bit(1) DEFAULT NULL,
+                             PRIMARY KEY (`id_monitor`)
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Actividades`
+--
+
+DROP TABLE IF EXISTS `Actividades`;
+CREATE TABLE `Actividades` (
+                               `id_actividad` int(11) NOT NULL AUTO_INCREMENT,
+                               `nombre` varchar(120) NOT NULL,
+                               `nivel_educativo` enum('Infantil','Juvenil','Adolescente') NOT NULL,
+                               `horario` enum('parcial','completa') NOT NULL,
+                               `max_participantes` int(11) NOT NULL,
+                               `monitores_necesarios` int(11) NOT NULL,
+                               PRIMARY KEY (`id_actividad`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Asistentes`
+--
+
+DROP TABLE IF EXISTS `Asistentes`;
+CREATE TABLE `Asistentes` (
+                              `id_asistente` int(11) NOT NULL AUTO_INCREMENT,
+                              `nombre` varchar(120) NOT NULL,
+                              `fecha_nacimiento` date NOT NULL,
+                              `especial` bit(1) NOT NULL,
+                              `apellidos` varchar(200) NOT NULL,
+                              PRIMARY KEY (`id_asistente`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Usuarios`
+--
+
+DROP TABLE IF EXISTS `Usuarios`;
+CREATE TABLE `Usuarios` (
+                            `id` int(11) NOT NULL AUTO_INCREMENT,
+                            `tipo_usuario` enum('asistente','administrador') NOT NULL,
+                            `username` varchar(30) NOT NULL,
+                            `password` varchar(30) NOT NULL,
+                            `fk_asistente` int(11) DEFAULT NULL,
+                            PRIMARY KEY (`id`),
+                            FOREIGN KEY `fk_asistente` references Asistentes(id_asistente)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Campamentos`
+--
 
 
 
+DROP TABLE IF EXISTS `Campamentos`;
+CREATE TABLE `Campamentos` (
+                               `id_campamento` int(11) NOT NULL AUTO_INCREMENT,
+                               `fecha_inicio` date NOT NULL,
+                               `fecha_final` date NOT NULL,
+                               `nivel_educativo` enum('Infantil','Juvenil','Adolescente') NOT NULL,
+                               `max_asistentes` int(11) NOT NULL,
+                               `monitor_responsable` int(11) DEFAULT NULL,
+                               `monitor_especial` int(11) DEFAULT NULL,
+                               PRIMARY KEY (`id_campamento`),
+                               FOREIGN KEY `monitor_responsable` references Monitores(id_monitor),
+                               FOREIGN KEY `monitor_especial` references Monitores(id_monitor),
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+-- --------------------------------------------------------
 
-CREATE TABLE `Monitores_Actividades` (
-  `fk_monitor` int(11) NOT NULL,
-  `fk_actividad` int(11) NOT NULL,
-  PRIMARY KEY (`fk_actividad`,`fk_monitor`),
-  KEY `Monitores_Actividades_Monitores_id_monitor_fk` (`fk_monitor`)
+--
+-- Estructura de tabla para la tabla `Campamento_Actividades`
+--
+
+
+DROP TABLE IF EXISTS `Campamento_Actividades`;
+CREATE TABLE `Campamento_Actividades` (
+                                          `fk_campamento` int(11) NOT NULL,
+                                          `fk_actividad` int(11) NOT NULL,
+                                          PRIMARY KEY (`fk_campamento`,`fk_actividad`),
+                                          Foreign Key  `fk_campamento` references `Campamentos(id_campamento)`,
+                                          Foreign Key `fk_actividad` references `Actividades(id_actividad)`
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-create table Usuarios
-(
-    id           int auto_increment,
-    tipo_usuario ENUM ('asistente', 'administrador') not null,
-    username     varchar(30)                         not null,
-    password     varchar(30)                         not null,
-    fk_asistente int                                 null,
-    constraint Usuarios_pk
-        primary key (id),
-    constraint Usuarios_Asistentes_id_asistente_fk
-        foreign key (fk_asistente) references Asistentes (id_asistente)
-);
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Inscripciones`
+--
+
+DROP TABLE IF EXISTS `Inscripciones`;
+CREATE TABLE `Inscripciones` (
+                                 `fecha_inscripcion` date NOT NULL,
+                                 `precio` float NOT NULL,
+                                 `horario` enum('parcial','completa') NOT NULL,
+                                 `fk_asistente` int(11) NOT NULL,
+                                 `fk_campamento` int(11) NOT NULL,
+                                 `tipo_inscripcion` enum('temprana','tardia') NOT NULL,
+                                 PRIMARY KEY (`fk_campamento`,`fk_asistente`),
+                                 FOREIGN KEY (`fk_campamento`) references Campamentos(`id_campamento`),
+                                 FOREIGN KEY (`fk_asistente`) references Asistentes(id_asistente)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Monitores_Actividades`
+--
+
+DROP TABLE IF EXISTS `Monitores_Actividades`;
+CREATE TABLE `Monitores_Actividades` (
+                                         `fk_monitor` int(11) NOT NULL,
+                                         `fk_actividad` int(11) NOT NULL,
+                                         PRIMARY KEY (`fk_actividad`,`fk_monitor`),
+                                         FOREIGN KEY (`fk_monitor`) references Monitores(`id_monitor`),
+                                         FOREIGN KEY (`fk_actividad`) references Actividades(id_actividad)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+--
+-- Base de datos: `information_schema`
+--
+CREATE DATABASE `information_schema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE information_schema;
+
+
+
+
 
 
 insert into Actividades (id_actividad, nombre, nivel_educativo, horario, max_participantes, monitores_necesarios)
