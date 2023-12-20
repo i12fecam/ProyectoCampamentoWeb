@@ -277,6 +277,8 @@ public class GestorCampamentos implements Serializable {
     }
 
 
-
+    public List<Campamento> listarCampamentosInscritos(int idAsistente){
+        return campamentoDAO.DevolverCampamentoInscritos(idAsistente);
+    }
 
 }

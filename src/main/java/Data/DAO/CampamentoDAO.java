@@ -636,4 +636,38 @@ public class CampamentoDAO {
 
         }
     }
+
+
+    public List<Campamento> DevolverCampamentoInscritos(int idAsistente){
+        ArrayList<Campamento> listaCampamentos = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_campamento_inscritos"));
+            ps.setInt(1,idAsistente);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Campamento campamento = new Campamento();
+                campamento.setIdCampamento(rs.getInt("id_campamento"));
+                campamento.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                campamento.setFechaFinal(rs.getDate("fecha_final").toLocalDate());
+                String n = rs.getString("nivel_educativo");
+                if (n.equals("Infantil")) {
+                    campamento.setNivelEducativo(NivelEducativo.Infantil);
+                } else {
+                    if (n.equals("Juvenil")) {
+                        campamento.setNivelEducativo(NivelEducativo.Juvenil);
+                    } else if (n.equals("Adolescente")) {
+                        campamento.setNivelEducativo(NivelEducativo.Adolescente);
+                    }
+                }
+                campamento.setMaxAsistentes(rs.getInt("max_asistentes"));
+                //falta monitor responsable y monitor especial
+                listaCampamentos.add(campamento);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaCampamentos;
+    }
+
 }
