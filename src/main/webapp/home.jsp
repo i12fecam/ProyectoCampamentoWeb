@@ -31,7 +31,7 @@
     <%@include file="include/menu-asistente.jsp"%>
 <% } %>
 
-<img src="${pageContext.request.contextPath}/images/portada-home.png" alt="Campamento de verano">
+<img src="${pageContext.request.contextPath}/images/portada-campamento2.jpeg" alt="Campamento de verano">
 
 </body>
 <footer>
