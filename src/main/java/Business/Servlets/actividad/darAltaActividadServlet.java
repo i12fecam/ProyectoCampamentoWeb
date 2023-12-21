@@ -24,19 +24,19 @@ public class darAltaActividadServlet extends HttpServlet {
                        HttpServletResponse response) throws ServletException, IOException {
         Actividad actividad = new Actividad();
         actividad.setNombre(request.getParameterValues("name")[0]);
-        String [] Snivel_educativo =  (String[]) request.getParameterValues("nivel_educativo");
-        if(Snivel_educativo[0].equals("Infantil")){
+        String  Snivel_educativo = request.getParameter("nivel_educativo");
+        if(Snivel_educativo.equals("Infantil")){
             actividad.setNivelEducativo(NivelEducativo.Infantil);
-        } else if (Snivel_educativo[0].equals("Juvenil")) {
+        } else if (Snivel_educativo.equals("Juvenil")) {
             actividad.setNivelEducativo(NivelEducativo.Juvenil);
-        } else if (Snivel_educativo[0].equals("Adolescente")) {
+        } else if (Snivel_educativo.equals("Adolescente")) {
             actividad.setNivelEducativo(NivelEducativo.Adolescente);
         }
         String Shorario[] = request.getParameterValues("horario");
         if(Shorario[0].equals("Parcial")){
             actividad.setHorario(Horario.Parcial);
         } else if (Shorario[0].equals("Completa")) {
-            actividad.setHorario(Horario.Completo);
+            actividad.setHorario(Horario.Completa);
         }
 
         actividad.setMaxParticipantes(Integer.parseInt( request.getParameterValues("maxParticipantes")[0] ) );
@@ -47,6 +47,7 @@ public class darAltaActividadServlet extends HttpServlet {
             GestorCampamentos gestorCampamentos = new GestorCampamentos();
             gestorCampamentos.crearActividad(actividad);
         }catch(Exception e){
+                request.setAttribute("error_message", "Se produjo una excepcion" + e.getMessage());
                 disp = request.getRequestDispatcher("/error.jsp");
                 disp.forward(request, response);
             }

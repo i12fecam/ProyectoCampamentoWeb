@@ -98,7 +98,7 @@ public class InscripcionDAO {
                 ins.setHorario(Horario.Parcial);
             }
             else if(s.equals("completa")){
-                ins.setHorario(Horario.Completo);
+                ins.setHorario(Horario.Completa);
             }
             else throw new RuntimeException("Esto no deberia pasar");
 

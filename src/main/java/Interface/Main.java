@@ -231,7 +231,7 @@ public class Main {
                         if (horarioStr.equals("Parcial")) {
                             horario = Horario.Parcial;
                         } else if (horarioStr.equals("Completo")) {
-                            horario = Horario.Completo;
+                            horario = Horario.Completa;
                         } else {
                             throw new RuntimeException("Error al capturar el horario");
                         }
@@ -360,7 +360,7 @@ public class Main {
                         if (horarioStr.equals("Parcial")) {
                             horario = Horario.Parcial;
                         } else if (horarioStr.equals("Completa")) {
-                            horario = Horario.Completo;
+                            horario = Horario.Completa;
                         } else {
                             throw new RuntimeException("Error al capturar el horario");
                         }

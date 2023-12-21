@@ -60,8 +60,8 @@ public class CampamentoDAO {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_Actividades"));
             ps.setString(1, actividad.getNombre());
-            ps.setString(2, actividad.getNivelEducativo().toString().toUpperCase());
-            ps.setString(3, actividad.getHorario().toString().toUpperCase());
+            ps.setString(2, actividad.getNivelEducativo().toString().toLowerCase());
+            ps.setString(3, actividad.getHorario().toString().toLowerCase());
             ps.setInt(4, actividad.getMaxParticipantes());
             ps.setInt(5, actividad.getMonitoresNecesarios());
             ps.setInt(6, actividad.getIdentificador());
@@ -288,7 +288,7 @@ public class CampamentoDAO {
             if (s.equals("parcial")) {
                 act.setHorario(Horario.Parcial);
             } else if (s.equals("completa")) {
-                act.setHorario(Horario.Completo);
+                act.setHorario(Horario.Completa);
             }
             String n = rs.getString("nivel_educativo");
             if (n.equals("infantil")) {
@@ -470,7 +470,7 @@ public class CampamentoDAO {
                 if (h.equals("parcial")) {
                     actividad.setHorario(Horario.Parcial);
                 } else {
-                    actividad.setHorario(Horario.Completo);
+                    actividad.setHorario(Horario.Completa);
                 }
                 actividad.setMaxParticipantes(rs.getInt("max_participantes"));
                 actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));
@@ -562,7 +562,7 @@ public class CampamentoDAO {
                 if (h.equals("parcial")) {
                     actividad.setHorario(Horario.Parcial);
                 } else {
-                    actividad.setHorario(Horario.Completo);
+                    actividad.setHorario(Horario.Completa);
                 }
 
                 PreparedStatement ls = con.prepareStatement(prop.getSentente("select_Monitores_Actividad_id"));

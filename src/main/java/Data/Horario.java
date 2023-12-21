@@ -9,6 +9,6 @@ package Data;
  */
 public enum Horario {
     Parcial,
-    Completo
+    Completa
 }
 
