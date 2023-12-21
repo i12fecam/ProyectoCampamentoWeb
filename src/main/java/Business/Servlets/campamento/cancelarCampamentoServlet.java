@@ -29,17 +29,25 @@ public class cancelarCampamentoServlet extends HttpServlet{
         String id= request.getParameter("id_campamento");
         int id_ = Integer.parseInt(id);
         String id2= request.getParameter("fk_asistente");
-        int id2_ = Integer.parseInt(id);
+        int id2_ = Integer.parseInt(id2);
+        System.out.println("id camp:" + id_ + "id user" + id2_);
+        RequestDispatcher disp= null;
         try {
             GestorInscripciones gestorInscripciones =new GestorInscripciones();
-            gestorInscripciones.cancelarInscripcion(id2_,id_);
-            RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
+             if(gestorInscripciones.cancelarInscripcion(id2_,id_)){
+                 disp = request.getRequestDispatcher("/exito.jsp");
+             }
+             else{
+                 request.setAttribute("error_message", "No se pudo cancelar el campamento al ser de inscripcion tardia ");
+                 disp = request.getRequestDispatcher("/error.jsp");
+             }
+
             disp.forward(request, response);
         } catch (Exception e) {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al cancelar el campamento " + e.getMessage());
             // Redirigir a error.jsp
-            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+            request.getRequestDispatcher("/error.jsp");
             disp.forward(request, response);
         }
     }
