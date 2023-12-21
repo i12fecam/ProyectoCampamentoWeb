@@ -47,7 +47,7 @@
     <% } %>
   </table>
     <div class="centrar">
-      <a href="http://localhost:8080/ProyectoCampamentoWeb_war/home.jsp" class="btn btn-danger btn-block mb-4">Volver home</a>
+      <a href="${pageContext.request.contextPath}/home.jsp" class="btn btn-modificar mb-4 home-link" >Home</a>
     </div>
   </body>
   </html>
