@@ -32,7 +32,7 @@ public class inscripcionCampamentosServlet extends HttpServlet{
         if (customerBean != null) {
 
             //Parametros
-            Integer idcampamento = Integer.parseInt(request.getParameter("campamento"));
+            Integer idCampamento = Integer.parseInt(request.getParameter("campamento"));
             LocalDate fechaInscripcion = LocalDate.parse(request.getParameter("fecha"));
             int idAsistente = customerBean.getIdAsistente();
             Horario horario = Horario.valueOf(request.getParameter("horario"));
@@ -40,12 +40,18 @@ public class inscripcionCampamentosServlet extends HttpServlet{
 
             try {
                 GestorInscripciones gestorInscripciones = new GestorInscripciones();
-                float precio = gestorInscripciones. calcularPrecio(idcampamento, horario);
+                float precio = gestorInscripciones. calcularPrecio(idCampamento, horario);
 
-                gestorInscripciones.crearInscripcion(idAsistente, idcampamento, fechaInscripcion, horario, precio);
-                request.setAttribute("success_message", "Se inscribió el campamento correctamente");
-                RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
-                disp.forward(request, response);
+
+                request.setAttribute("idCampamento", idCampamento);
+                request.setAttribute("fechaInscripcion", fechaInscripcion);
+                request.setAttribute("idAsistente", idAsistente);
+                request.setAttribute("horario", horario);
+                request.setAttribute("precio", precio);
+
+                // Redirigir a la página que contiene el script JavaScript
+                RequestDispatcher jsDispatcher = request.getRequestDispatcher("/mvc/view/campamento/Confirmacion.jsp");
+                jsDispatcher.forward(request, response);
 
             } catch (Exception e) {
 
