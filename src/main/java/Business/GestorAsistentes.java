@@ -30,11 +30,6 @@ public class GestorAsistentes implements Serializable{
     }
 
 
-
-
-
-
-
     /**
      * Método que permite dar de alta a un asistente
      * @param asistente Asistente al que se quiere dar de alta
@@ -63,6 +58,10 @@ public class GestorAsistentes implements Serializable{
         }
     }
 
+    /**
+     *
+     * @return Devuelve una lista de todos los asistentes registrados en el sistema
+     */
     public ArrayList<Asistente> listarAsistentes(){return asistenteDAO.listarAsistentes();}
 
     /**

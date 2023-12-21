@@ -44,7 +44,6 @@ public class darAltaMonitorServlet extends HttpServlet {
             request.setAttribute("success_message", "Se dio de alta el monitor correctamente");
             disp = request.getRequestDispatcher("/exito.jsp");
 
-
         } catch (Exception e) {
             request.setAttribute("error_message", "Hubo un problema al crear el Monitor: " + e.getMessage());
             disp = request.getRequestDispatcher("/error.jsp");

@@ -15,12 +15,24 @@ public class UsuarioDAO {
     final private ProyectProperties prop;
     final private ConexionBD bd;
     final private Connection con;
+
+    /**
+     * Empty(default) class
+     */
     public UsuarioDAO(){
         prop = ProyectProperties.getInstance();
         bd = new ConexionBD();
         con = bd.getConnection(prop.getUrl(), prop.getUsername(), prop.getPassword());
     }
 
+    /**
+     * Metodo para añadir un usuario a la base de datos
+     * @param username Email del usuario
+     * @param password Contraseña del usuario
+     * @param tipoUsuario Tipo de usuario: asistente o administrador
+     * @param id_Asistente Id del asistente asociado
+     * @return True, si se ha añadido el usuario correctamente; false, en caso de error
+     */
     public boolean addUser(String username, String password, TipoUsuario tipoUsuario, Integer id_Asistente){
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_usuarios"));
@@ -31,9 +43,16 @@ public class UsuarioDAO {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
         return true;
     }
+
+    /**
+     * Metodo para comprobar si un email se encuentra en la base de datos
+     * @param email Email a comprobar
+     * @return True, si el email no se encuentra; false, si el email se encuentra
+     */
 
     public boolean comprobarUsuarios(String email){
         try{
@@ -52,6 +71,13 @@ public class UsuarioDAO {
         }
     }
 
+    /**
+     * Metodo para asociar usuarios con asistentes
+     * @param asistente Asistente
+     * @param email Email del usuario
+     * @return Id del asistente asociado al usuario, -1 en caso de error
+     * @throws RuntimeException Si hay algun error al conectarse con la base de datos
+     */
     public int asociarUsuarios(Asistente asistente, String email){
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("select_asistente_nombre"));
@@ -68,6 +94,13 @@ public class UsuarioDAO {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Metodo para actualizar usuarios en la base de datos
+     * @param id Id que se quiere actualizar
+     * @param email Email del usuario al que se quiere actualizar
+     * @throws RuntimeException Si hay algun error de conexion con la base de datos
+     */
     public void actualizar(int id, String email){
         try{
             PreparedStatement ps = con.prepareStatement(prop.getSentente("actualizar_usuarios"));
@@ -78,6 +111,13 @@ public class UsuarioDAO {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Metodo para saber el tipo de usurio que es
+     * @param username Email del usuario
+     * @param password Contraseña del usuario
+     * @return Tipo de usuario (asistente, administrador); null en caso de error
+     */
     public TipoUsuario checkUser(String username, String password){
 
         try {
@@ -103,6 +143,11 @@ public class UsuarioDAO {
 
     }
 
+    /**
+     * Metodo para eliminar a un usuario de la base de datos
+     * @param username Email del usuario
+     * @return True en caso de que se haya elimiado correctamente; false en caso contrario
+     */
     public boolean deleteUser(String username){
         PreparedStatement ps = null;
         try {
@@ -116,6 +161,11 @@ public class UsuarioDAO {
 
     }
 
+    /**
+     * Metodo para obtener el id del asistente asociado al usuario de la base de datos
+     * @param username Email del usuario
+     * @return Id del asistente asociado; -1 en caso de que no se encuentre ningun asistente asociado
+     */
     public int getIdAsistente(String username) {
         PreparedStatement ps = null;
         try {
@@ -132,6 +182,12 @@ public class UsuarioDAO {
 
     }
 
+    /**
+     * Metodo para cambiar la contraseña de un usuario en la base de datos
+     * @param emailUser Email del usuario
+     * @param newPassword Nueva contraseña del usuario
+     * @throws SQLException Si hay algun error de conexion con la base de datos
+     */
 
     public void changePassword(String emailUser, String newPassword) throws SQLException {
         PreparedStatement ps = con.prepareStatement(prop.getSentente("change_password_user"));

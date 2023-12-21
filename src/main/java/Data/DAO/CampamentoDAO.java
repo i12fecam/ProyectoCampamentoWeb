@@ -588,6 +588,12 @@ public class CampamentoDAO {
     }
 
 
+    /**
+     * Metodo para listar las actividades que tiene un campamento
+     * @param idCampamento Id del campamento que se quieren saber sus actividades
+     * @return Lista con todas las actividades que tiene dicho campamento
+     * @throws RuntimeException Si hay algun error de conexion con la base de datos
+     */
     public List<Actividad> DevolverActividades_Campamento2(int idCampamento) {
         List<Actividad> actividades = new ArrayList<>();
 
@@ -602,8 +608,6 @@ public class CampamentoDAO {
                     actividad.setMaxParticipantes(rs.getInt("max_participantes"));
                     actividad.setMonitoresNecesarios(rs.getInt("monitores_necesarios"));
 
-                    // Resto de la configuración de la actividad...
-
                     actividades.add(actividad);
                 }
             }
@@ -615,6 +619,12 @@ public class CampamentoDAO {
         return actividades;
     }
 
+    /**
+     * Metodo para litar los monitores que tiene una actividad
+     * @param idActividad Id de la actividad
+     * @return Lista con los monitores que tiene dicha actividad
+     * @throws RuntimeException Si hay algun tipo de error en la conexion con la base de datos
+     */
     public List<Monitor> DevolverMonitores_Actividad2(int idActividad) {
         try {
             List<Monitor> monitores = new ArrayList<>();
@@ -638,6 +648,12 @@ public class CampamentoDAO {
     }
 
 
+    /**
+     * Metodo para listar los campamentos a los que se encuentra inscrito un asistente
+     * @param idAsistente Id del asistente
+     * @return Lista con todos los campamentos a los que se encuentra inscrito
+     * @throws RuntimeException Si hay algun error de conexion con la base de datos
+     */
     public List<Campamento> DevolverCampamentoInscritos(int idAsistente){
         ArrayList<Campamento> listaCampamentos = new ArrayList<>();
         try {

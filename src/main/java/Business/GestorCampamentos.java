@@ -258,11 +258,20 @@ public class GestorCampamentos implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return Devuelve una lista de todas las actividades registradas en el sistema
+     */
     public ArrayList<Actividad> listarActividades(){
         return campamentoDAO.listarActividad();
     }
 
 
+    /**
+     *  Metodo para saber los campamentos en los que esta inscrito un asistente
+     * @param idAsistente Id del asistente
+     * @return Lista con todos los campamentos a los que esta inscrito
+     */
     public List<Campamento> listarCampamentosInscritos(int idAsistente){
         return campamentoDAO.DevolverCampamentoInscritos(idAsistente);
     }
