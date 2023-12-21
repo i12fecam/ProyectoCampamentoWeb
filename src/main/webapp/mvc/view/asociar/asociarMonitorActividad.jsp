@@ -22,10 +22,11 @@
     ArrayList<Actividad> actividades = gestor.listarActividades();
     ArrayList<Monitor> monitores = gestor.listarMonitores();
 %>
+<h1 class="centrar">Asociar Monitor a actividad</h1>
 <form method="post" action="${pageContext.request.contextPath}/AsociarMonitorActividad">
     <div class="form-outline mb-4">
-        <label for="actividad-table">Actividades:</label>
-        <table id="actividad-table">
+        <label for="actividad-table"><h2>Actividades:</h2></label>
+        <table id="actividad-table" class="table">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -51,8 +52,8 @@
     </div>
     <br>
     <div class="form-outline mb-4">
-        <label for="monitores-table">Monitores:</label>
-        <table id="monitores-table">
+        <label for="monitores-table"><h2>Monitores:</h2></label>
+        <table id="monitores-table" class="table">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>

@@ -24,7 +24,7 @@
   <form method="post" action="${pageContext.request.contextPath}/AsociarActividadCampamento">
       <div class="form-outline mb-4">
           <label for="actividad-table">Actividades:</label>
-          <table id="actividad-table">
+          <table id="actividad-table" class="table">
             <tr>
               <th>ID</th>
               <th>Nombre</th>
@@ -52,7 +52,7 @@
 
       <div class="form-outline mb-4">
           <label for="campamento-table">Campamentos:</label>
-          <table id="campamento-table">
+          <table id="campamento-table" class="table">
             <tr>
               <th>ID</th>
               <th>Fecha de inicio</th>
