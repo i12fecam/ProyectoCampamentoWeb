@@ -37,9 +37,12 @@ public class inscripcionCampamentosServlet extends HttpServlet{
             int idAsistente = customerBean.getIdAsistente();
             Horario horario = Horario.valueOf(request.getParameter("horario"));
 
+
             try {
                 GestorInscripciones gestorInscripciones = new GestorInscripciones();
-                gestorInscripciones.crearInscripcion(idAsistente, idcampamento, fechaInscripcion, horario);
+                float precio = gestorInscripciones. calcularPrecio(idcampamento, horario);
+
+                gestorInscripciones.crearInscripcion(idAsistente, idcampamento, fechaInscripcion, horario, precio);
 
                 RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
                 disp.forward(request, response);

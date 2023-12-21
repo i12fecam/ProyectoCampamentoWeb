@@ -41,14 +41,13 @@ public class GestorInscripciones implements Serializable{
      * @throws RuntimeException Si el campamento esta lleno y no hay espacio para mas inscripciones
      * @throws RuntimeException Si la fecha de inscripcion es demasiado tardia para el campamento
      */
-    public void crearInscripcion(int id_asistente,int id_campamento, LocalDate fechaInscripcion, Horario horario){
+    public void crearInscripcion(int id_asistente,int id_campamento, LocalDate fechaInscripcion, Horario horario, float precio){
 
         InscripcionDAO ins = new InscripcionDAO();
         CampamentoDAO camp = new CampamentoDAO();
         AsistenteDAO asis = new AsistenteDAO();
         Asistente asistente = asis.getAsistente(id_asistente);
         Campamento campamento = camp.devolverCampamento(id_campamento);
-        float precio;
 
         //comprobar si el campamento sigue teniendo espacio
        if(ins.GetInscritos(id_campamento) > campamento.getMaxAsistentes())
@@ -77,16 +76,22 @@ public class GestorInscripciones implements Serializable{
             System.out.println("!!!!ATENCION: Después de esta operación asegurese de añadir un monitor especial al campamento");
         }
 
-        //calcular precio
+        //se crea la inscripción
+        ins.nuevaInscripcion(new Inscripcion(asistente.getIdentificador(),campamento.getIdCampamento(),fechaInscripcion,precio,tipoInscripcion,horario));
+        System.out.println("El precio de la inscripcion es de: " + precio);
+    }
+
+    public float calcularPrecio(int idCamp, Horario horario){
+        float precio;
+        CampamentoDAO camp = new CampamentoDAO();
+        Campamento campamento = camp.devolverCampamento(idCamp);
         if(horario == Horario.Parcial){
             precio = 100;
             precio = precio + camp.getNumActividadesParciales(campamento.getIdCampamento())*20;
         }else{
             precio = 300;
         }
-        //se crea la inscripción
-        ins.nuevaInscripcion(new Inscripcion(asistente.getIdentificador(),campamento.getIdCampamento(),fechaInscripcion,precio,tipoInscripcion,horario));
-        System.out.println("El precio de la inscripcion es de: " + precio);
+        return precio;
     }
 
     /**
