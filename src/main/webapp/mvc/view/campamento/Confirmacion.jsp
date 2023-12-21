@@ -9,10 +9,10 @@
 <html>
 <head>
     <title>Confirmacion</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body onload="showConfirmation()">
 <h1>Confirmación de Inscripción</h1>
-<p>Detalles:</p>
 
 <form  id="confirmationForm" method="post" action = "${pageContext.request.contextPath}/Confirmacion" >
     <input type="hidden" id="campamento" name="campamento" value="<%= request.getAttribute("idCampamento") %>" readonly>
