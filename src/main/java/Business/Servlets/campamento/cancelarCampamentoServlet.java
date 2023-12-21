@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
-@WebServlet(name = "ModificarAsistente", urlPatterns = "/ModificarAsistente")
+@WebServlet(name = "CancelarCampamento", urlPatterns = "/CancelarCampamento")
 public class cancelarCampamentoServlet extends HttpServlet{
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws IOException, ServletException {
