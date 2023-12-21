@@ -20,28 +20,28 @@
     <br>
     <!-- Nombre -->
     <div class="form-outline mb-4">
-        <label for="nombre"  >Nombre del asistente</label>
+        <label for="nombre"  >Nombre del Monitor</label>
         <input type="text" required name="nombre" id="nombre" placeholder="Nombre" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Apellidos -->
     <div class="form-outline mb-4">
-        <label for="apellidos" >Apellidos del asistente</label>
+        <label for="apellidos" >Apellidos del Monitor</label>
         <input type="text" required name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Fecha de nacimiento-->
     <div class="form-outline mb-4">
-        <label for="fecha_nacimiento"  >Fecha de nacimiento del asistente</label>
+        <label for="fecha_nacimiento"  >Fecha de nacimiento del Monitor</label>
         <input type="date" name="fecha_nacimiento" required id="fecha_nacimiento" placeholder="Fecha Nacimiento" class="form-control" />
     </div>
     <br>
     <br>
     <!-- Atención especial -->
     <div class="form-outline mb-4">
-        <label for="especial">¿El asistente requiere de atención especial?</label>
+        <label for="especial">¿El Monitor es de atención especial?</label>
         <select name="especial" id="especial" class="form-control" >
             <option value="true">Sí</option>
             <option value="false">No</option>

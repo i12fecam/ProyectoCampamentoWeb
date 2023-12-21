@@ -13,7 +13,7 @@
 </head>
 <body class="text-center">
 
-<form  method="post" action="${pageContext.request.contextPath}/NuevoAsistente">
+<form  method="post" action="${pageContext.request.contextPath}/AltaAsistente">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/usuario.png" alt="" width="70" height="70">
     <h1 class="h3 mb-3 font-weight-normal">Nuevo Asistente</h1>
     <br>
