@@ -34,18 +34,21 @@ public class UsuarioDAO {
         return true;
     }
 
-    public boolean asociateUserAsistentant(String username,int id_asistente){
-        try {
-            PreparedStatement ps = con.prepareStatement(prop.getSentente("asociate_user_asistant"));
-            ps.setInt(1,id_asistente);
-            ps.setString(2,username);
-            if(ps.executeUpdate() == 0){
-                return false;
+    public boolean comprobarUsuarios(String email){
+        try{
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("comprobar_usuarios"));
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String emailBaseDatos = rs.getString("username");
+                if(emailBaseDatos.equals(email)){
+                    return false;
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            return true;
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
         }
-        return true;
     }
 
     public TipoUsuario checkUser(String username, String password){

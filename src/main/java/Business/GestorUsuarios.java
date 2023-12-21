@@ -25,7 +25,6 @@ public class GestorUsuarios {
      */
     public boolean AñadirUsuarioAsistente(Asistente asistente,String email, String password){
         try {
-
             int id = asistenteDAO.crear(asistente);
             if (id == -1) {
                 usuarioDAO.deleteUser(email);
@@ -37,7 +36,11 @@ public class GestorUsuarios {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return true;
+        return false;
+    }
+
+    public boolean ValidarUsuario(String email){
+           return usuarioDAO.comprobarUsuarios(email);
     }
 
     /**
@@ -62,8 +65,4 @@ public class GestorUsuarios {
         usuarioDAO.changePassword(emailUser,newPassword);
     }
 
-    public static void main(String[] args) throws SQLException {
-        UsuarioDAO usuarioDAO1 = new UsuarioDAO();
-        usuarioDAO1.changePassword("abi@uco.es","nuevaContraseña");
-    }
 }

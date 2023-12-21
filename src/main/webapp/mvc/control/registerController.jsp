@@ -39,8 +39,9 @@ if (customerBean != null && customerBean.getEmailUser().equals("")) {
         Asistente asis = new Asistente(0,name,surname,fecha_nacimiento,especial);
         //Se realizan todas las comprobaciones necesarias del dominio
         //Aquí sólo comprobamos que exista el usuario
-        if(gestor.AñadirUsuarioAsistente(asis,emailUser,passwordUser)){
+        if(gestor.ValidarUsuario(emailUser)){
             //usuario valido
+            gestor.AñadirUsuarioAsistente(asis,emailUser,passwordUser);
             nextPage = "../control/loginController.jsp";
             mensajeNextPage = "El usuario ha sido registrado de forma válida";
             System.out.println("El usuario ha sido registrado de forma válida");
