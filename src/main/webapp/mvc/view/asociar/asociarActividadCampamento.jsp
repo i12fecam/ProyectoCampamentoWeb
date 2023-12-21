@@ -12,7 +12,6 @@
 <html>
 <head>
     <title>Asociar actividad a campamento</title>
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <body class = "text-center">
@@ -21,9 +20,10 @@
     ArrayList<Actividad> actividades = gestor.listarActividades();
     ArrayList<Campamento> campamentos = gestor.listarCampamentos();
 %>
+<h1 class="centrar">Asociar Actividad a Campamento</h1>
   <form method="post" action="${pageContext.request.contextPath}/AsociarActividadCampamento">
       <div class="form-outline mb-4">
-          <label for="actividad-table">Actividades:</label>
+          <label for="actividad-table"><h2>Actividades:</h2></label>
           <table id="actividad-table" class="table">
             <tr>
               <th>ID</th>
@@ -42,7 +42,7 @@
               <td><%=actividad.getHorario() %></td>
               <td><%=actividad.getMaxParticipantes() %></td>
               <td><%=actividad.getMonitoresNecesarios() %></td>
-              <td><input type="checkbox" name="actividad" value=<%=actividad.getIdentificador()%>></td>
+              <td><input type="radio" name="actividad" value=<%=actividad.getIdentificador()%>></td>
 
             </tr>
             <% } %>
@@ -51,7 +51,7 @@
       <br>
 
       <div class="form-outline mb-4">
-          <label for="campamento-table">Campamentos:</label>
+          <label for="campamento-table"><h2>Campamentos:</h2></label>
           <table id="campamento-table" class="table">
             <tr>
               <th>ID</th>
@@ -69,7 +69,7 @@
               <td><%=campamento.getFechaFinal()%></td>
               <td><%=campamento.getNivelEducativo().toString()%></td>
               <td><%=campamento.getMaxAsistentes()%></td>
-              <td><input type="checkbox" name="campamento" value=<%=campamento.getIdCampamento()%>></td>
+              <td><input type="radio" name="campamento" value=<%=campamento.getIdCampamento()%>></td>
             </tr>
             <%}%>
           </table>

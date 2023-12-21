@@ -13,7 +13,6 @@
 <html>
 <head>
     <title>Asociar Monitor a actividad</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tables.css">
 </head>
 <body class = "text-center">
