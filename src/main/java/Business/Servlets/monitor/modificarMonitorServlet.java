@@ -47,6 +47,7 @@ public class modificarMonitorServlet extends HttpServlet {
         try {
             GestorCampamentos gestor = new GestorCampamentos();
             gestor.ModificarMonitor(monitor);
+            request.setAttribute("success_message", "Se modificó el monitor correctamente");
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
         } catch (Exception e) {

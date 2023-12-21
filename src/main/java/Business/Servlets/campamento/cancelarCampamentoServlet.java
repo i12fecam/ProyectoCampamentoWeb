@@ -30,11 +30,11 @@ public class cancelarCampamentoServlet extends HttpServlet{
         int id_ = Integer.parseInt(id);
         String id2= request.getParameter("fk_asistente");
         int id2_ = Integer.parseInt(id2);
-        System.out.println("id camp:" + id_ + "id user" + id2_);
         RequestDispatcher disp= null;
         try {
             GestorInscripciones gestorInscripciones =new GestorInscripciones();
              if(gestorInscripciones.cancelarInscripcion(id2_,id_)){
+                 request.setAttribute("success_message", "Se cancelo el campamento correctamente");
                  disp = request.getRequestDispatcher("/exito.jsp");
              }
              else{

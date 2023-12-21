@@ -19,6 +19,7 @@ public class asociarActivadCampamentoServlet extends HttpServlet {
         GestorCampamentos gestor = new GestorCampamentos();
         RequestDispatcher disp;
         if(gestor.asociarActividadCampamento(campamentoID,actividadID)){
+            request.setAttribute("success_message", "Se asoció la actividad al campamento correctamente");
             disp = request.getRequestDispatcher("/exito.jsp");
         }else {
             disp = request.getRequestDispatcher("/error.jsp");

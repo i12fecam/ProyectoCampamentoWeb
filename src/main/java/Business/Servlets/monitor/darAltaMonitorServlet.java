@@ -41,6 +41,7 @@ public class darAltaMonitorServlet extends HttpServlet {
         try {
             GestorCampamentos gestorCampamentos = new GestorCampamentos();
             gestorCampamentos.crearMonitor(monitor);
+            request.setAttribute("success_message", "Se dio de alta el monitor correctamente");
             disp = request.getRequestDispatcher("/exito.jsp");
 
 

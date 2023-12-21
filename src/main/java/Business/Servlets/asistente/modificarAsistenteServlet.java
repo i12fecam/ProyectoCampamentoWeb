@@ -47,6 +47,7 @@ public class modificarAsistenteServlet extends HttpServlet {
         try {
             GestorAsistentes gestorAsistentes = new GestorAsistentes();
             gestorAsistentes.ModificarAsistente(asistente);
+            request.setAttribute("success_message", "Se modificó el asistente de forma correcta");
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
         } catch (Exception e) {

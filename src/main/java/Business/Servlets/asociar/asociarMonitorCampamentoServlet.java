@@ -33,6 +33,7 @@ public class asociarMonitorCampamentoServlet extends HttpServlet {
         } else {
             gestor.asociarMonitorResponsableCampamento(monitorID, campamentoID);
         }
+            request.setAttribute("success_message", "Se asoció el monitor al campamento correctamente");
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
 

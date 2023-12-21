@@ -41,7 +41,7 @@ public class darAltaCampamentoServlet extends HttpServlet {
         try {
             GestorCampamentos gestorCampamentos = new GestorCampamentos();
             gestorCampamentos.crearCampamento(campamento);
-
+            request.setAttribute("success_message", "Se dio de alta el campamento correctamente");
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
         } catch (Exception e) {

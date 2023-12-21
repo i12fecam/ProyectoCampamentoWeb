@@ -48,7 +48,9 @@ public class darAltaActividadServlet extends HttpServlet {
             gestorCampamentos.crearActividad(actividad);
         }catch(Exception e){
                 disp = request.getRequestDispatcher("/error.jsp");
+                disp.forward(request, response);
             }
+        request.setAttribute("success_message", "Se dio de alta la actividad correctamente");
         disp = request.getRequestDispatcher("/exito.jsp");
         disp.forward(request, response);
     }

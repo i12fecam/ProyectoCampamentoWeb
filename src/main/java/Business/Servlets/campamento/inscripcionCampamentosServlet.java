@@ -43,7 +43,7 @@ public class inscripcionCampamentosServlet extends HttpServlet{
                 float precio = gestorInscripciones. calcularPrecio(idcampamento, horario);
 
                 gestorInscripciones.crearInscripcion(idAsistente, idcampamento, fechaInscripcion, horario, precio);
-
+                request.setAttribute("success_message", "Se inscribió el campamento correctamente");
                 RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
                 disp.forward(request, response);
 

@@ -31,20 +31,25 @@ public class cambiarDatosServlet extends HttpServlet {
 
                 try {
                     gestorUsuarios.changePassword(customerBean.getEmailUser(),newPassword);
+                    request.setAttribute("success_message", "Se cambió la contraseña correctamente");
+                    disp = request.getRequestDispatcher("/exito.jsp");
                 } catch (SQLException e) {
+                    request.setAttribute("error_message", "Hubo un problema al cambiar la contraseña" + e.getMessage());
                     disp = request.getRequestDispatcher("/error.jsp");
-                    //request.setAttribute("");
+
                 }
-                disp = request.getRequestDispatcher("/exito.jsp");
+
 
             }
             else{
                 //error contraseña nueva no coincide
+                request.setAttribute("error_message", "Hubo un error al cambiar la contraseña, las contraseñas nuevas no coinciden");
                 disp = request.getRequestDispatcher("/error.jsp");
             }
         }
         else{
             //error de contraseña incorrecta
+            request.setAttribute("error_message", "Hubo un error al cambiar la contraseña, las antigua contraseña no es correcta");
             disp = request.getRequestDispatcher("/error.jsp");
 
         }

@@ -16,7 +16,7 @@
 <body>
 <div style="text-align: center; margin-top: 50px;">
   <h1 class="">¡Éxito!</h1>
-  <p>Se ha creado con éxito.</p>
+  <p>${requestScope.success_message}</p>
   <button onclick="redirigirASitio()">Volver al home</button>
 </div>
 

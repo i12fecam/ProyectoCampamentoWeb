@@ -32,6 +32,7 @@ public class asociarMonitorActividadServlet extends HttpServlet{
             GestorCampamentos gestor = new GestorCampamentos();
             boolean asociacion = gestor.asociarMonitorActividad(monitorID,actividadID);
             if(asociacion) {
+                request.setAttribute("success_message", "Se asoció el monitor a la actividad correctamente");
                 RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
                 disp.forward(request, response);
             }else{

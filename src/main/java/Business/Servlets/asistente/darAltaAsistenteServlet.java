@@ -45,6 +45,7 @@ public class darAltaAsistenteServlet extends HttpServlet {
         try {
             GestorAsistentes gestorAsistentes = new GestorAsistentes();
             gestorAsistentes.darAlta(asistente);
+            request.setAttribute("success_message", "Se dió de alta al asistente correctamente");
             RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
             disp.forward(request, response);
         } catch (Exception e) {
