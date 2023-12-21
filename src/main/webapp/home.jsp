@@ -5,7 +5,7 @@
   Time: 17:44
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" errorPage="/exception.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

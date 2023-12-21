@@ -1,6 +1,6 @@
   <%@ page import="java.util.ArrayList" %>
   <%@ page import="Data.DTO.Campamento" %>
-  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+  <%@ page contentType="text/html;charset=UTF-8" language="java" errorPage="/exception.jsp"%>
   <html>
   <head>
     <title>Campamentos Disponibles</title>
