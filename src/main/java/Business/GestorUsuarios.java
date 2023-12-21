@@ -25,14 +25,18 @@ public class GestorUsuarios {
      */
     public boolean AñadirUsuarioAsistente(Asistente asistente,String email, String password){
         try {
-            int id = asistenteDAO.crear(asistente);
-            if (id == -1) {
-                usuarioDAO.deleteUser(email);
-                return false;
-            } else {
-                usuarioDAO.addUser(email, password, TipoUsuario.asistente, id);
-                return true;
-            }
+             asistenteDAO.crear(asistente);
+
+             usuarioDAO.addUser(email, password, TipoUsuario.asistente, 0);
+             int id = usuarioDAO.asociarUsuarios(asistente, email);
+
+             if(id == -1){
+                 usuarioDAO.deleteUser(email);
+             }else{
+
+                usuarioDAO.actualizar(id,email);
+             }
+
         }catch (Exception e){
             e.printStackTrace();
         }
