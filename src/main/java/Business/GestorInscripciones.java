@@ -81,6 +81,12 @@ public class GestorInscripciones implements Serializable{
     }
     }
 
+    /**
+     * Metodo para calcular el precio de una inscripcion
+     * @param idCamp Id del campamento al que se quiere inscribir
+     * @param horario Horario elegido para el campamento
+     * @return Precio de la inscripcion
+     */
     public float calcularPrecio(int idCamp, Horario horario){
         float precio;
         CampamentoDAO camp = new CampamentoDAO();
