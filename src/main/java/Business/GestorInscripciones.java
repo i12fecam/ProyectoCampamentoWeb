@@ -42,7 +42,6 @@ public class GestorInscripciones implements Serializable{
      * @throws RuntimeException Si la fecha de inscripcion es demasiado tardia para el campamento
      */
     public void crearInscripcion(int id_asistente,int id_campamento, LocalDate fechaInscripcion, Horario horario, float precio){
-    try {
         InscripcionDAO ins = new InscripcionDAO();
         CampamentoDAO camp = new CampamentoDAO();
         AsistenteDAO asis = new AsistenteDAO();
@@ -63,7 +62,7 @@ public class GestorInscripciones implements Serializable{
 
             tipoInscripcion = TipoInscripcion.Tardia;
         } else {
-            throw new RuntimeException("La fecha de inscripcion es demasiado tardia");
+            throw new InscripcionExcepcion("La fecha de inscripcion es demasiado tardia");
         }
 
         //comprobar si necesita monitor especial
@@ -76,9 +75,6 @@ public class GestorInscripciones implements Serializable{
         //se crea la inscripción
         ins.nuevaInscripcion(new Inscripcion(asistente.getIdentificador(), campamento.getIdCampamento(), fechaInscripcion, precio, tipoInscripcion, horario));
         System.out.println("El precio de la inscripcion es de: " + precio);
-    }catch (Exception e){
-        e.printStackTrace();
-    }
     }
 
     /**
