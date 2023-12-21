@@ -1,6 +1,7 @@
 package Business.Servlets.campamento;
 
 import Business.GestorInscripciones;
+import Business.InscripcionExcepcion;
 import Data.Horario;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -34,16 +35,20 @@ public class ConfirmacionServlet extends HttpServlet {
             System.out.println("precio: " + precio);
 
             GestorInscripciones gestorInscripciones =new GestorInscripciones();
-            gestorInscripciones.crearInscripcion(idAsistente,idCampamento,fechaInscripcion,horario,precio);
-
+            try {
+                gestorInscripciones.crearInscripcion(idAsistente, idCampamento, fechaInscripcion, horario, precio);
+            }catch (InscripcionExcepcion e){
+                    request.setAttribute("error_message", "La inscripcion es demasiado tardia ");
+                    RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+                    disp.forward(request, response);
+            }
             request.setAttribute("success_message", "La inscripcion se ha realizado con éxito");
             RequestDispatcher Dispatcher = request.getRequestDispatcher("/exito.jsp");
             Dispatcher.forward(request, response);
 
         }catch (Exception e){
 
-            request.setAttribute("error_message", "Hubo un problema al crear la inscripción: " + e.getMessage());
-            e.printStackTrace();
+            request.setAttribute("error_message","Hubo un problema creando la inscripcion");
             RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
             disp.forward(request, response);
         }

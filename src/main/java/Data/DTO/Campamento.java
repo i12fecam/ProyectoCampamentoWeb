@@ -20,6 +20,8 @@ public class Campamento implements Serializable {
     private NivelEducativo nivelEducativo;
     private int numAsistentes;
     private int maxAsistentes;
+    private int monitorResponsable;
+    private int monitorEspecial;
 
 
 
@@ -43,6 +45,20 @@ public class Campamento implements Serializable {
         this.nivelEducativo = nivelEducativo;
         this.maxAsistentes = maxAsistentes;
         this.numAsistentes = 0;
+    }
+
+    public Campamento(int idCampamento, LocalDate fechaInicio, LocalDate fechaFinal, NivelEducativo nivelEducativo, int maxAsistentes, int monitorResponsable, int monitorEspecial) {
+        if(fechaFinal.isBefore(fechaInicio)){
+            throw new RuntimeException("Las fechas no tienen sentido");
+        }
+        this.idCampamento = idCampamento;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.nivelEducativo = nivelEducativo;
+        this.maxAsistentes = maxAsistentes;
+        this.numAsistentes = 0;
+        this.monitorResponsable = monitorResponsable;
+        this.monitorEspecial = monitorEspecial;
     }
 
     public Campamento() {
@@ -130,10 +146,39 @@ public class Campamento implements Serializable {
         this.maxAsistentes = maxAsistentes;
     }
 
+    /**
+     * Establece el id del Monitor Responsable del Campamento
+     * @param monitorResponsable
+     */
+    public void setMonitorResponsable(int monitorResponsable) {
+        this.monitorResponsable = monitorResponsable;
+    }
 
+    /**
+     * Establece el id del Monitor Especial del Campamento
+     * @param monitorEspecial
+     */
+    public void setMonitorEspecial(int monitorEspecial) {
+        this.monitorEspecial = monitorEspecial;
+    }
 
+    /**
+     * @return Devuelve una cadena con el monitor responsable. Si el valor del monitor responsable
+     * es diferente de cero, devuelve el id del monitor correspondiente.
+     * Si el valor es cero, devuelve la cadena "No tiene" en vez de 0.
+     */
+    public String getMonitorResponsableString() {
+        return monitorResponsable != 0 ? String.valueOf(monitorResponsable) : "No tiene";
+    }
 
-
+    /**
+     * @return Devuelve una cadena con el monitor especial. Si el valor del monitor especial
+     * es diferente de cero, devuelve el id del monitor correspondiente.
+     * Si el valor es cero, devuelve la cadena "No tiene" en vez de 0.
+     */
+    public String getMonitorEspecialString() {
+        return monitorEspecial != 0 ? String.valueOf(monitorEspecial) : "No tiene";
+    }
     @Override
     public String toString() {
         return "Campamento{" +

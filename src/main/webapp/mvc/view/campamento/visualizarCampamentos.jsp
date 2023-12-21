@@ -28,8 +28,8 @@
         <th>Fecha Final</th>
         <th>Nivel Educativo</th>
         <th>Nº Asistentes</th>
-       <!-- <th>Monitor Responsable</th>
-            <th>Monitor Especial</th>-->
+        <th>ID Monitor Responsable</th>
+        <th>ID Monitor Especial</th>
     </tr>
     <%for (Campamento campamento: campamentos) { %>
     <tr>
@@ -38,7 +38,8 @@
         <td><%=campamento.getFechaFinal() %></td>
         <td><%=campamento.getNivelEducativo().toString() %></td>
         <td><%=campamento.getMaxAsistentes() %></td>
-
+        <td><%=campamento.getMonitorResponsableString() %></td>
+        <td><%=campamento.getMonitorEspecialString() %></td>
     </tr>
     <% } %>
 </table>

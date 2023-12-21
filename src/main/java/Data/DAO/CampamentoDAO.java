@@ -432,7 +432,16 @@ public class CampamentoDAO {
                     }
                 }
                 campamento.setMaxAsistentes(rs.getInt("max_asistentes"));
-                //falta monitor responsable y monitor especial
+
+                // Si el campo en la base de datos es nulo no lo asociamos
+                if (rs.getObject("monitor_responsable") != null) {
+                    campamento.setMonitorResponsable(rs.getInt("monitor_responsable"));
+                }
+
+                if (rs.getObject("monitor_especial") != null) {
+                    campamento.setMonitorEspecial(rs.getInt("monitor_especial"));
+                }
+
                 listaCampamentos.add(campamento);
             }
         } catch (SQLException e) {
@@ -501,6 +510,7 @@ public class CampamentoDAO {
                 monitor.setIdentificador(rs.getInt("id_monitor"));
                 monitor.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
                 monitor.setEducadorEspecial(rs.getBoolean("especial"));
+
                 listaMonitores.add(monitor);
             }
         }catch (SQLException e){
