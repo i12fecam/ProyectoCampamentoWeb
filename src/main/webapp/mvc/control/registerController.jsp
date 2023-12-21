@@ -29,7 +29,8 @@ if (customerBean != null && customerBean.getEmailUser().equals("")) {
              fecha_nacimiento = LocalDate.parse(s_fecha_nacimiento);
         }catch (Exception e){}
 
-        Boolean especial = request.getParameter("especial") == "1";
+    Boolean especial = "1".equals(request.getParameter("especial"));
+
 
     //Caso 2.a: Hay parámetros -> procede de la VISTA
     if (emailUser != null) {

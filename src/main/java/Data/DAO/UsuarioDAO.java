@@ -2,6 +2,7 @@ package Data.DAO;
 
 import Data.DAO.Common.ConexionBD;
 import Data.DAO.Common.ProyectProperties;
+import Data.DTO.Asistente;
 import Data.TipoUsuario;
 
 import java.sql.Connection;
@@ -51,6 +52,32 @@ public class UsuarioDAO {
         }
     }
 
+    public int asociarUsuarios(Asistente asistente, String email){
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_asistente_nombre"));
+            ps.setString(1, asistente.getNombre());
+            ps.setString(2,asistente.getApellidos());
+            ps.setString(3,email);
+            int id = -1;
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                 id = rs.getInt("id_asistente");
+            }
+            return id;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    public void actualizar(int id, String email){
+        try{
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("actualizar_usuarios"));
+            ps.setInt(1,id);
+            ps.setString(2,email);
+            ps.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
     public TipoUsuario checkUser(String username, String password){
 
         try {

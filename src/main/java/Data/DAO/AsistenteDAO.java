@@ -35,7 +35,7 @@ public class AsistenteDAO {
      * @return el id del asistente insertado, si no es insertado devuelve -1
      * @throws RuntimeException Si hay algun error de conexion con la base de datos
      */
-    public int crear(Asistente asistente) {
+    public void crear(Asistente asistente) {
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_Asistentes"));
 
@@ -49,19 +49,7 @@ public class AsistenteDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try {
-            PreparedStatement ps = con.prepareStatement(prop.getSentente("select_asistente_nombre"));
-            ps.setString(1,asistente.getNombre());
-            ps.setString(2,asistente.getApellidos());
-            ResultSet rs = ps.executeQuery();
 
-            rs.next();
-
-            return rs.getInt("id_asistente");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return -1;
     }
 
     /**
