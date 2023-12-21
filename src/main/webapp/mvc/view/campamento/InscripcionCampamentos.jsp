@@ -37,7 +37,7 @@
             <div class="radio-options">
                 <input type="radio" id="horario_1" name="horario" value="Parcial">
                 <label for="horario_1">Parcial</label><br>
-                <input type="radio" id="horario_2" name="horario" value="Completo">
+                <input type="radio" id="horario_2" name="horario" value="Completa">
                 <label for="horario_2">Completa</label><br>
             </div>
         </div>
