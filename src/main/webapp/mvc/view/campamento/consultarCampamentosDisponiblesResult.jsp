@@ -42,7 +42,7 @@
     <% } %>
     <% } else { %>
     <tr>
-      <td colspan="5">No hay campamentos disponibles en las fechas seleccionadas.</td>
+      <td colspan="6">No hay campamentos disponibles en las fechas seleccionadas.</td>
     </tr>
     <% } %>
   </table>
