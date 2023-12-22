@@ -38,6 +38,9 @@ public class GestorCampamentos implements Serializable {
             System.out.println("El campamento es nulo.");
             return false;
         }
+        else if( campamento.getFechaInicio().isAfter(campamento.getFechaFinal()) ){
+            throw new RuntimeException("La fecha de incio es posterior a la de de final");
+        }
         campamentoDAO.crearCampamento(campamento);
         return true;
     }
