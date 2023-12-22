@@ -49,15 +49,14 @@ Además, para el diseño, implementación y mantenimiento de la base de datos he
 
 Para poder utilizar nuestro software vamos a necesitar tener instalada esta versión de _Java_: **11.0.21**
 
-Para que todo funcione correctamente, hemos necesitado tener instalado **mysql-connector-java-5.1.47**. A través de este enlace lo podemos descargar:
-https://downloads.mysql.com/archives/c-j/
 
-Para poder ejecutar nuestro programa,debemos estar conectados a la red de la UCO a través de la VPN o bien debemos estar conectados a uconet. Aquí os dejo el enlace para que podáis conectaros a la UCO  a través de la VPN:
+Debido a las conexiones con el servidor del la UCO, debemos estar conectados a la red de la UCO a través de la VPN o bien debemos estar conectados a uconet. Aquí os dejo el enlace para que podáis conectaros a la UCO  a través de la VPN:
 https://www.uco.es/servicios/informatica/conexion-externa-con-openvpn
 
 Debemos tener instalado Tomcat la versión **Tomcat 10.1**. 
 
-Para que funcione el programa es necesario mover el war a la carpeta webapps de tomcat e inciar el servidor.
+Para que funcione el programa es necesario mover el .war a la carpeta webapps de tomcat y estraerlo en una carpeta. Posteriormente se debe inciar el servidor yendo a la subcarpeta /bin y ejecutando el script ./startup.sh.
+A continuación se debe ir a un navegador e introducir la dirección https://localhost:8080/(nombre_de_la_carpeta_donde_se_ha_extraido)/
 
 
 
