@@ -8,18 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <html>
 <head>
-    <title>Ha ocurrido un error:<%=exception.getMessage()%></title>
+    <title>Ha ocurrido un error:</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/exito.css">
 </head>
 <body class="centrar">
-<script>
-    function redirigirASitio() {
-        // Cambia la URL a la que quieres redirigir
-        window.location.href = "index.jsp";
-    }
-</script>
-    <h1>ha ocurrido un error:</h1>
-    <button onclick="redirigirASitio()" class="btn-confirmar btn">Volver al home</button>
+
+    <h1>ha ocurrido un error:<%=exception.getMessage()%></h1>
+    <button class="btn-confirmar btn"><a href="${pageContext.request.contextPath}/home.jsp">Volver al home</a></button>
 </body>
 
 </html>
