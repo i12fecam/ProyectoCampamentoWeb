@@ -8,5 +8,5 @@
 
 <jsp:useBean  id="customerBean" scope="session" class="Interface.CustomerBean"></jsp:useBean>
 <% if(customerBean == null || customerBean.getEmailUser().equals("") || customerBean.isEsAdmin() ){%>
-<jsp:forward page="/mvc/view/loginView.jsp"></jsp:forward>
+<jsp:forward page="/index.jsp"></jsp:forward>
 <% } %>
