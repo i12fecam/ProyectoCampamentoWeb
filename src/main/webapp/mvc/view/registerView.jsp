@@ -55,7 +55,7 @@
 
     <!-- ¿Especial? -->
 
-    <input type="checkbox" id="especial" name="especial" value="1" required>
+    <input type="checkbox" id="especial" name="especial" value="1">
     <label for="especial">¿Necesidades especiales?</label>
 
     <br>
