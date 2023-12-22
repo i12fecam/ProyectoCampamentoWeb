@@ -295,7 +295,4 @@ public class GestorCampamentos implements Serializable {
         return campamentoDAO.comprobarDuplicidadMonitorActividad(idMonitor,idActividad);
     }
 
-   /* public int comprobar_duplicidad_camp_mon(int idCampamento,int idMonitor){
-        return campamentoDAO.comprobarDuplicidadCampamentoMonitor(idCampamento,idMonitor);
-    }*/
 }
