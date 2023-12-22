@@ -3,9 +3,8 @@ package Business.Servlets.asistente;
 import java.time.LocalDate;
 
 import Business.GestorAsistentes;
-import Business.GestorCampamentos;
+import Business.GestorUsuarios;
 import Data.DTO.Asistente;
-import Data.NivelEducativo;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,8 +29,10 @@ public class darAltaAsistenteServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String apellidos = request.getParameter("apellidos");
         LocalDate fecha_nacimiento = LocalDate.parse(request.getParameter("fecha_nacimiento"));
+        String email = request.getParameter("email");
+        String password = request.getParameter("contraseña");
 
-        //Asignar parametros al campamento
+        //Asignar parametros al asistente
         asistente.setNombre(nombre);
         asistente.setApellidos(apellidos);
         asistente.setFechaNacimiento(fecha_nacimiento);
@@ -42,12 +43,23 @@ public class darAltaAsistenteServlet extends HttpServlet {
             asistente.setAtencionEspecial(false);
         }
 
+
         try {
-            GestorAsistentes gestorAsistentes = new GestorAsistentes();
-            gestorAsistentes.darAlta(asistente);
-            request.setAttribute("success_message", "Se dió de alta al asistente correctamente");
-            RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
-            disp.forward(request, response);
+            GestorUsuarios gestorusuarios = new GestorUsuarios();
+            if(gestorusuarios.ValidarUsuario(email)) {
+
+                gestorusuarios.AñadirUsuarioAsistente(asistente, email, password);
+
+                request.setAttribute("success_message", "Se dió de alta al asistente correctamente");
+                RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
+                disp.forward(request, response);
+            }
+            else{
+                request.setAttribute("error_message", "El email ya se encuentra en uso");
+                // Redirigir a error.jsp
+                RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+                disp.forward(request, response);
+            }
         } catch (Exception e) {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al crear el asistente: " + e.getMessage());

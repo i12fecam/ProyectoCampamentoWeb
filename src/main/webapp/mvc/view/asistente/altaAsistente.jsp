@@ -52,6 +52,25 @@
     </div>
     <br>
     <br>
+
+    <!-- Correo -->
+    <div class="form-outline mb-4">
+        <label for="email">Email del asistente</label>
+        <input type="email" name="email" id="email" required placeholder="Correo electronico" class="form-control" />
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Contraseña-->
+    <div class="form-outline mb-4">
+        <label for="contraseña">Contraseña</label>
+        <input type="password" name="contraseña" id="contraseña" required placeholder="Contraseña" class="form-control" />
+    </div>
+
+    <br>
+    <br>
+
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Añadir</button>
     <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
