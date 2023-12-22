@@ -15,7 +15,7 @@
 <body class="text-center">
 <form  method="post" action="${pageContext.request.contextPath}/monitor/AltaMonitor">
     <img class="mb-4" src="${pageContext.request.contextPath}/images/usuario.png" alt="Imagen decorativa persona" width="70" height="70">
-    <h1 class="h3 mb-3 font-weight-normal">Formulario para dar de alta a un monitor</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Nuevo Monitor</h1>
     <br>
     <hr>
     <br>
@@ -51,7 +51,7 @@
     <br>
     <br>
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Crear nuevo monitor</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Añadir</button>
     <a href="../../../home.jsp" class="btn btn-danger btn-block mb-4">Cancelar</a>
 </form>
 </body>
