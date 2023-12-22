@@ -26,11 +26,17 @@
              <input type="number" id="campamento" name="campamento" value="<%= request.getParameter("idCampamento") %>" readonly>
         </div>
 
+        <br>
+        <br>
+
         <!--Fecha de inscripcion-->
         <div>
             <label for="fecha">Fecha de Inscripcion:</label>
             <input type="date" id="fecha" name="fecha"  value ="<%=fechaActual%>" readonly>
         </div>
+
+        <br>
+        <br>
 
         <!--Horario-->
         <div class="form-outline mb-4">
@@ -42,6 +48,10 @@
                 <label for="horario_2">Completa</label><br>
             </div>
         </div>
+
+        <br>
+        <br>
+
         <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
         <a href="javascript:history.back()" class="btn btn-danger btn-block mb-4">Cancelar</a>
     </form>
