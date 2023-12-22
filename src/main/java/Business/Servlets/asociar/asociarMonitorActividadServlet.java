@@ -30,16 +30,19 @@ public class asociarMonitorActividadServlet extends HttpServlet{
         int monitorID = Integer.parseInt( monitorIDString);
         try{
             GestorCampamentos gestor = new GestorCampamentos();
-            boolean asociacion = gestor.asociarMonitorActividad(monitorID,actividadID);
-            if(asociacion) {
+            RequestDispatcher disp;
+
+            if (gestor.comprobar_duplicidad_mon_act(monitorID, actividadID)>0) {
+                request.setAttribute("error_message", "El monitor ya está asociado a la actividad");
+                disp = request.getRequestDispatcher("/error.jsp");
+            } else if(gestor.asociarMonitorActividad(monitorID,actividadID)) {
                 request.setAttribute("success_message", "Se asoció el monitor a la actividad correctamente");
-                RequestDispatcher disp = request.getRequestDispatcher("/exito.jsp");
-                disp.forward(request, response);
+                disp = request.getRequestDispatcher("/exito.jsp");
             }else{
                 request.setAttribute("error_message", "La actividad no acepta más monitores: ");
-                RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
-                disp.forward(request, response);
+                disp = request.getRequestDispatcher("/error.jsp");
             }
+            disp.forward(request, response);
         } catch (Exception e) {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al asociar el monitor: " + e.getMessage());

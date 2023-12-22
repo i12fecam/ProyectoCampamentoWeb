@@ -276,4 +276,26 @@ public class GestorCampamentos implements Serializable {
         return campamentoDAO.DevolverCampamentoInscritos(idAsistente);
     }
 
+    /**
+     *  Metodo para verificar si ya esta la actividad asociada al campamento
+     * @param idCampamento Id del campamento
+     * @param idActividad Id de la actividad
+     * @return Lista con todos los campamentos a los que esta inscrito
+     */
+    public int comprobar_duplicidad_camp_act(int idCampamento,int idActividad){
+        return campamentoDAO.comprobarDuplicidadCampamentoActividad(idCampamento,idActividad);
+    }
+
+    /**
+     *  Metodo para verificar si ya esta asociado el monitor a una actividad
+     * @param idMonitor Id del monitor
+     * @param idActividad Id de la actividad
+     */
+    public int comprobar_duplicidad_mon_act(int idMonitor,int idActividad){
+        return campamentoDAO.comprobarDuplicidadMonitorActividad(idMonitor,idActividad);
+    }
+
+   /* public int comprobar_duplicidad_camp_mon(int idCampamento,int idMonitor){
+        return campamentoDAO.comprobarDuplicidadCampamentoMonitor(idCampamento,idMonitor);
+    }*/
 }

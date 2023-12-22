@@ -14,17 +14,35 @@ public class asociarActivadCampamentoServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException{
-        int actividadID = Integer.parseInt( request.getParameterValues("actividad")[0] );
-        int campamentoID = Integer.parseInt( request.getParameterValues("campamento")[0] );
+        String actividadIDString = request.getParameter("actividad");
+        String campamentoIDString = request.getParameter("campamento");
+
+        //validar formulario
+        if (actividadIDString == null || campamentoIDString == null) {
+
+            request.setAttribute("error_message", "Debe seleccionar una opción en ambas tablas antes de enviar el formulario.");
+            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+            disp.forward(request, response);
+            return;
+        }
+
+        int actividadID = Integer.parseInt( request.getParameter("actividad") );
+        int campamentoID = Integer.parseInt( request.getParameter("campamento"));
+
         GestorCampamentos gestor = new GestorCampamentos();
         RequestDispatcher disp;
-        if(gestor.asociarActividadCampamento(campamentoID,actividadID)){
+
+        if (gestor.comprobar_duplicidad_camp_act(campamentoID, actividadID)>0) {
+            request.setAttribute("error_message", "La actividad ya está asociada al campamento");
+            disp = request.getRequestDispatcher("/error.jsp");
+        } else if (gestor.asociarActividadCampamento(campamentoID, actividadID)) {
             request.setAttribute("success_message", "Se asoció la actividad al campamento correctamente");
             disp = request.getRequestDispatcher("/exito.jsp");
-        }else {
+        } else {
             disp = request.getRequestDispatcher("/error.jsp");
         }
 
         disp.forward(request, response);
+
     }
 }

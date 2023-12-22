@@ -20,6 +20,18 @@ public class asociarMonitorCampamentoServlet extends HttpServlet {
     }
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException{
+        String monitorIDString = request.getParameter("id_monitor");
+        String campamentoIDString = request.getParameter("campamento");
+
+
+        //validar formulario
+        if (campamentoIDString == null || monitorIDString == null) {
+
+            request.setAttribute("error_message", "Debe seleccionar una opción en ambas tablas antes de enviar el formulario.");
+            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
+            disp.forward(request, response);
+            return;
+        }
         int monitorID = Integer.parseInt( request.getParameter("id_monitor") );
         int campamentoID = Integer.parseInt( request.getParameter("campamento") );
 

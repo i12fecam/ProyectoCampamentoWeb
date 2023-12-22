@@ -696,4 +696,59 @@ public class CampamentoDAO {
         return listaCampamentos;
     }
 
+
+    public int comprobarDuplicidadCampamentoActividad(int idCampamento, int idActividad) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("comprobar_duplicidad_campamento_actividad"));
+            ps.setInt(1, idCampamento);
+            ps.setInt(2, idActividad);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("n");
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int comprobarDuplicidadMonitorActividad(int idMonitor,int idActividad) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("comprobar_duplicidad_monitor_actividad"));
+            ps.setInt(1, idMonitor);
+            ps.setInt(2, idActividad);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("n");
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+/*
+    public int comprobarDuplicidadCampamentoMonitor(int idCampamento,int idMonitor) {
+        try {
+            PreparedStatement ps = con.prepareStatement(prop.getSentente("comprobar_duplicidad_campamento_monitor"));
+            ps.setInt(1, idCampamento);
+            ps.setInt(2, idMonitor);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("n");
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+*/
 }
