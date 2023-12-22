@@ -48,8 +48,8 @@ public class darAltaCampamentoServlet extends HttpServlet {
             // Mensaje de error
             request.setAttribute("error_message", "Hubo un problema al crear el campamento: " + e.getMessage());
 
-            // Redirigir a /mvc/view/altaCampamentoView.jsp
-            RequestDispatcher disp = request.getRequestDispatcher("/mvc/view/altaCampamentoView.jsp");
+            // Redirigir a /error.jsp
+            RequestDispatcher disp = request.getRequestDispatcher("/error.jsp");
             disp.forward(request, response);
         }
     }
