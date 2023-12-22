@@ -39,7 +39,7 @@ public class GestorCampamentos implements Serializable {
             return false;
         }
         else if( campamento.getFechaInicio().isAfter(campamento.getFechaFinal()) ){
-            throw new RuntimeException("La fecha de incio es posterior a la de de final");
+            throw new RuntimeException("La fecha de inicio es posterior a la del final");
         }
         campamentoDAO.crearCampamento(campamento);
         return true;
