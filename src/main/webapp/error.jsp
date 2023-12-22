@@ -18,7 +18,7 @@
     <h1 class="">¡Error!</h1>
     <p>Se ha producido un error.</p>
     <p>${requestScope.error_message}</p>
-    <button><a href="home.jsp">Volver al home</a> </button>
+    <button><a href="${pageContext.request.contextPath}/home.jsp">Volver al home</a> </button>
 </div>
 
 

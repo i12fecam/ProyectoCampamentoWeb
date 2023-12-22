@@ -17,7 +17,7 @@
 <div style="text-align: center; margin-top: 50px;">
   <h1 class="">¡Éxito!</h1>
   <p>${requestScope.success_message}</p>
-  <button><a href="home.jsp">Volver al home</a> </button>
+  <button><a href="${pageContext.request.contextPath}/home.jsp">Volver al home</a> </button>
 </div>
 
 </body>
