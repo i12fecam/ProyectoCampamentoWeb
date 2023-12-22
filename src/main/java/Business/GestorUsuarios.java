@@ -27,7 +27,7 @@ public class GestorUsuarios {
         try {
              asistenteDAO.crear(asistente);
 
-             usuarioDAO.addUser(email, password, TipoUsuario.asistente, 0);
+             usuarioDAO.addUser(email, password, TipoUsuario.asistente);
              int id = usuarioDAO.asociarUsuarios(asistente, email);
 
              if(id == -1){

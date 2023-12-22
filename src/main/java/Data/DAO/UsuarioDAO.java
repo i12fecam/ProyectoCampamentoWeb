@@ -30,16 +30,15 @@ public class UsuarioDAO {
      * @param username Email del usuario
      * @param password Contraseña del usuario
      * @param tipoUsuario Tipo de usuario: asistente o administrador
-     * @param id_Asistente Id del asistente asociado
+
      * @return True, si se ha añadido el usuario correctamente; false, en caso de error
      */
-    public boolean addUser(String username, String password, TipoUsuario tipoUsuario, Integer id_Asistente){
+    public boolean addUser(String username, String password, TipoUsuario tipoUsuario){
         try {
             PreparedStatement ps = con.prepareStatement(prop.getSentente("insert_usuarios"));
             ps.setString(1,tipoUsuario.toString() );
             ps.setString(2,username);
             ps.setString(3,password);
-            ps.setInt(4,id_Asistente);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

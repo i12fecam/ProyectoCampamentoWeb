@@ -32,7 +32,7 @@
     <!-- Email -->
     <div class="form-outline mb-4">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email" class="form-control" />
+        <input type="email" name="email" id="email" placeholder="Email" class="form-control" required />
 
     </div>
 
@@ -41,7 +41,7 @@
     <!-- Password -->
     <div class="form-outline mb-4">
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" placeholder="Password" class="form-control" />
+        <input type="password" name="password" id="password" placeholder="Password" class="form-control" required />
     </div>
 
     <br>
@@ -49,13 +49,13 @@
     <!-- Fecha Nacimiento -->
 
     <label for="fecha_nacimiento">Fecha Nacimiento:</label>
-    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Fecha Nacimiento" class="form-control" />
+    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Fecha Nacimiento" class="form-control" required />
 
     <br>
 
     <!-- ¿Especial? -->
 
-    <input type="checkbox" id="especial" name="especial" value="1">
+    <input type="checkbox" id="especial" name="especial" value="1" required>
     <label for="especial">¿Necesidades especiales?</label>
 
     <br>
