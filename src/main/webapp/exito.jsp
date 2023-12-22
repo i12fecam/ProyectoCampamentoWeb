@@ -17,14 +17,8 @@
 <div style="text-align: center; margin-top: 50px;">
   <h1 class="">¡Éxito!</h1>
   <p>${requestScope.success_message}</p>
-  <button onclick="redirigirASitio()">Volver al home</button>
+  <button><a href="home.jsp">Volver al home</a> </button>
 </div>
 
-<script>
-  function redirigirASitio() {
-    // Cambia la URL a la que quieres redirigir
-    window.location.href = "home.jsp";
-  }
-</script>
 </body>
 </html>

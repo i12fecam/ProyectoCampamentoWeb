@@ -18,14 +18,9 @@
     <h1 class="">¡Error!</h1>
     <p>Se ha producido un error.</p>
     <p>${requestScope.error_message}</p>
-    <button onclick="redirigirASitio()">Volver al home</button>
+    <button><a href="home.jsp">Volver al home</a> </button>
 </div>
 
-<script>
-    function redirigirASitio() {
-        // Cambia la URL a la que quieres redirigir
-        window.location.href = 'home.jsp';
-    }
-</script>
+
 </body>
 </html>
