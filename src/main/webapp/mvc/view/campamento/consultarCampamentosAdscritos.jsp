@@ -16,7 +16,6 @@
 </head>
 <body>
 
-<jsp:useBean  id="customerBean" scope="session" class="Interface.CustomerBean"></jsp:useBean>
 <%
     GestorCampamentos gestorCampamentos = new GestorCampamentos();
     List<Campamento> campamentos = gestorCampamentos.listarCampamentosInscritos(customerBean.getIdAsistente());

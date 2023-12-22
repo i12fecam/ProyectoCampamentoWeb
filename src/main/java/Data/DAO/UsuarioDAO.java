@@ -30,7 +30,6 @@ public class UsuarioDAO {
      * @param username Email del usuario
      * @param password Contraseña del usuario
      * @param tipoUsuario Tipo de usuario: asistente o administrador
-
      * @return True, si se ha añadido el usuario correctamente; false, en caso de error
      */
     public boolean addUser(String username, String password, TipoUsuario tipoUsuario){
